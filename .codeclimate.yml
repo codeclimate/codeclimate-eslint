@@ -1,6 +1,6 @@
 engines:
-  rubocop:
+  eslint:
     enabled: true
 ratings:
   paths:
-  - "**.rb"
+  - "bin/eslint"
