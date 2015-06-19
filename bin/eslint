@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+
+var CLIEngine = require("eslint").CLIEngine;
+
+function buildIssueJson(message, path) {
+  var issue = {
+    type: "issue",
+    categories: ["Style"],
+    check_name: message.ruleId,
+    description: message.message,
+    location: {
+      path: path,
+      positions: {
+        begin: {
+          line: message.line,
+          column: message.column
+        },
+        end: {
+          line: message.line,
+          column: message.column
+        }
+      }
+    }
+  };
+  return JSON.stringify(issue);
+}
+
+var options = {
+  extensions: ['.js'], ignore: true, reset: false, useEslintrc: true
+};
+var ignores = []
+if (process.env.ENGINE_CONFIG) {
+  var engineConfig = JSON.parse(process.env.ENGINE_CONFIG);
+  if (engineConfig['config']) {
+    options['configFile'] = "/code/" + engineConfig['config'];
+  }
+  if (engineConfig['exclude_paths']) {
+    ignores = engineConfig['exclude_paths'];
+  }
+}
+var cli = new CLIEngine(options);
+var report = cli.executeOnFiles(["/code"]);
+report.results.forEach(function(result, _, _) {
+  var path = result.filePath.replace(/^\/code\//, '');
+  if (ignores.indexOf(path) === -1) {
+    result.messages.forEach(function(message, _, _) {
+      var issueJson = buildIssueJson(message, path);
+      console.log(issueJson + "\u0000");
+    });
+  }
+});
