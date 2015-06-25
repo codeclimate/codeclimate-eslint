@@ -37,6 +37,9 @@ if (process.env.ENGINE_CONFIG) {
   if (engineConfig['exclude_paths']) {
     ignores = engineConfig['exclude_paths'];
   }
+  if (engineConfig['extensions']) {
+    options['extensions'] = engineConfig['extensions'];
+  }
 }
 var cli = new CLIEngine(options);
 var report = cli.executeOnFiles(["/code"]);
