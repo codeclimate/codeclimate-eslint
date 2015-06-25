@@ -8,7 +8,7 @@ function buildIssueJson(message, path) {
   // token)
   var checkName = message.ruleId;
   if(message.fatal) {
-    checkName = "fatal"
+    checkName = "fatal";
   }
 
   var issue = {
@@ -34,27 +34,27 @@ function buildIssueJson(message, path) {
 }
 
 var options = {
-  extensions: ['.js'], ignore: true, reset: false, useEslintrc: true
+  extensions: [".js"], ignore: true, reset: false, useEslintrc: true
 };
-var ignores = []
+var ignores = [];
 if (process.env.ENGINE_CONFIG) {
   var engineConfig = JSON.parse(process.env.ENGINE_CONFIG);
-  if (engineConfig['config']) {
-    options['configFile'] = "/code/" + engineConfig['config'];
+  if (engineConfig.config) {
+    options.configFile = "/code/" + engineConfig.config;
   }
-  if (engineConfig['exclude_paths']) {
-    ignores = engineConfig['exclude_paths'];
+  if (engineConfig.exclude_paths) {
+    ignores = engineConfig.exclude_paths;
   }
-  if (engineConfig['extensions']) {
-    options['extensions'] = engineConfig['extensions'];
+  if (engineConfig.extensions) {
+    options.extensions = engineConfig.extensions;
   }
 }
 var cli = new CLIEngine(options);
 var report = cli.executeOnFiles(["/code"]);
-report.results.forEach(function(result, _, _) {
-  var path = result.filePath.replace(/^\/code\//, '');
+report.results.forEach(function(result) {
+  var path = result.filePath.replace(/^\/code\//, "");
   if (ignores.indexOf(path) === -1) {
-    result.messages.forEach(function(message, _, _) {
+    result.messages.forEach(function(message) {
       var issueJson = buildIssueJson(message, path);
       console.log(issueJson + "\u0000");
     });

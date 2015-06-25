@@ -7,4 +7,4 @@ RUN npm install
 
 COPY . /usr/src/app
 
-CMD ["/usr/src/app/bin/eslint"]
+CMD ["/usr/src/app/bin/eslint.js"]
