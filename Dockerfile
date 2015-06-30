@@ -10,4 +10,6 @@ USER app
 
 COPY . /usr/src/app
 
+ENV NODE_PATH /code/node_modules
+
 CMD ["/usr/src/app/bin/eslint.js"]
