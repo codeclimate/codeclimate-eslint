@@ -3,7 +3,7 @@ machine:
     - docker
   environment:
     CLOUDSDK_CORE_DISABLE_PROMPTS: 1
-    image_name: codeclimate/codeclimate-eslint
+    image_name: codeclimate-eslint
 
 dependencies:
   pre:
