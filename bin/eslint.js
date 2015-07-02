@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var CLIEngine = require("eslint").CLIEngine;
+var fs = require("fs");
 
 function buildIssueJson(message, path) {
   // ESLint doesn't emit a ruleId in the
@@ -37,18 +38,23 @@ var options = {
   extensions: [".js"], ignore: true, reset: false, useEslintrc: true
 };
 var ignores = [];
-if (process.env.ENGINE_CONFIG) {
-  var engineConfig = JSON.parse(process.env.ENGINE_CONFIG);
+
+if (fs.existsSync("/config.json")) {
+  var engineConfig = JSON.parse(fs.readFileSync("/config.json"));
+
   if (engineConfig.config) {
     options.configFile = "/code/" + engineConfig.config;
   }
+
   if (engineConfig.exclude_paths) {
     ignores = engineConfig.exclude_paths;
   }
+
   if (engineConfig.extensions) {
     options.extensions = engineConfig.extensions;
   }
 }
+
 var cli = new CLIEngine(options);
 var report = cli.executeOnFiles(["/code"]);
 report.results.forEach(function(result) {
