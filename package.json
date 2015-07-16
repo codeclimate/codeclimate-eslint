@@ -8,7 +8,8 @@
     "url" : "http://github.com/codeclimate/codeclimate-eslint.git"
   },
   "dependencies": {
-    "eslint": "0.22.1"
+    "eslint": "0.22.1",
+    "glob": "5.0.14"
   },
   "engine": "node >= 0.12.4"
 }
