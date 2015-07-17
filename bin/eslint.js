@@ -30,7 +30,8 @@ function buildIssueJson(message, path) {
           column: message.column
         }
       }
-    }
+    },
+    remediation_points: 50000
   };
   return JSON.stringify(issue);
 }
