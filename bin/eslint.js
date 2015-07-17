@@ -2,6 +2,7 @@
 
 var CLIEngine = require("eslint").CLIEngine;
 var fs = require("fs");
+var glob = require("glob");
 
 function buildIssueJson(message, path) {
   // ESLint doesn't emit a ruleId in the
@@ -34,6 +35,28 @@ function buildIssueJson(message, path) {
   return JSON.stringify(issue);
 }
 
+// Uses glob to traverse code directory and find files to analyze,
+// excluding files passed in with by CLI config, and including only
+// files in the list of desired extensions
+function fileWalk(excludePaths, extensions){
+  var analysisFiles = [];
+  var allFiles = glob.sync("/code/**/**", {});
+
+  allFiles.forEach(function(file, i, a){
+    if(excludePaths.indexOf(file.split("/code/")[1]) < 0) {
+      if(!fs.lstatSync(file).isDirectory()) {
+        var extension = "." + file.split(".").pop();
+
+        if(extensions.indexOf(extension) >= 0) {
+          analysisFiles.push(file);
+        }
+      }
+    }
+  });
+
+  return analysisFiles;
+}
+
 var options = {
   extensions: [".js"], ignore: true, reset: false, useEslintrc: true
 };
@@ -55,14 +78,15 @@ if (fs.existsSync("/config.json")) {
   }
 }
 
-var cli = new CLIEngine(options);
-var report = cli.executeOnFiles(["/code"]);
+var analysisFiles = fileWalk(ignores, options.extensions),
+    cli = new CLIEngine(options),
+    report = cli.executeOnFiles(analysisFiles);
+
 report.results.forEach(function(result) {
   var path = result.filePath.replace(/^\/code\//, "");
-  if (ignores.indexOf(path) === -1) {
-    result.messages.forEach(function(message) {
-      var issueJson = buildIssueJson(message, path);
-      console.log(issueJson + "\u0000");
-    });
-  }
+
+  result.messages.forEach(function(message) {
+    var issueJson = buildIssueJson(message, path);
+    console.log(issueJson + "\u0000");
+  });
 });
