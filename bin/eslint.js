@@ -4,6 +4,15 @@ var CLIEngine = require("eslint").CLIEngine;
 var fs = require("fs");
 var glob = require("glob");
 
+// a wrapper for emitting perf timing
+function runWithTiming(name, fn) {
+  var start = new Date(),
+      rv = fn(),
+      duration = (new Date() - start) / 1000;
+  console.error("eslint.timing." + name + ": " + duration + "s")
+  return rv;
+}
+
 function buildIssueJson(message, path) {
   // ESLint doesn't emit a ruleId in the
   // case of a fatal error (such as an invalid
@@ -63,31 +72,37 @@ var options = {
 };
 var ignores = [];
 
-if (fs.existsSync("/config.json")) {
-  var engineConfig = JSON.parse(fs.readFileSync("/config.json"));
+runWithTiming("engineConfig", function () {
+  if (fs.existsSync("/config.json")) {
+    var engineConfig = JSON.parse(fs.readFileSync("/config.json"));
 
-  if (engineConfig.config) {
-    options.configFile = "/code/" + engineConfig.config;
+    if (engineConfig.config) {
+      options.configFile = "/code/" + engineConfig.config;
+    }
+
+    if (engineConfig.exclude_paths) {
+      ignores = engineConfig.exclude_paths;
+    }
+
+    if (engineConfig.extensions) {
+      options.extensions = engineConfig.extensions;
+    }
   }
-
-  if (engineConfig.exclude_paths) {
-    ignores = engineConfig.exclude_paths;
-  }
-
-  if (engineConfig.extensions) {
-    options.extensions = engineConfig.extensions;
-  }
-}
-
-var analysisFiles = fileWalk(ignores, options.extensions),
-    cli = new CLIEngine(options),
-    report = cli.executeOnFiles(analysisFiles);
-
-report.results.forEach(function(result) {
-  var path = result.filePath.replace(/^\/code\//, "");
-
-  result.messages.forEach(function(message) {
-    var issueJson = buildIssueJson(message, path);
-    console.log(issueJson + "\u0000");
-  });
 });
+
+var analysisFiles = runWithTiming("fileWalk", function() { return fileWalk(ignores, options.extensions); }),
+    cli = runWithTiming("cliInit", function() { return new CLIEngine(options); }),
+    report = runWithTiming("cliRun", function() { return cli.executeOnFiles(analysisFiles); });
+
+runWithTiming("resultsOutput",
+  function() {
+    report.results.forEach(function(result) {
+      var path = result.filePath.replace(/^\/code\//, "");
+
+      result.messages.forEach(function(message) {
+        var issueJson = buildIssueJson(message, path);
+        console.log(issueJson + "\u0000");
+      });
+    });
+  }
+);
