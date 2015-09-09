@@ -45,21 +45,34 @@ function buildIssueJson(message, path) {
   return JSON.stringify(issue);
 }
 
+function isFileWithMatchingExtension(file, extensions) {
+  var extension = "." + file.split(".").pop();
+  return (extensions.indexOf(extension) >= 0);
+}
+
 // Uses glob to traverse code directory and find files to analyze,
 // excluding files passed in with by CLI config, and including only
 // files in the list of desired extensions
-function fileWalk(excludePaths, extensions){
+function fileWalk(includePaths, extensions){
   var analysisFiles = [];
-  var allFiles = glob.sync("/code/**/**", {});
 
-  allFiles.forEach(function(file, i, a){
-    if(excludePaths.indexOf(file.split("/code/")[1]) < 0) {
-      if(!fs.lstatSync(file).isDirectory()) {
-        var extension = "." + file.split(".").pop();
-
-        if(extensions.indexOf(extension) >= 0) {
-          analysisFiles.push(file);
+  includePaths.forEach(function(fileOrDirectory, i) {
+    if ((/\/$/).test(fileOrDirectory)) {
+      // if it ends in a slash, expand and push
+      var filesInThisDirectory = glob.sync(
+        "/code/" + fileOrDirectory + "/**/**"
+      );
+      filesInThisDirectory.forEach(function(file, j){
+        if(!fs.lstatSync(file).isDirectory()) {
+          if (isFileWithMatchingExtension(file, extensions)) {
+            analysisFiles.push(file);
+          }
         }
+      });
+    } else {
+      // if not, check for ending in *.js
+      if (isFileWithMatchingExtension(fileOrDirectory, extensions)) {
+        analysisFiles.push("/code/" + fileOrDirectory);
       }
     }
   });
@@ -70,7 +83,7 @@ function fileWalk(excludePaths, extensions){
 var options = {
   extensions: [".js"], ignore: true, reset: false, useEslintrc: true
 };
-var ignores = [];
+var includePaths = [];
 
 runWithTiming("engineConfig", function () {
   if (fs.existsSync("/config.json")) {
@@ -80,9 +93,7 @@ runWithTiming("engineConfig", function () {
       options.configFile = "/code/" + engineConfig.config;
     }
 
-    if (engineConfig.exclude_paths) {
-      ignores = engineConfig.exclude_paths;
-    }
+    includePaths = engineConfig.include_paths;
 
     if (engineConfig.extensions) {
       options.extensions = engineConfig.extensions;
@@ -90,7 +101,7 @@ runWithTiming("engineConfig", function () {
   }
 });
 
-var analysisFiles = runWithTiming("fileWalk", function() { return fileWalk(ignores, options.extensions); }),
+var analysisFiles = runWithTiming("fileWalk", function() { return fileWalk(includePaths, options.extensions); }),
     cli = runWithTiming("cliInit", function() { return new CLIEngine(options); }),
     report = runWithTiming("cliRun", function() { return cli.executeOnFiles(analysisFiles); });
 
