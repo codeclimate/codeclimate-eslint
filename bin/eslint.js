@@ -45,17 +45,24 @@ function buildIssueJson(message, path) {
   return JSON.stringify(issue);
 }
 
+function isFileWithMatchingExtension(file, extensions) {
+  var extension = "." + file.split(".").pop();
+  return (extensions.indexOf(extension) >= 0);
+}
+
 // Uses glob to traverse code directory and find files to analyze,
 // excluding files passed in with by CLI config, and including only
 // files in the list of desired extensions
 function fileWalk(includePaths, extensions){
   var analysisFiles = [];
 
-  includePaths.forEach(function(path, i, a) {
-    if ((/\/$/).test(path)) {
+  includePaths.forEach(function(fileOrDirectory, i) {
+    if ((/\/$/).test(fileOrDirectory)) {
       // if it ends in a slash, expand and push
-      var filesInThisDirectory = glob.sync("/code/" + path + "/**/**")
-      filesInThisDirectory.forEach(function(file, i, a){
+      var filesInThisDirectory = glob.sync(
+        "/code/" + fileOrDirectory + "/**/**"
+      );
+      filesInThisDirectory.forEach(function(file, j){
         if(!fs.lstatSync(file).isDirectory()) {
           if (isFileWithMatchingExtension(file, extensions)) {
             analysisFiles.push(file);
@@ -64,18 +71,13 @@ function fileWalk(includePaths, extensions){
       });
     } else {
       // if not, check for ending in *.js
-      if (isFileWithMatchingExtension(path, extensions)) {
-        analysisFiles.push("/code/" + path)
+      if (isFileWithMatchingExtension(fileOrDirectory, extensions)) {
+        analysisFiles.push("/code/" + fileOrDirectory);
       }
     }
   });
 
   return analysisFiles;
-}
-
-function isFileWithMatchingExtension(file, extensions) {
-  var extension = "." + file.split(".").pop();
-  return (extensions.indexOf(extension) >= 0);
 }
 
 var options = {
@@ -91,7 +93,7 @@ runWithTiming("engineConfig", function () {
       options.configFile = "/code/" + engineConfig.config;
     }
 
-    includePaths = engineConfig.include_paths
+    includePaths = engineConfig.include_paths;
 
     if (engineConfig.extensions) {
       options.extensions = engineConfig.extensions;
