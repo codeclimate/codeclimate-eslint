@@ -77,7 +77,7 @@ function isFileWithMatchingExtension(file, extensions) {
 }
 
 function inclusionBasedFileListBuilder(includePaths) {
-  // Uses glob to expand the files and directories in includePaths, filtering 
+  // Uses glob to expand the files and directories in includePaths, filtering
   // down to match the list of desired extensions.
   return function(extensions) {
     var analysisFiles = [];
@@ -104,12 +104,13 @@ function inclusionBasedFileListBuilder(includePaths) {
     });
 
     return analysisFiles;
-  }
+  };
 }
 
 var options = {
   extensions: [".js"], ignore: true, reset: false, useEslintrc: true
 };
+var buildFileList;
 runWithTiming("engineConfig", function () {
   if (fs.existsSync("/config.json")) {
     var engineConfig = JSON.parse(fs.readFileSync("/config.json"));
@@ -121,13 +122,13 @@ runWithTiming("engineConfig", function () {
     if (engineConfig.include_paths) {
       buildFileList = inclusionBasedFileListBuilder(
         engineConfig.include_paths
-      )
+      );
     } else if (engineConfig.exclude_paths) {
-      ignores = engineConfig.exclude_paths;
-      buildFileList = exclusionBasedFileListBuilder(ignores)
+      var ignores = engineConfig.exclude_paths;
+      buildFileList = exclusionBasedFileListBuilder(ignores);
     } else {
       // No includes or excludes, let's try with everything
-      buildFileList = exclusionBasedFileListBuilder([])
+      buildFileList = exclusionBasedFileListBuilder([]);
     }
 
     if (engineConfig.extensions) {
@@ -136,7 +137,7 @@ runWithTiming("engineConfig", function () {
   }
 });
 
-var analysisFiles = runWithTiming("buildFileList", function() { 
+var analysisFiles = runWithTiming("buildFileList", function() {
   return buildFileList(options.extensions);
 });
 var cli = runWithTiming("cliInit", function() { return new CLIEngine(options); }),
