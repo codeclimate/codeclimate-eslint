@@ -45,6 +45,16 @@ function buildIssueJson(message, path) {
   return JSON.stringify(issue);
 }
 
+function isFileWithMatchingExtension(file, extensions) {
+  var stats = fs.lstatSync(file);
+  var extension = "." + file.split(".").pop();
+  return (
+    stats.isFile() &&
+    !stats.isSymbolicLink()
+    && extensions.indexOf(extension) >= 0
+  );
+}
+
 function exclusionBasedFileListBuilder(excludePaths) {
   // Uses glob to traverse code directory and find files to analyze,
   // excluding files passed in with by CLI config, and including only
@@ -88,7 +98,7 @@ function inclusionBasedFileListBuilder(includePaths) {
         });
       } else {
         // if not, check for ending in *.js
-        var fullPath = "/code/" + fileOrDirectory
+        var fullPath = "/code/" + fileOrDirectory;
         if (isFileWithMatchingExtension(fullPath, extensions)) {
           analysisFiles.push(fullPath);
         }
@@ -97,16 +107,6 @@ function inclusionBasedFileListBuilder(includePaths) {
 
     return analysisFiles;
   };
-}
-
-function isFileWithMatchingExtension(file, extensions) {
-  var stats = fs.lstatSync(file);
-  var extension = "." + file.split(".").pop();
-  return (
-    stats.isFile() &&
-    !stats.isSymbolicLink()
-    && extensions.indexOf(extension) >= 0
-  );
 }
 
 var options = {
