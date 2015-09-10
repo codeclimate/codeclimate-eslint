@@ -57,10 +57,8 @@ function exclusionBasedFileListBuilder(excludePaths) {
 
     allFiles.forEach(function(file, i, a){
       if(excludePaths.indexOf(file.split("/code/")[1]) < 0) {
-        if(!fs.lstatSync(file).isDirectory()) {
-          var extension = "." + file.split(".").pop();
-
-          if(extensions.indexOf(extension) >= 0) {
+        if(fs.lstatSync(file).isFile()) {
+          if (isFileWithMatchingExtension(file)) {
             analysisFiles.push(file);
           }
         }
@@ -69,11 +67,6 @@ function exclusionBasedFileListBuilder(excludePaths) {
 
     return analysisFiles;
   };
-}
-
-function isFileWithMatchingExtension(file, extensions) {
-  var extension = "." + file.split(".").pop();
-  return (extensions.indexOf(extension) >= 0);
 }
 
 function inclusionBasedFileListBuilder(includePaths) {
@@ -89,22 +82,31 @@ function inclusionBasedFileListBuilder(includePaths) {
           "/code/" + fileOrDirectory + "/**/**"
         );
         filesInThisDirectory.forEach(function(file, j){
-          if(!fs.lstatSync(file).isDirectory()) {
-            if (isFileWithMatchingExtension(file, extensions)) {
-              analysisFiles.push(file);
-            }
+          if (isFileWithMatchingExtension(file, extensions)) {
+            analysisFiles.push(file);
           }
         });
       } else {
         // if not, check for ending in *.js
-        if (isFileWithMatchingExtension(fileOrDirectory, extensions)) {
-          analysisFiles.push("/code/" + fileOrDirectory);
+        var fullPath = "/code/" + fileOrDirectory
+        if (isFileWithMatchingExtension(fullPath, extensions)) {
+          analysisFiles.push(fullPath);
         }
       }
     });
 
     return analysisFiles;
   };
+}
+
+function isFileWithMatchingExtension(file, extensions) {
+  var stats = fs.lstatSync(file);
+  var extension = "." + file.split(".").pop();
+  return (
+    stats.isFile() &&
+    !stats.isSymbolicLink()
+    && extensions.indexOf(extension) >= 0
+  );
 }
 
 var options = {
