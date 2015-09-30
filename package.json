@@ -1,6 +1,6 @@
 {
   "name": "codeclimate-eslint",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "eslint",
   "author": "Code Climate",
   "repository" : {
@@ -8,7 +8,7 @@
     "url" : "http://github.com/codeclimate/codeclimate-eslint.git"
   },
   "dependencies": {
-    "eslint": "codeclimate/eslint.git#c5457c8",
+    "eslint": "codeclimate/eslint.git#b84e740",
     "glob": "5.0.14"
   },
   "engine": "node >= 0.12.4"
