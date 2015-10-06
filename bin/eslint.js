@@ -139,21 +139,26 @@ runWithTiming("engineConfig", function () {
   }
 });
 
+var cli = runWithTiming("cliInit", function() { return new CLIEngine(options); });
+
 var analysisFiles = runWithTiming("buildFileList", function() {
   return buildFileList(options.extensions);
 });
-var cli = runWithTiming("cliInit", function() { return new CLIEngine(options); }),
-    report = runWithTiming("cliRun", function() { return cli.executeOnFiles(analysisFiles); });
+
+var report = runWithTiming("cliRun", function() { return cli.executeOnFiles(analysisFiles); });
 
 runWithTiming("resultsOutput",
   function() {
     report.results.forEach(function(result) {
       var path = result.filePath.replace(/^\/code\//, "");
-
-      result.messages.forEach(function(message) {
-        var issueJson = buildIssueJson(message, path);
-        console.log(issueJson + "\u0000");
-      });
+      if (cli.isPathIgnored(path)) {
+        process.stderr.write("File `" + path + "` ignored because of your .eslintignore file." + "\u0000")
+      } else {
+        result.messages.forEach(function(message) {
+          var issueJson = buildIssueJson(message, path);
+          console.log(issueJson + "\u0000");
+        });
+      }
     });
   }
 );
