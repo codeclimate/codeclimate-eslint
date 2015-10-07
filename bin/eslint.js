@@ -3,6 +3,8 @@
 var CLIEngine = require("eslint").CLIEngine;
 var fs = require("fs");
 var glob = require("glob");
+var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: true };
+var cli = runWithTiming("cliInit", function() { return new CLIEngine(options); });
 
 // a wrapper for emitting perf timing
 function runWithTiming(name, fn) {
@@ -119,9 +121,6 @@ function inclusionBasedFileListBuilder(includePaths) {
   };
 }
 
-var options = {
-  extensions: [".js"], ignore: true, reset: false, useEslintrc: true
-};
 var buildFileList;
 runWithTiming("engineConfig", function () {
   if (fs.existsSync("/config.json")) {
@@ -148,8 +147,6 @@ runWithTiming("engineConfig", function () {
     }
   }
 });
-
-var cli = runWithTiming("cliInit", function() { return new CLIEngine(options); });
 
 var analysisFiles = runWithTiming("buildFileList", function() {
   return buildFileList(options.extensions);
