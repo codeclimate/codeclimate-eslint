@@ -4,3 +4,5 @@ engines:
 ratings:
   paths:
   - "bin/eslint.js"
+exclude_paths:
+- "node_modules/**"
