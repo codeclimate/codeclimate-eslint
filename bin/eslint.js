@@ -1,10 +1,10 @@
-#!/usr/bin/env node
+#!/usr/src/app/bin/node_gc
 
 var CLIEngine = require("eslint").CLIEngine;
 var fs = require("fs");
 var glob = require("glob");
 var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: true };
-var cli = runWithTiming("cliInit", function() { return new CLIEngine(options); });
+var cli = new CLIEngine(options);
 
 // a wrapper for emitting perf timing
 function runWithTiming(name, fn) {
@@ -152,17 +152,36 @@ var analysisFiles = runWithTiming("buildFileList", function() {
   return buildFileList(options.extensions);
 });
 
-var report = runWithTiming("cliRun", function() { return cli.executeOnFiles(analysisFiles); });
+function analyzeFiles() {
+  var batchNum = 0,
+      batchSize = 100,
+      batchFiles,
+      batchReport;
 
-runWithTiming("resultsOutput",
-  function() {
-    report.results.forEach(function(result) {
-      var path = result.filePath.replace(/^\/code\//, "");
+  while(analysisFiles.length > 0) {
+    batchFiles = analysisFiles.splice(0, batchSize);
 
-      result.messages.forEach(function(message) {
-        var issueJson = buildIssueJson(message, path);
-        console.log(issueJson + "\u0000");
+    runWithTiming("analyze-batch-" + batchNum, function() {
+       batchReport = cli.executeOnFiles(batchFiles);
+    });
+    runWithTiming("report-batch" + batchNum, function() {
+      batchReport.results.forEach(function(result) {
+        var path = result.filePath.replace(/^\/code\//, "");
+
+        result.messages.forEach(function(message) {
+          var issueJson = buildIssueJson(message, path);
+          console.log(issueJson + "\u0000");
+        });
       });
     });
+    runWithTiming("gc-batch-" + batchNum, function() {
+      batchFiles = null;
+      batchReport = null;
+      global.gc();
+    });
+
+    batchNum++;
   }
-);
+}
+
+analyzeFiles();
