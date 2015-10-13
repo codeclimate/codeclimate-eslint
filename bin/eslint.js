@@ -142,8 +142,9 @@ runWithTiming("engineConfig", function () {
       buildFileList = exclusionBasedFileListBuilder([]);
     }
 
-    if (engineConfig.extensions) {
-      options.extensions = engineConfig.extensions;
+    var userConfig = engineConfig.config || {};
+    if (userConfig.extensions) {
+      options.extensions = userConfig.extensions;
     }
   }
 });
