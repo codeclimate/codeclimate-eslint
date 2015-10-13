@@ -126,10 +126,6 @@ runWithTiming("engineConfig", function () {
   if (fs.existsSync("/config.json")) {
     var engineConfig = JSON.parse(fs.readFileSync("/config.json"));
 
-    if (engineConfig.config) {
-      options.configFile = "/code/" + engineConfig.config;
-    }
-
     if (engineConfig.include_paths) {
       buildFileList = inclusionBasedFileListBuilder(
         engineConfig.include_paths
@@ -143,6 +139,10 @@ runWithTiming("engineConfig", function () {
     }
 
     var userConfig = engineConfig.config || {};
+    if (userConfig.config) {
+      options.configFile = "/code/" + userConfig.config;
+    }
+
     if (userConfig.extensions) {
       options.extensions = userConfig.extensions;
     }
