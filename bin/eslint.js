@@ -3,6 +3,7 @@
 process.chdir('/code');
 
 var CLIEngine = require("eslint").CLIEngine;
+var docs = require("eslint").docs();
 var fs = require("fs");
 var glob = require("glob");
 var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: true };
@@ -31,6 +32,7 @@ function buildIssueJson(message, path) {
     categories: ["Style"],
     check_name: checkName,
     description: message.message,
+    content: contentBody(checkName),
     location: {
       path: path,
       positions: {
@@ -47,6 +49,11 @@ function buildIssueJson(message, path) {
     remediation_points: 50000
   };
   return JSON.stringify(issue);
+}
+
+function contentBody(check) {
+  var content = docs[check] || "For more information visit ";
+  return content + "Source: http://eslint.org/docs/rules/\n";
 }
 
 function isFileWithMatchingExtension(file, extensions) {
