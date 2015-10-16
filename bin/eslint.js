@@ -80,7 +80,7 @@ function exclusionBasedFileListBuilder(excludePaths) {
     allFiles.forEach(function(file, i, a){
       if(excludePaths.indexOf(file.split("/code/")[1]) < 0) {
         if(fs.lstatSync(file).isFile()) {
-          if (!isFileIgnoredByLibrary(file) && isFileWithMatchingExtension(file)) {
+          if (!isFileIgnoredByLibrary(file) && isFileWithMatchingExtension(file, extensions)) {
             analysisFiles.push(file);
           }
         }
