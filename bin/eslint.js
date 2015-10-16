@@ -1,5 +1,7 @@
 #!/usr/src/app/bin/node_gc
 
+process.chdir('/code');
+
 var CLIEngine = require("eslint").CLIEngine;
 var fs = require("fs");
 var glob = require("glob");
