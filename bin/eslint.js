@@ -32,7 +32,9 @@ function buildIssueJson(message, path) {
     categories: ["Style"],
     check_name: checkName,
     description: message.message,
-    content: contentBody(checkName),
+    content: {
+      body: contentBody(checkName)
+    },
     location: {
       path: path,
       positions: {
