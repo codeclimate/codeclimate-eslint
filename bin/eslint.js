@@ -3,7 +3,7 @@
 process.chdir('/code');
 
 var CLIEngine = require("eslint").CLIEngine;
-var docs = require("eslint").docs();
+var docs = require("eslint").docs;
 var fs = require("fs");
 var glob = require("glob");
 var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: true };
@@ -52,7 +52,7 @@ function buildIssueJson(message, path) {
 }
 
 function contentBody(check) {
-  var content = docs[check] || "For more information visit ";
+  var content = docs.get(check) || "For more information visit ";
   return content + "Source: http://eslint.org/docs/rules/\n";
 }
 
