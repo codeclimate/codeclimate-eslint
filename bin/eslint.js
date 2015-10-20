@@ -78,6 +78,23 @@ function isFileIgnoredByLibrary(file) {
   return ignored;
 }
 
+function prunePathsWithinSymlinks(paths) {
+  // Extracts symlinked paths and filters them out, including any child paths
+  var symlinks = paths.filter(function(path) {
+    return fs.lstatSync(path).isSymbolicLink();
+  });
+
+  return paths.filter(function(path) {
+    var withinSymlink = false;
+    symlinks.forEach(function(symlink) {
+      if (path.indexOf(symlink) == 0) {
+        withinSymlink = true;
+      }
+    });
+    return !withinSymlink;
+  });
+}
+
 function exclusionBasedFileListBuilder(excludePaths) {
   // Uses glob to traverse code directory and find files to analyze,
   // excluding files passed in with by CLI config, and including only
@@ -88,7 +105,7 @@ function exclusionBasedFileListBuilder(excludePaths) {
     var analysisFiles = [];
     var allFiles = glob.sync("/code/**/**", {});
 
-    allFiles.forEach(function(file, i, a){
+    prunePathsWithinSymlinks(allFiles).forEach(function(file, i, a){
       if(excludePaths.indexOf(file.split("/code/")[1]) < 0) {
         if(fs.lstatSync(file).isFile()) {
           if (!isFileIgnoredByLibrary(file) && isFileWithMatchingExtension(file, extensions)) {
@@ -114,7 +131,7 @@ function inclusionBasedFileListBuilder(includePaths) {
         var filesInThisDirectory = glob.sync(
           "/code/" + fileOrDirectory + "/**/**"
         );
-        filesInThisDirectory.forEach(function(file, j){
+        prunePathsWithinSymlinks(filesInThisDirectory).forEach(function(file, j){
           if (!isFileIgnoredByLibrary(file) && isFileWithMatchingExtension(file, extensions)) {
             analysisFiles.push(file);
           }
