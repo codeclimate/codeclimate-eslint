@@ -49,7 +49,7 @@ function buildIssueJson(message, path) {
         }
       }
     },
-    remediation_points: 50000
+    remediation_points: checks.remediationPoints(checkName, message)
   };
   return JSON.stringify(issue);
 }
