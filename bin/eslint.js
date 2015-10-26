@@ -8,6 +8,7 @@ var fs = require("fs");
 var glob = require("glob");
 var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: true };
 var cli = new CLIEngine(options);
+var checks = require("../lib/checks");
 
 // a wrapper for emitting perf timing
 function runWithTiming(name, fn) {
@@ -29,7 +30,7 @@ function buildIssueJson(message, path) {
 
   var issue = {
     type: "issue",
-    categories: ["Style"],
+    categories: checks.categories(checkName),
     check_name: checkName,
     description: message.message,
     content: {
