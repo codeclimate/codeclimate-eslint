@@ -8,6 +8,7 @@ var fs = require("fs");
 var glob = require("glob");
 var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: true };
 var cli = new CLIEngine(options);
+var debug = false;
 var checks = require("../lib/checks");
 
 // a wrapper for emitting perf timing
@@ -175,6 +176,10 @@ runWithTiming("engineConfig", function () {
     if (userConfig.extensions) {
       options.extensions = userConfig.extensions;
     }
+
+    if (userConfig.debug) {
+      debug = true;
+    }
   }
 });
 
@@ -184,12 +189,16 @@ var analysisFiles = runWithTiming("buildFileList", function() {
 
 function analyzeFiles() {
   var batchNum = 0,
-      batchSize = 100,
+      batchSize = 1,
       batchFiles,
       batchReport;
 
   while(analysisFiles.length > 0) {
     batchFiles = analysisFiles.splice(0, batchSize);
+
+    if (debug) {
+      process.stderr.write("Analyzing: " + batchFiles + "\n");
+    }
 
     runWithTiming("analyze-batch-" + batchNum, function() {
        batchReport = cli.executeOnFiles(batchFiles);
