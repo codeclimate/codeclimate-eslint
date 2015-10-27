@@ -184,7 +184,7 @@ var analysisFiles = runWithTiming("buildFileList", function() {
 
 function analyzeFiles() {
   var batchNum = 0,
-      batchSize = 100,
+      batchSize = 1,
       batchFiles,
       batchReport;
 
