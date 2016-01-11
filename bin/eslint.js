@@ -11,6 +11,9 @@ var cli = new CLIEngine(options);
 var debug = false;
 var checks = require("../lib/checks");
 
+var stdout = console.log
+console.log = console.error
+
 // a wrapper for emitting perf timing
 function runWithTiming(name, fn) {
   var start = new Date(),
@@ -209,7 +212,7 @@ function analyzeFiles() {
 
         result.messages.forEach(function(message) {
           var issueJson = buildIssueJson(message, path);
-          console.log(issueJson + "\u0000");
+          stdout(issueJson + "\u0000");
         });
       });
     });
