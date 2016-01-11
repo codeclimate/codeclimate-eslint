@@ -1,8 +1,14 @@
 engines:
   eslint:
     enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - javascript
 ratings:
   paths:
-  - "bin/eslint.js"
+  - bin/eslint.js
+  - lib/checks.js"
 exclude_paths:
 - "node_modules/**"
