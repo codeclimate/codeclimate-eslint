@@ -18,11 +18,16 @@ var checks = require("../lib/checks");
 
 // a wrapper for emitting perf timing
 function runWithTiming(name, fn) {
-  var start = new Date(),
-      rv = fn(),
-      duration = (new Date() - start) / 1000;
+  var start = new Date()
+    , rv = fn()
+    , duration = (new Date() - start) / 1000;
   console.error("eslint.timing." + name + ": " + duration + "s");
   return rv;
+}
+
+function contentBody(check) {
+  var content = docs.get(check) || "For more information visit ";
+  return content + "Source: http://eslint.org/docs/rules/\n";
 }
 
 function buildIssueJson(message, path) {
@@ -60,11 +65,6 @@ function buildIssueJson(message, path) {
   return JSON.stringify(issue);
 }
 
-function contentBody(check) {
-  var content = docs.get(check) || "For more information visit ";
-  return content + "Source: http://eslint.org/docs/rules/\n";
-}
-
 function isFileWithMatchingExtension(file, extensions) {
   var stats = fs.lstatSync(file);
   var extension = "." + file.split(".").pop();
@@ -79,7 +79,7 @@ function isFileIgnoredByLibrary(file) {
   var path = file.replace(/^\/code\//, "");
   var ignored = cli.isPathIgnored(path);
   if (ignored) {
-    output = "File `" + path + "` ignored because of your .eslintignore file." + "\n";
+    var output = "File `" + path + "` ignored because of your .eslintignore file." + "\n";
     process.stderr.write(output);
   }
   return ignored;
@@ -94,7 +94,7 @@ function prunePathsWithinSymlinks(paths) {
   return paths.filter(function(path) {
     var withinSymlink = false;
     symlinks.forEach(function(symlink) {
-      if (path.indexOf(symlink) == 0) {
+      if (path.indexOf(symlink) === 0) {
         withinSymlink = true;
       }
     });
@@ -193,10 +193,10 @@ var analysisFiles = runWithTiming("buildFileList", function() {
 });
 
 function analyzeFiles() {
-  var batchNum = 0,
-      batchSize = 1,
-      batchFiles,
-      batchReport;
+  var batchNum = 0
+    , batchSize = 1
+    , batchFiles
+    , batchReport;
 
   while(analysisFiles.length > 0) {
     batchFiles = analysisFiles.splice(0, batchSize);
