@@ -2,6 +2,11 @@
 
 process.chdir('/code');
 
+// Redirect `console.log` so that we are the only ones
+// writing to STDOUT
+var stdout = console.log;
+console.log = console.error;
+
 var CLIEngine = require("eslint").CLIEngine;
 var docs = require("eslint").docs;
 var fs = require("fs");
@@ -10,9 +15,6 @@ var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: tr
 var cli = new CLIEngine(options);
 var debug = false;
 var checks = require("../lib/checks");
-
-var stdout = console.log
-console.log = console.error
 
 // a wrapper for emitting perf timing
 function runWithTiming(name, fn) {
