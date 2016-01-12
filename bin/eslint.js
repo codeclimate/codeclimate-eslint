@@ -194,7 +194,7 @@ var analysisFiles = runWithTiming("buildFileList", function() {
 
 function analyzeFiles() {
   var batchNum = 0
-    , batchSize = 1
+    , batchSize = 10
     , batchFiles
     , batchReport;
 
@@ -214,7 +214,7 @@ function analyzeFiles() {
 
         result.messages.forEach(function(message) {
           var issueJson = buildIssueJson(message, path);
-          stdout(issueJson + "\u0000");
+          process.stdout.write(issueJson + "\u0000");
         });
       });
     });
