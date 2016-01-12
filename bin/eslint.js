@@ -60,7 +60,7 @@ function buildIssueJson(message, path) {
         }
       }
     },
-    remediation_points: checks.remediationPoints(checkName, message)
+    remediation_points: checks.remediationPoints(checkName, message, cli.getConfigForFile(path))
   };
   return JSON.stringify(issue);
 }
