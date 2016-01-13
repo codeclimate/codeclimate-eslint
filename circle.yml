@@ -11,7 +11,7 @@ machine:
 
 test:
   override:
-    - docker build -t=$PRIVATE_REGISTRY/$CIRCLE_PROJECT_REPONAME:b$CIRCLE_BUILD_NUM .
+    - IMAGE_NAME="$PRIVATE_REGISTRY/$CIRCLE_PROJECT_REPONAME:b$CIRCLE_BUILD_NUM" make test
 
 deployment:
   registry:

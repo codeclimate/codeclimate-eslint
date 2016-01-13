@@ -15,5 +15,12 @@
     "eslint-plugin-react": "3.6.3",
     "glob": "5.0.14"
   },
+  "devDependencies": {
+    "chai": "^2.1.0",
+    "mocha": "^2.3.4"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
   "engine": "node >= 0.12.4"
 }
