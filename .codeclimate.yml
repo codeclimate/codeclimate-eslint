@@ -12,3 +12,4 @@ ratings:
   - lib/checks.js"
 exclude_paths:
 - "node_modules/**"
+- "test/**"
