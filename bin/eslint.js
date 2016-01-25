@@ -51,12 +51,12 @@ function buildIssueJson(message, path) {
       path: path,
       positions: {
         begin: {
-          line: message.line,
-          column: message.column
+          line: message.line || 1,
+          column: message.column || 1
         },
         end: {
-          line: message.line,
-          column: message.column
+          line: message.line || 1,
+          column: message.column || 1
         }
       }
     },
