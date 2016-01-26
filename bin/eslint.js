@@ -16,6 +16,8 @@ var cli = new CLIEngine(options);
 var debug = false;
 var checks = require("../lib/checks");
 
+console.error("ESLint is running with the " + cli.getConfigForFile(null).parser + " parser.");
+
 // a wrapper for emitting perf timing
 function runWithTiming(name, fn) {
   var start = new Date()
