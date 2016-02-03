@@ -12,6 +12,18 @@ ESLint is a tool for identifying and reporting on patterns found in ECMAScript/J
 2. Run `codeclimate engines:enable eslint`. This command both installs the engine and enables it in your `.codeclimate.yml` file.
 3. You're ready to analyze! Browse into your project's folder and run `codeclimate analyze`.
 
+### Configuration
+
+You can configure our ESLint Engine to analyze the file types you’d like by configuring the extensions in your `.codeclimate.yml`, as shown in the example below:
+
+```eslint:
+   enabled: true
+   config:
+    extensions:
+   - .es6
+   - .js
+   - .jsx```
+
 ### Need help?
 
 For help with ESLint, [check out their documentation](https://github.com/eslint/eslint).
