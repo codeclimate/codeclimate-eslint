@@ -218,7 +218,7 @@ function analyzeFiles() {
 
         result.messages.forEach(function(message) {
           var issueJson = buildIssueJson(message, path);
-          process.stdout.write(issueJson + "\u0000");
+          process.stdout.write(issueJson + "\u0000\n");
         });
       });
     });
