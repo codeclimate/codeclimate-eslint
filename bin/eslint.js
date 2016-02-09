@@ -23,7 +23,9 @@ function runWithTiming(name, fn) {
   var start = new Date()
     , rv = fn()
     , duration = (new Date() - start) / 1000;
-  console.error("eslint.timing." + name + ": " + duration + "s");
+  if (debug) {
+    console.error("eslint.timing." + name + ": " + duration + "s");
+  }
   return rv;
 }
 
@@ -216,7 +218,7 @@ function analyzeFiles() {
 
         result.messages.forEach(function(message) {
           var issueJson = buildIssueJson(message, path);
-          process.stdout.write(issueJson + "\u0000");
+          process.stdout.write(issueJson + "\u0000\n");
         });
       });
     });
