@@ -5,11 +5,11 @@ engines:
     enabled: true
     config:
       languages:
-        - javascript
+      - javascript
 ratings:
   paths:
   - bin/eslint.js
-  - lib/checks.js"
+  - lib/checks.js
 exclude_paths:
 - "node_modules/**"
 - "test/**"
