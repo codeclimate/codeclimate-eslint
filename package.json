@@ -17,7 +17,8 @@
   },
   "devDependencies": {
     "chai": "^2.1.0",
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "temp": "^0.8.3"
   },
   "scripts": {
     "test": "mocha test"
