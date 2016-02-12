@@ -15,8 +15,7 @@ var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: tr
 var cli = new CLIEngine(options);
 var debug = false;
 var checks = require("../lib/checks");
-
-console.error("ESLint is running with the " + cli.getConfigForFile(null).parser + " parser.");
+var validateConfig = require("../lib/validate_config");
 
 // a wrapper for emitting perf timing
 function runWithTiming(name, fn) {
@@ -232,4 +231,12 @@ function analyzeFiles() {
   }
 }
 
-analyzeFiles();
+if (validateConfig(options.configFile)) {
+  console.error("ESLint is running with the " + cli.getConfigForFile(null).parser + " parser.");
+
+  analyzeFiles();
+} else {
+  console.error("No rules are configured. Make sure you have added a config file with rules enabled.");
+  console.error("See our documentation at https://docs.codeclimate.com/docs/eslint for more information.");
+  process.exit(1);
+}
