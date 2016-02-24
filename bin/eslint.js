@@ -8,8 +8,10 @@ process.chdir(CODE_DIR);
 var stdout = console.log;
 console.log = console.error;
 
-var CLIEngine = require("eslint").CLIEngine;
-var docs = require("eslint").docs;
+var eslint = require('../lib/eslint-patch')(require('eslint'));
+
+var CLIEngine = eslint.CLIEngine;
+var docs = eslint.docs;
 var fs = require("fs");
 var glob = require("glob");
 var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: true };
