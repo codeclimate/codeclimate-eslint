@@ -9,7 +9,7 @@ engines:
 ratings:
   paths:
   - bin/eslint.js
-  - lib/checks.js
+  - lib/*.js
 exclude_paths:
 - "node_modules/**"
 - "test/**"

@@ -4,9 +4,17 @@ MAINTAINER Code Climate <hello@codeclimate.com>
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 
-RUN apk --update add git && \
+RUN apk --update add git jq && \
     npm install && \
-    apk del --purge git
+    git clone https://github.com/eslint/eslint.git && \
+    ESLINT_DOCS_VERSION=`npm -j ls eslint | jq -r .dependencies.eslint.version` && \
+    cd eslint && \
+    git checkout v$ESLINT_DOCS_VERSION && \
+    cd .. && \
+    mkdir -p /usr/src/app/lib/docs/rules/ && \
+    cp ./eslint/docs/rules/* /usr/src/app/lib/docs/rules/ && \
+    rm -rf eslint && \
+    apk del --purge git jq
 
 COPY . /usr/src/app
 
