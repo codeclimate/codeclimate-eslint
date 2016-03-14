@@ -6,7 +6,7 @@ COPY package.json /usr/src/app/
 
 RUN apk --update add git jq && \
     npm install && \
-    git clone https://github.com/eslint/eslint.git && \
+    git clone --depth=1 https://github.com/eslint/eslint.git && \
     ESLINT_DOCS_VERSION=`npm -j ls eslint | jq -r .dependencies.eslint.version` && \
     cd eslint && \
     git checkout v$ESLINT_DOCS_VERSION && \
