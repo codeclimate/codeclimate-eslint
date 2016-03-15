@@ -1,6 +1,7 @@
 #!/usr/src/app/bin/node_gc
 
-process.chdir('/code');
+var CODE_DIR = "/code";
+process.chdir(CODE_DIR);
 
 // Redirect `console.log` so that we are the only ones
 // writing to STDOUT
@@ -79,10 +80,9 @@ function isFileWithMatchingExtension(file, extensions) {
 }
 
 function isFileIgnoredByLibrary(file) {
-  var path = file.replace(/^\/code\//, "");
-  var ignored = cli.isPathIgnored(path);
+  var ignored = cli.isPathIgnored(file);
   if (ignored) {
-    var output = "File `" + path + "` ignored because of your .eslintignore file." + "\n";
+    var output = "File `" + file + "` ignored because of your .eslintignore file." + "\n";
     process.stderr.write(output);
   }
   return ignored;
@@ -115,7 +115,7 @@ function inclusionBasedFileListBuilder(includePaths) {
       if ((/\/$/).test(fileOrDirectory)) {
         // if it ends in a slash, expand and push
         var filesInThisDirectory = glob.sync(
-          "/code/" + fileOrDirectory + "/**/**"
+          fileOrDirectory + "/**/**"
         );
         prunePathsWithinSymlinks(filesInThisDirectory).forEach(function(file, j){
           if (!isFileIgnoredByLibrary(file) && isFileWithMatchingExtension(file, extensions)) {
@@ -123,10 +123,8 @@ function inclusionBasedFileListBuilder(includePaths) {
           }
         });
       } else {
-        // if not, check for ending in *.js
-        var fullPath = "/code/" + fileOrDirectory;
-        if (!isFileIgnoredByLibrary(fullPath) && isFileWithMatchingExtension(fullPath, extensions)) {
-          analysisFiles.push(fullPath);
+        if (!isFileIgnoredByLibrary(fileOrDirectory) && isFileWithMatchingExtension(fileOrDirectory, extensions)) {
+          analysisFiles.push(fileOrDirectory);
         }
       }
     });
@@ -151,7 +149,7 @@ runWithTiming("engineConfig", function () {
 
     var userConfig = engineConfig.config || {};
     if (userConfig.config) {
-      options.configFile = "/code/" + userConfig.config;
+      options.configFile = CODE_DIR + "/" + userConfig.config;
     }
 
     if (userConfig.extensions) {
