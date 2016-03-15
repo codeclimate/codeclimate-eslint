@@ -105,30 +105,6 @@ function prunePathsWithinSymlinks(paths) {
   });
 }
 
-function exclusionBasedFileListBuilder(excludePaths) {
-  // Uses glob to traverse code directory and find files to analyze,
-  // excluding files passed in with by CLI config, and including only
-  // files in the list of desired extensions.
-  //
-  // Deprecated style of file expansion, supported for users of the old CLI.
-  return function(extensions) {
-    var analysisFiles = [];
-    var allFiles = glob.sync("/code/**/**", {});
-
-    prunePathsWithinSymlinks(allFiles).forEach(function(file, i, a){
-      if(excludePaths.indexOf(file.split("/code/")[1]) < 0) {
-        if(fs.lstatSync(file).isFile()) {
-          if (!isFileIgnoredByLibrary(file) && isFileWithMatchingExtension(file, extensions)) {
-            analysisFiles.push(file);
-          }
-        }
-      }
-    });
-
-    return analysisFiles;
-  };
-}
-
 function inclusionBasedFileListBuilder(includePaths) {
   // Uses glob to expand the files and directories in includePaths, filtering
   // down to match the list of desired extensions.
@@ -168,12 +144,9 @@ runWithTiming("engineConfig", function () {
       buildFileList = inclusionBasedFileListBuilder(
         engineConfig.include_paths
       );
-    } else if (engineConfig.exclude_paths) {
-      var ignores = engineConfig.exclude_paths;
-      buildFileList = exclusionBasedFileListBuilder(ignores);
     } else {
-      // No includes or excludes, let's try with everything
-      buildFileList = exclusionBasedFileListBuilder([]);
+      // No explicit includes, let's try with everything
+      buildFileList = inclusionBasedFileListBuilder(["./"]);
     }
 
     var userConfig = engineConfig.config || {};
