@@ -13,7 +13,7 @@ var docs = require("eslint").docs;
 var fs = require("fs");
 var glob = require("glob");
 var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: true };
-var cli = new CLIEngine(options);
+var cli; // instantiation delayed until after options are (potentially) modified
 var debug = false;
 var checks = require("../lib/checks");
 var validateConfig = require("../lib/validate_config");
@@ -160,6 +160,8 @@ runWithTiming("engineConfig", function () {
       debug = true;
     }
   }
+
+  cli = new CLIEngine(options);
 });
 
 var analysisFiles = runWithTiming("buildFileList", function() {
