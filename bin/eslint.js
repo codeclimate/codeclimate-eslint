@@ -150,6 +150,7 @@ runWithTiming("engineConfig", function () {
     var userConfig = engineConfig.config || {};
     if (userConfig.config) {
       options.configFile = CODE_DIR + "/" + userConfig.config;
+      options.useEslintrc = false;
     }
 
     if (userConfig.extensions) {
