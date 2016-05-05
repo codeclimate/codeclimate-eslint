@@ -17,6 +17,7 @@ var cli; // instantiation delayed until after options are (potentially) modified
 var debug = false;
 var checks = require("../lib/checks");
 var validateConfig = require("../lib/validate_config");
+var computeFingerprint = require("../lib/compute_fingerprint");
 
 // a wrapper for emitting perf timing
 function runWithTiming(name, fn) {
@@ -66,6 +67,13 @@ function buildIssueJson(message, path) {
     },
     remediation_points: checks.remediationPoints(checkName, message, cli.getConfigForFile(path))
   };
+
+  var fingerprint = computeFingerprint(path, checkName, message.message);
+
+  if (fingerprint) {
+    issue["fingerprint"] = fingerprint;
+  }
+
   return JSON.stringify(issue);
 }
 
