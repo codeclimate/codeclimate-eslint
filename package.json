@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "babel-eslint": "4.1.8",
-    "eslint": "2.2.0",
+    "eslint": "2.4.0",
     "eslint-config-airbnb": "^6.0.2",
     "eslint-config-standard": "4.4.0",
     "eslint-plugin-babel": "2.1.1",
