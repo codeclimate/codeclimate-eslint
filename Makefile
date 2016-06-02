@@ -1,4 +1,4 @@
-.PHONY: image test
+.PHONY: image test citest
 
 IMAGE_NAME ?= codeclimate/codeclimate-eslint
 
@@ -6,4 +6,7 @@ image:
 	docker build --rm -t $(IMAGE_NAME) .
 
 test: image
-	docker run --rm --workdir="/usr/src/app" $(IMAGE_NAME) npm run test
+	docker run --rm $(IMAGE_NAME) sh -c "cd /usr/src/app && npm run test"
+
+citest:
+	docker run --rm $(IMAGE_NAME) sh -c "cd /usr/src/app && npm run test"
