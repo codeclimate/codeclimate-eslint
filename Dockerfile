@@ -9,10 +9,12 @@ RUN apk --update add git && \
     npm install && \
     apk del --purge git
 
-COPY . /usr/src/app
-
 RUN adduser -u 9000 -D app
+COPY . /usr/src/app
+RUN chown -R app:app /usr/src/app
+
 USER app
+
 VOLUME /code
 WORKDIR /code
 
