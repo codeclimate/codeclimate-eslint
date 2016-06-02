@@ -17,10 +17,12 @@ RUN apk --update add git jq && \
     rm -rf eslint && \
     apk del --purge git jq
 
-COPY . /usr/src/app
-
 RUN adduser -u 9000 -D app
+COPY . /usr/src/app
+RUN chown -R app:app /usr/src/app
+
 USER app
+
 VOLUME /code
 WORKDIR /code
 
