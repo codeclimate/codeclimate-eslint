@@ -295,6 +295,16 @@
       "from": "eslint-config-standard@5.3.1",
       "resolved": "https://registry.npmjs.org/eslint-config-standard/-/eslint-config-standard-5.3.1.tgz"
     },
+    "eslint-config-standard-jsx": {
+      "version": "1.2.1",
+      "from": "eslint-config-standard-jsx@1.2.1",
+      "resolved": "https://registry.npmjs.org/eslint-config-standard-jsx/-/eslint-config-standard-jsx-1.2.1.tgz"
+    },
+    "eslint-config-standard-react": {
+      "version": "2.4.0",
+      "from": "eslint-config-standard-react@2.4.0",
+      "resolved": "https://registry.npmjs.org/eslint-config-standard-react/-/eslint-config-standard-react-2.4.0.tgz"
+    },
     "eslint-import-resolver-node": {
       "version": "0.2.3",
       "from": "eslint-import-resolver-node@>=0.2.0 <0.3.0",
