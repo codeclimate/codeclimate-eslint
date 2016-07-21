@@ -273,6 +273,11 @@
       "from": "eslint-config-airbnb-base@>=3.0.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/eslint-config-airbnb-base/-/eslint-config-airbnb-base-3.0.1.tgz"
     },
+    "eslint-config-google": {
+      "version": "0.6.0",
+      "from": "eslint-config-google@0.6.0",
+      "resolved": "http://registry.npmjs.org/eslint-config-google/-/eslint-config-google-0.6.0.tgz"
+    },
     "eslint-config-standard": {
       "version": "5.3.1",
       "from": "eslint-config-standard@5.3.1",
@@ -288,6 +293,11 @@
       "from": "eslint-config-standard-react@2.4.0",
       "resolved": "https://registry.npmjs.org/eslint-config-standard-react/-/eslint-config-standard-react-2.4.0.tgz"
     },
+    "eslint-config-xo": {
+      "version": "0.13.0",
+      "from": "eslint-config-xo@>=0.13.0 <0.14.0",
+      "resolved": "http://registry.npmjs.org/eslint-config-xo/-/eslint-config-xo-0.13.0.tgz"
+    },
     "eslint-import-resolver-node": {
       "version": "0.2.0",
       "from": "eslint-import-resolver-node@>=0.2.0 <0.3.0",
@@ -297,6 +307,11 @@
       "version": "3.2.0",
       "from": "eslint-plugin-babel@3.2.0",
       "resolved": "https://registry.npmjs.org/eslint-plugin-babel/-/eslint-plugin-babel-3.2.0.tgz"
+    },
+    "eslint-plugin-flowtype": {
+      "version": "2.3.1",
+      "from": "eslint-plugin-flowtype@latest",
+      "resolved": "http://registry.npmjs.org/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.3.1.tgz"
     },
     "eslint-plugin-import": {
       "version": "1.8.1",
