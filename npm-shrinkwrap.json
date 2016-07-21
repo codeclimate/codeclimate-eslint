@@ -290,6 +290,11 @@
       "from": "eslint-config-airbnb-base@>=3.0.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/eslint-config-airbnb-base/-/eslint-config-airbnb-base-3.0.1.tgz"
     },
+    "eslint-config-angular": {
+      "version": "0.5.0",
+      "from": "eslint-config-angular@0.5.0",
+      "resolved": "https://registry.npmjs.org/eslint-config-angular/-/eslint-config-angular-0.5.0.tgz"
+    },
     "eslint-config-google": {
       "version": "0.6.0",
       "from": "eslint-config-google@0.6.0",
