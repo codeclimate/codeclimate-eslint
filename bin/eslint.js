@@ -165,6 +165,10 @@ runWithTiming("engineConfig", function () {
       options.extensions = userConfig.extensions;
     }
 
+    if (userConfig.ignorePath) {
+      options.ignorePath = userConfig.ignorePath;
+    }
+
     if (userConfig.debug) {
       debug = true;
     }
