@@ -13,7 +13,7 @@ describe("validateConfig", function() {
 
   it("returns false if no files exist", function(done) {
     temp.mkdir("no-config", function(err, directory) {
-      if (err) throw err;
+      if (err) { throw err; }
 
       process.chdir(directory);
 
@@ -24,7 +24,7 @@ describe("validateConfig", function() {
 
   it("returns true if an eslintrc exists", function(done) {
     temp.mkdir("config", function(err, directory) {
-      if (err) throw err;
+      if (err) { throw err; }
 
       process.chdir(directory);
 
@@ -36,7 +36,7 @@ describe("validateConfig", function() {
       };
 
       fs.writeFile(configPath, JSON.stringify(config), function(err) {
-        if (err) throw err;
+        if (err) { throw err; }
 
         expect(validateConfig(null)).to.eq(true);
         done();
