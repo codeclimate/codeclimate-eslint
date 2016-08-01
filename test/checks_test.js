@@ -13,6 +13,9 @@ describe("checks module", function() {
   });
 
   describe(".remediationPoints()", function() {
+    var eslintConfig = function(rulesConfig) {
+      return { rules: rulesConfig };
+    };
     it("returns the default of 50,000 for a non-complexity issue", function() {
       var issue = { ruleId: "eqeqeq", message: "always use ==="};
       expect(checks.remediationPoints(issue.ruleId, issue, null)).to.eq(50000);
@@ -41,9 +44,5 @@ describe("checks module", function() {
         , config = eslintConfig({ "complexity": [2, 10] });
       expect(checks.remediationPoints(issue.ruleId, issue, config)).to.eq(1000000);
     });
-
-    var eslintConfig = function(rulesConfig) {
-      return { rules: rulesConfig };
-    };
   });
 });

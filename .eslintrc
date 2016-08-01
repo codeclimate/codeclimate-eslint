@@ -1,8 +1,10 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "mocha": true
   },
   "rules": {
+    "block-spacing": 2,
     "brace-style": [2, "1tbs", { "allowSingleLine": true }],
     "comma-dangle": [2, "never"],
     "comma-style": [2, "first", { exceptions: {ArrayExpression: true, ObjectExpression: true} }],

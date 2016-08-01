@@ -26,6 +26,7 @@ describe("validateConfig", function() {
   it("returns true if an eslintrc exists", function(done) {
     temp.mkdir("config", function(err, directory) {
       if (err) { throw err; }
+
       process.chdir(directory);
 
       var configPath = path.join(directory, ".eslintrc.json");
