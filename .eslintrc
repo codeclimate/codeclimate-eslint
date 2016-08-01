@@ -16,6 +16,7 @@
     "no-use-before-define": 2,
     "radix": 2,
     "semi": 2,
+    "block-spacing": 2,
     "space-infix-ops": 2,
     "strict": 0
   },

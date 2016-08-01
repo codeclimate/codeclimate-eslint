@@ -43,6 +43,8 @@ function buildIssueJson(message, path) {
   if(message.fatal) {
     checkName = "fatal";
   }
+  var line = message.line || 1;
+  var column = message.column || 1;
 
   var issue = {
     type: "issue",
@@ -56,12 +58,12 @@ function buildIssueJson(message, path) {
       path: path,
       positions: {
         begin: {
-          line: message.line || 1,
-          column: message.column || 1
+          line: line,
+          column: column
         },
         end: {
-          line: message.line || 1,
-          column: message.column || 1
+          line: line,
+          column: column
         }
       }
     },
@@ -165,8 +167,8 @@ runWithTiming("engineConfig", function () {
       options.extensions = userConfig.extensions;
     }
 
-    if (userConfig.ignorePath) {
-      options.ignorePath = userConfig.ignorePath;
+    if (userConfig.ignore_path) {
+      options.ignorePath = userConfig.ignore_path;
     }
 
     if (userConfig.debug) {
