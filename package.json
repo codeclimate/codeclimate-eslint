@@ -10,6 +10,7 @@
   "dependencies": {
     "babel-eslint": "4.1.8",
     "eslint": "codeclimate/eslint.git#d24d0b",
+    "eslint-config-ember": "^0.3.0",
     "eslint-config-airbnb": "^5.0.0",
     "eslint-config-standard": "4.4.0",
     "eslint-plugin-babel": "2.1.1",
