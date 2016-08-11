@@ -1,6 +1,6 @@
 # Code Climate ESLint Engine
 
-[![Code Climate](https://codeclimate.com/repos/55841b7a6956801212006c92/badges/92d8261f1b6200f19af5/gpa.svg)](https://codeclimate.com/repos/55841b7a6956801212006c92/feed)
+[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate-eslint/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate-eslint)
 
 `codeclimate-eslint` is a Code Climate engine that wraps [ESLint](https://github.com/eslint/eslint). You can run it on your command line using the Code Climate CLI, or on our hosted analysis platform.
 
