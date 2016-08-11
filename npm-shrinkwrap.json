@@ -295,10 +295,27 @@
       "from": "eslint-config-angular@0.5.0",
       "resolved": "https://registry.npmjs.org/eslint-config-angular/-/eslint-config-angular-0.5.0.tgz"
     },
+    "eslint-config-ember": {
+      "version": "0.3.0",
+      "from": "eslint-config-ember@>=0.3.0 <0.4.0",
+      "resolved": "https://registry.npmjs.org/eslint-config-ember/-/eslint-config-ember-0.3.0.tgz"
+    },
     "eslint-config-google": {
       "version": "0.6.0",
       "from": "eslint-config-google@0.6.0",
       "resolved": "http://registry.npmjs.org/eslint-config-google/-/eslint-config-google-0.6.0.tgz"
+    },
+    "eslint-config-nightmare-mode": {
+      "version": "2.3.0",
+      "from": "eslint-config-nightmare-mode@>=2.3.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/eslint-config-nightmare-mode/-/eslint-config-nightmare-mode-2.3.0.tgz",
+      "dependencies": {
+        "object-assign": {
+          "version": "2.1.1",
+          "from": "object-assign@>=2.0.0 <3.0.0",
+          "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-2.1.1.tgz"
+        }
+      }
     },
     "eslint-config-standard": {
       "version": "5.3.1",
