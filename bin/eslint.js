@@ -10,6 +10,7 @@ console.log = console.error;
 
 var eslint = require('../lib/eslint-patch')(require('eslint'));
 
+var BatchSanitizer = require("../lib/batch_sanitizer");
 var CLIEngine = eslint.CLIEngine;
 var docs = eslint.docs;
 var fs = require("fs");
@@ -183,17 +184,19 @@ function analyzeFiles() {
   var batchNum = 0
     , batchSize = 10
     , batchFiles
-    , batchReport;
+    , batchReport
+    , sanitizedBatchFiles;
 
   while(analysisFiles.length > 0) {
     batchFiles = analysisFiles.splice(0, batchSize);
+    sanitizedBatchFiles = (new BatchSanitizer(batchFiles)).sanitizedFiles();
 
     if (debug) {
       process.stderr.write("Analyzing: " + batchFiles + "\n");
     }
 
     runWithTiming("analyze-batch-" + batchNum, function() {
-       batchReport = cli.executeOnFiles(batchFiles);
+       batchReport = cli.executeOnFiles(sanitizedBatchFiles);
     });
     runWithTiming("report-batch" + batchNum, function() {
       batchReport.results.forEach(function(result) {
