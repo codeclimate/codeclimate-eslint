@@ -15,6 +15,7 @@ var glob = require("glob");
 var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: true };
 var cli; // instantiation delayed until after options are (potentially) modified
 var debug = false;
+var BatchSanitizer = require("../lib/batch_sanitizer");
 var checks = require("../lib/checks");
 var validateConfig = require("../lib/validate_config");
 var computeFingerprint = require("../lib/compute_fingerprint");
@@ -181,17 +182,19 @@ function analyzeFiles() {
   var batchNum = 0
     , batchSize = 10
     , batchFiles
-    , batchReport;
+    , batchReport
+    , sanitizedBatchFiles;
 
   while(analysisFiles.length > 0) {
     batchFiles = analysisFiles.splice(0, batchSize);
+    sanitizedBatchFiles = (new BatchSanitizer(batchFiles)).sanitizedFiles();
 
     if (debug) {
       process.stderr.write("Analyzing: " + batchFiles + "\n");
     }
 
     runWithTiming("analyze-batch-" + batchNum, function() {
-       batchReport = cli.executeOnFiles(batchFiles);
+       batchReport = cli.executeOnFiles(sanitizedBatchFiles);
     });
     runWithTiming("report-batch" + batchNum, function() {
       batchReport.results.forEach(function(result) {
