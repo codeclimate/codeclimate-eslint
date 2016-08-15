@@ -1,11 +1,12 @@
-FROM mhart/alpine-node:5.4
+FROM node:6.3.1-slim
 MAINTAINER Code Climate <hello@codeclimate.com>
 
 WORKDIR /usr/src/app
 COPY npm-shrinkwrap.json /usr/src/app/
 COPY package.json /usr/src/app/
 
-RUN apk --update add git jq && \
+RUN apt-get update && \
+    apt-get install -y git jq && \
     npm install && \
     git clone https://github.com/eslint/eslint.git && \
     ESLINT_DOCS_VERSION=`npm -j ls eslint | jq -r .dependencies.eslint.version` && \
@@ -15,9 +16,10 @@ RUN apk --update add git jq && \
     mkdir -p /usr/src/app/lib/docs/rules/ && \
     cp ./eslint/docs/rules/* /usr/src/app/lib/docs/rules/ && \
     rm -rf eslint && \
-    apk del --purge git jq
+    apt-get purge -y git jq && \
+    apt-get autoremove -y
 
-RUN adduser -u 9000 -D app
+RUN adduser -u 9000 --disabled-password app
 COPY . /usr/src/app
 RUN chown -R app:app /usr/src/app
 
