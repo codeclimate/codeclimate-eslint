@@ -19,7 +19,7 @@ RUN apt-get update && \
     apt-get purge -y git jq && \
     apt-get autoremove -y
 
-RUN adduser -u 9000 --disabled-password app
+RUN adduser -u 9000 --gecos "" --disabled-password app
 COPY . /usr/src/app
 RUN chown -R app:app /usr/src/app
 
