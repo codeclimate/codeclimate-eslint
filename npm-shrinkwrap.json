@@ -305,6 +305,11 @@
       "from": "eslint-config-google@0.6.0",
       "resolved": "http://registry.npmjs.org/eslint-config-google/-/eslint-config-google-0.6.0.tgz"
     },
+    "eslint-config-hapi": {
+      "version": "10.0.0",
+      "from": "eslint-config-hapi@>=10.0.0 <11.0.0",
+      "resolved": "https://registry.npmjs.org/eslint-config-hapi/-/eslint-config-hapi-10.0.0.tgz"
+    },
     "eslint-config-nightmare-mode": {
       "version": "2.3.0",
       "from": "eslint-config-nightmare-mode@>=2.3.0 <3.0.0",
@@ -356,6 +361,11 @@
       "version": "2.7.0",
       "from": "eslint-plugin-flowtype@2.7.0",
       "resolved": "https://registry.npmjs.org/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.7.0.tgz"
+    },
+    "eslint-plugin-hapi": {
+      "version": "4.0.0",
+      "from": "eslint-plugin-hapi@>=4.0.0 <5.0.0",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-hapi/-/eslint-plugin-hapi-4.0.0.tgz"
     },
     "eslint-plugin-import": {
       "version": "1.8.1",
@@ -496,6 +506,21 @@
       "from": "growl@1.9.2",
       "resolved": "https://registry.npmjs.org/growl/-/growl-1.9.2.tgz",
       "dev": true
+    },
+    "hapi-capitalize-modules": {
+      "version": "1.1.6",
+      "from": "hapi-capitalize-modules@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/hapi-capitalize-modules/-/hapi-capitalize-modules-1.1.6.tgz"
+    },
+    "hapi-for-you": {
+      "version": "1.0.0",
+      "from": "hapi-for-you@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/hapi-for-you/-/hapi-for-you-1.0.0.tgz"
+    },
+    "hapi-scope-start": {
+      "version": "2.1.1",
+      "from": "hapi-scope-start@>=2.0.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/hapi-scope-start/-/hapi-scope-start-2.1.1.tgz"
     },
     "has-ansi": {
       "version": "2.0.0",
@@ -741,6 +766,11 @@
       "version": "0.0.5",
       "from": "mute-stream@0.0.5",
       "resolved": "https://registry.npmjs.org/mute-stream/-/mute-stream-0.0.5.tgz"
+    },
+    "no-arrowception": {
+      "version": "1.0.0",
+      "from": "no-arrowception@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/no-arrowception/-/no-arrowception-1.0.0.tgz"
     },
     "number-is-nan": {
       "version": "1.0.1",
