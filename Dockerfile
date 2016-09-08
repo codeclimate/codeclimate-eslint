@@ -1,9 +1,8 @@
-FROM node:6.3.1-slim
+FROM node:6.5.0-slim
 MAINTAINER Code Climate <hello@codeclimate.com>
 
 WORKDIR /usr/src/app
-COPY npm-shrinkwrap.json /usr/src/app/
-COPY package.json /usr/src/app/
+COPY package.json npm-shrinkwrap.json /usr/src/app/
 
 RUN apt-get update && \
     apt-get install -y git jq && \
