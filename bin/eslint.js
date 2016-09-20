@@ -179,6 +179,19 @@ runWithTiming("engineConfig", function () {
     }
   }
 
+  // If the project uses Standard, automatically use it.
+  if (!options.configFile && fs.existsSync(CODE_DIR + "/package.json")) {
+    var packageConfig = JSON.parse(fs.readFileSync(CODE_DIR + "/package.json"));
+
+    if ((packageConfig.devDependencies || {}).hasOwnProperty("standard")) {
+      // A module ID can be specified instead of a file path:
+      // http://eslint.org/docs/user-guide/command-line-interface#c---config
+      // http://eslint.org/docs/developer-guide/nodejs-api#cliengine
+      options.configFile = "eslint-config-standard";
+      options.useEslintrc = false;
+    }
+  }
+
   cli = new CLIEngine(options);
 });
 
