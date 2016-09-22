@@ -60,8 +60,7 @@
     "assertion-error": {
       "version": "1.0.2",
       "from": "assertion-error@>=1.0.1 <2.0.0",
-      "resolved": "https://registry.npmjs.org/assertion-error/-/assertion-error-1.0.2.tgz",
-      "dev": true
+      "resolved": "https://registry.npmjs.org/assertion-error/-/assertion-error-1.0.2.tgz"
     },
     "babel-code-frame": {
       "version": "6.22.0",
@@ -174,6 +173,11 @@
       "from": "commander@2.3.0",
       "resolved": "https://registry.npmjs.org/commander/-/commander-2.3.0.tgz",
       "dev": true
+    },
+    "comment-parser": {
+      "version": "0.4.0",
+      "from": "comment-parser@>=0.4.0 <0.5.0",
+      "resolved": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.4.0.tgz"
     },
     "concat-map": {
       "version": "0.0.1",
@@ -389,10 +393,30 @@
         }
       }
     },
+    "eslint-plugin-jsdoc": {
+      "version": "2.3.1",
+      "from": "eslint-plugin-jsdoc@2.3.1",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-2.3.1.tgz"
+    },
     "eslint-plugin-jsx-a11y": {
       "version": "2.2.1",
       "from": "eslint-plugin-jsx-a11y@latest",
       "resolved": "https://registry.npmjs.org/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-2.2.1.tgz"
+    },
+    "eslint-plugin-lodash": {
+      "version": "1.10.3",
+      "from": "eslint-plugin-lodash@1.10.3",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-lodash/-/eslint-plugin-lodash-1.10.3.tgz"
+    },
+    "eslint-plugin-mocha": {
+      "version": "4.5.1",
+      "from": "eslint-plugin-mocha@4.5.1",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-mocha/-/eslint-plugin-mocha-4.5.1.tgz"
+    },
+    "eslint-plugin-mongodb": {
+      "version": "0.2.4",
+      "from": "eslint-plugin-mongodb@0.2.4",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-mongodb/-/eslint-plugin-mongodb-0.2.4.tgz"
     },
     "eslint-plugin-promise": {
       "version": "2.0.1",
@@ -403,6 +427,11 @@
       "version": "6.2.0",
       "from": "eslint-plugin-react@latest",
       "resolved": "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-6.2.0.tgz"
+    },
+    "eslint-plugin-security": {
+      "version": "1.2.0",
+      "from": "eslint-plugin-security@1.2.0",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-security/-/eslint-plugin-security-1.2.0.tgz"
     },
     "eslint-plugin-standard": {
       "version": "2.0.0",
@@ -828,6 +857,11 @@
       "resolved": "https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz",
       "dev": true
     },
+    "os-tmpdir": {
+      "version": "1.0.1",
+      "from": "os-tmpdir@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.1.tgz"
+    },
     "path-exists": {
       "version": "2.1.0",
       "from": "path-exists@>=2.0.0 <3.0.0",
@@ -888,6 +922,11 @@
       "from": "progress@>=1.1.8 <2.0.0",
       "resolved": "https://registry.npmjs.org/progress/-/progress-1.1.8.tgz"
     },
+    "ramda": {
+      "version": "0.22.1",
+      "from": "ramda@>=0.22.1 <0.23.0",
+      "resolved": "https://registry.npmjs.org/ramda/-/ramda-0.22.1.tgz"
+    },
     "readable-stream": {
       "version": "2.2.3",
       "from": "readable-stream@>=2.2.2 <3.0.0",
@@ -923,6 +962,11 @@
       "from": "restore-cursor@>=1.0.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/restore-cursor/-/restore-cursor-1.0.1.tgz"
     },
+    "ret": {
+      "version": "0.1.12",
+      "from": "ret@>=0.1.10 <0.2.0",
+      "resolved": "https://registry.npmjs.org/ret/-/ret-0.1.12.tgz"
+    },
     "rimraf": {
       "version": "2.6.0",
       "from": "rimraf@>=2.2.8 <3.0.0",
@@ -944,6 +988,11 @@
       "version": "3.1.2",
       "from": "rx-lite@>=3.1.2 <4.0.0",
       "resolved": "https://registry.npmjs.org/rx-lite/-/rx-lite-3.1.2.tgz"
+    },
+    "safe-regex": {
+      "version": "1.1.0",
+      "from": "safe-regex@>=1.1.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/safe-regex/-/safe-regex-1.1.0.tgz"
     },
     "shelljs": {
       "version": "0.6.1",
