@@ -20,7 +20,7 @@ test:
 
 deployment:
   registry:
-    branch: /master|channel\/[\w-]+/
+    branch: pull/138
     commands:
       - >
         docker run
