@@ -17,3 +17,4 @@ ESLint is a tool for identifying and reporting on patterns found in ECMAScript/J
 For help with ESLint, [check out their documentation](https://github.com/eslint/eslint).
 
 If you're running into a Code Climate issue, first look over this project's [GitHub Issues](https://github.com/codeclimate/codeclimate-eslint/issues), as your question may have already been covered. If not, [go ahead and open a support ticket with us](https://codeclimate.com/help).
+
