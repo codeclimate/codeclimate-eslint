@@ -14,6 +14,7 @@
     "eslint-config-airbnb-base": "^7.0.0",
     "eslint-config-angular": "^0.5.0",
     "eslint-config-ember": "^0.3.0",
+    "eslint-plugin-ember-suave": "^1.0.0",
     "eslint-config-google": "^0.6.0",
     "eslint-config-hapi": "^10.0.0",
     "eslint-config-standard": "^6.0.0",
