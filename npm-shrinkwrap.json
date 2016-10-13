@@ -313,6 +313,11 @@
       "from": "eslint-config-ember@>=0.3.0 <0.4.0",
       "resolved": "https://registry.npmjs.org/eslint-config-ember/-/eslint-config-ember-0.3.0.tgz"
     },
+    "eslint-plugin-ember-suave": {
+      "version": "1.0.0",
+      "from": "eslint-plugin-ember-suave@1.0.0",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-ember-suave/-/eslint-plugin-ember-suave-1.0.0.tgz"
+    },
     "eslint-config-google": {
       "version": "0.6.0",
       "from": "eslint-config-google@>=0.6.0 <0.7.0",
