@@ -18,6 +18,8 @@ var glob = require("glob");
 var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: true };
 var cli; // instantiation delayed until after options are (potentially) modified
 var debug = false;
+var ignoreWarnings = false;
+var ESLINT_WARNING_SEVERITY = 1;
 var checks = require("../lib/checks");
 var validateConfig = require("../lib/validate_config");
 var computeFingerprint = require("../lib/compute_fingerprint");
@@ -174,6 +176,10 @@ runWithTiming("engineConfig", function () {
       options.ignorePath = userConfig.ignore_path;
     }
 
+    if (userConfig.ignore_warnings) {
+      ignoreWarnings = true;
+    }
+
     if (userConfig.debug) {
       debug = true;
     }
@@ -209,6 +215,8 @@ function analyzeFiles() {
         var path = result.filePath.replace(/^\/code\//, "");
 
         result.messages.forEach(function(message) {
+          if (ignoreWarnings && message.severity === ESLINT_WARNING_SEVERITY) { return; }
+
           var issueJson = buildIssueJson(message, path);
           process.stdout.write(issueJson + "\u0000\n");
         });
