@@ -15,7 +15,7 @@ ESLint is a tool for identifying and reporting on patterns found in ECMAScript/J
 ### Configuration
 
 #### `ignore_warnings`
-By default, ESLint rules at the warning level will be registered as errors. You can ignore warnings by setting this flag:
+By default, this engine will emit both ESLint errors and warnings as Code Climate issues. If you prefer, you can ignore warning-level violations by setting the `ignore_warnings` configuration option:
 ```yaml
 eslint:
     enabled: true
