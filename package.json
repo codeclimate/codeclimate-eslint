@@ -32,6 +32,7 @@
     "eslint-plugin-mongodb": "^0.2.4",
     "eslint-plugin-promise": "^3.3.0",
     "eslint-plugin-react": "^6.2.0",
+    "eslint-plugin-react-intl": "1.0.2",
     "eslint-plugin-security": "^1.2.0",
     "eslint-plugin-standard": "^2.0.0",
     "glob": "^7.0.6",
