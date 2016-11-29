@@ -318,9 +318,9 @@
       "resolved": "https://registry.npmjs.org/escope/-/escope-3.6.0.tgz"
     },
     "eslint": {
-      "version": "3.9.1",
-      "from": "eslint@3.9.1",
-      "resolved": "https://registry.npmjs.org/eslint/-/eslint-3.9.1.tgz"
+      "version": "3.11.1",
+      "from": "eslint@3.11.1",
+      "resolved": "https://registry.npmjs.org/eslint/-/eslint-3.11.1.tgz"
     },
     "eslint-config-airbnb": {
       "version": "11.2.0",
