@@ -301,6 +301,11 @@
         }
       }
     },
+    "eslint-config-simplifield": {
+      "version": "4.3.0",
+      "from": "eslint-config-simplifield@latest",
+      "resolved": "https://registry.npmjs.org/eslint-config-simplifield/-/eslint-config-simplifield-4.3.0.tgz"
+    },
     "eslint-config-standard": {
       "version": "6.2.1",
       "from": "eslint-config-standard@>=6.0.0 <7.0.0",
@@ -387,6 +392,11 @@
       "version": "0.2.4",
       "from": "eslint-plugin-mongodb@>=0.2.4 <0.3.0",
       "resolved": "https://registry.npmjs.org/eslint-plugin-mongodb/-/eslint-plugin-mongodb-0.2.4.tgz"
+    },
+    "eslint-plugin-node": {
+      "version": "3.0.4",
+      "from": "eslint-plugin-node@>=3.0.4 <4.0.0",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-node/-/eslint-plugin-node-3.0.4.tgz"
     },
     "eslint-plugin-promise": {
       "version": "3.3.1",
@@ -899,6 +909,11 @@
       "version": "1.1.0",
       "from": "safe-regex@>=1.1.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/safe-regex/-/safe-regex-1.1.0.tgz"
+    },
+    "semver": {
+      "version": "5.3.0",
+      "from": "semver@5.3.0",
+      "resolved": "https://registry.npmjs.org/semver/-/semver-5.3.0.tgz"
     },
     "shelljs": {
       "version": "0.7.5",
