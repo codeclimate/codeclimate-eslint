@@ -29,6 +29,7 @@
     "eslint-plugin-jsdoc": "^2.3.1",
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-lodash": "^1.10.3",
+    "eslint-plugin-meteor": "^4.0.1",
     "eslint-plugin-mocha": "^4.5.1",
     "eslint-plugin-mongodb": "^0.2.4",
     "eslint-plugin-promise": "^3.3.0",
