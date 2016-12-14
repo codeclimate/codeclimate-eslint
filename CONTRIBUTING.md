@@ -1,6 +1,26 @@
 # Contributing
 
+## Adding and upgrading plugins
+
+When adding or upgrading a plugin, we should see changes in both `package.json`
+and `yarn.lock`.
+
+Make sure to run `make image` before running these commands.
+
+Add a plugin:
+
+```
+bin/yarn add eslint-config-google
+```
+
+Upgrade a plugin:
+
+```
+bin/yarn upgrade eslint-config-google
+```
+
 ## Testing Changes
+
 Changes made to the engine can be tested locally.
 
 1. Install [the CodeClimate CLI](https://github.com/codeclimate/codeclimate).

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -e
+
+IMAGE_NAME=${IMAGE_NAME:-codeclimate/codeclimate-eslint}
+docker run --rm --volume "$PWD:/usr/src/app" "$IMAGE_NAME" sh -c "cd /usr/src/app && yarn $*"
