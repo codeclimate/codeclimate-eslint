@@ -28,6 +28,7 @@
     "eslint-plugin-immutable": "^1.0.0",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-import-order": "^2.1.4",
+    "eslint-plugin-jasmine": "^2.2.0",
     "eslint-plugin-jsdoc": "^2.3.1",
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-lodash": "^1.10.3",
