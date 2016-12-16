@@ -579,6 +579,10 @@ eslint-plugin-import@^1.16.0:
     pkg-dir "^1.0.0"
     pkg-up "^1.0.0"
 
+eslint-plugin-jasmine@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jasmine/-/eslint-plugin-jasmine-2.2.0.tgz#7135879383c39a667c721d302b9f20f0389543de"
+
 eslint-plugin-jsdoc@^2.3.1:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-2.4.0.tgz#7c1eaa8e88fab04c807472c17b6ff9a1ac7e564d"
