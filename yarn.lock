@@ -485,6 +485,10 @@ eslint-config-nightmare-mode@^2.3.0:
   dependencies:
     object-assign "^2.0.0"
 
+eslint-config-semistandard@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-semistandard/-/eslint-config-semistandard-7.0.0.tgz#f803493f56a5172f7f59c35ae648360b41f2ff71"
+
 eslint-config-simplifield@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/eslint-config-simplifield/-/eslint-config-simplifield-4.3.0.tgz#ef6913a325d956a8a60ae152b1e4a2d829731859"
