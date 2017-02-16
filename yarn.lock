@@ -637,11 +637,11 @@ eslint-plugin-jsx-a11y@^2.2.3:
     jsx-ast-utils "^1.0.0"
     object-assign "^4.0.1"
 
-eslint-plugin-lodash@^1.10.3:
-  version "1.10.3"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-lodash/-/eslint-plugin-lodash-1.10.3.tgz#a341e3386b6eb4e4b7addcf43c3a7f944f38551d"
+eslint-plugin-lodash@^2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-lodash/-/eslint-plugin-lodash-2.3.5.tgz#d4fae9e7ae19ff2566bbf4bfd31c34c71b85da9f"
   dependencies:
-    lodash "^4.9.0"
+    lodash "^4.0.0"
 
 eslint-plugin-meteor@^4.0.1:
   version "4.0.1"
@@ -1120,7 +1120,7 @@ lodash.pickby@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.pickby/-/lodash.pickby-4.6.0.tgz#7dea21d8c18d7703a27c704c15d3b84a67e33aff"
 
-lodash@^4.0.0, lodash@^4.15.0, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.1, lodash@^4.9.0:
+lodash@^4.0.0, lodash@^4.15.0, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.1:
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.2.tgz#34a3055babe04ce42467b607d700072c7ff6bf42"
 
