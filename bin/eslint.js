@@ -23,6 +23,7 @@ var ESLINT_WARNING_SEVERITY = 1;
 var checks = require("../lib/checks");
 var validateConfig = require("../lib/validate_config");
 var computeFingerprint = require("../lib/compute_fingerprint");
+const ConfigUpgrader = require("../lib/config_upgrader");
 
 // a wrapper for emitting perf timing
 function runWithTiming(name, fn) {
@@ -234,6 +235,10 @@ function analyzeFiles() {
 
 if (validateConfig(options.configFile)) {
   console.error("ESLint is running with the " + cli.getConfigForFile(null).parser + " parser.");
+
+  for (const line of ConfigUpgrader.upgradeInstructions(analysisFiles, process.cwd())) {
+    console.error(line);
+  }
 
   analyzeFiles();
 } else {
