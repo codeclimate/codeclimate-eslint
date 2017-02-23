@@ -59,6 +59,14 @@ describe("ConfigUpgrader", function() {
 
 
   describe("#upgrade", function() {
+    it("doesn't fail with null config", function(done) {
+      let upgrader = new ConfigUpgrader();
+      expect(function() {
+        upgrader.upgrade(null);
+      }).to.not.throw(TypeError);
+      done();
+    });
+
     describe("ecmaFeatures", function() {
       [
         "arrowFunctions", "binaryLiterals", "blockBindings", "classes",
