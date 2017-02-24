@@ -236,7 +236,7 @@ function analyzeFiles() {
 if (validateConfig(options.configFile)) {
   console.error("ESLint is running with the " + cli.getConfigForFile(null).parser + " parser.");
 
-  for (const line of ConfigUpgrader.upgradeInstructions(analysisFiles, process.cwd())) {
+  for (const line of ConfigUpgrader.upgradeInstructions(options.configFile, analysisFiles, process.cwd())) {
     console.error(line);
   }
 
