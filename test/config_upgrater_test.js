@@ -55,6 +55,19 @@ describe("ConfigUpgrader", function() {
         });
       });
     });
+
+    it("doesn't care if there aren't any configs", function(done) {
+      temp.mkdir("code ", function(err, directory) {
+        if (err) { throw err; }
+
+        process.chdir(directory);
+
+        let report = ConfigUpgrader
+          .upgradeInstructions([directory + '/file.js'], directory);
+        expect(report).to.deep.eq([]);
+        done();
+      });
+    });
   });
 
 
