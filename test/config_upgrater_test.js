@@ -19,7 +19,7 @@ describe("ConfigUpgrader", function() {
 
 
           let report = ConfigUpgrader
-            .upgradeInstructions([directory + '/file.js'], directory);
+            .upgradeInstructions(null, [directory + '/file.js'], directory);
           expect(report).to.deep.eq([
             ".eslintrc appears to be incompatible with ESLint 3.",
             "To upgrade it do the following:\n",
@@ -47,7 +47,7 @@ describe("ConfigUpgrader", function() {
               if (err) { throw err; }
 
               let report = ConfigUpgrader
-                .upgradeInstructions([directory + '/file.js'], directory);
+                .upgradeInstructions(null, [directory + '/file.js'], directory);
               expect(report).to.deep.eq([]);
               done();
             });
@@ -56,16 +56,25 @@ describe("ConfigUpgrader", function() {
       });
     });
 
-    it("doesn't care if there aren't any configs", function(done) {
-      temp.mkdir("code ", function(err, directory) {
+    it("uses specific configs", function(done) {
+      temp.mkdir("code", function(err, directory) {
         if (err) { throw err; }
 
         process.chdir(directory);
 
-        let report = ConfigUpgrader
-          .upgradeInstructions([directory + '/file.js'], directory);
-        expect(report).to.deep.eq([]);
-        done();
+        const configPath = path.join(directory, "codeclimate-eslint");
+        fs.writeFile(configPath, "{}", function(err) {
+          if (err) { throw err; }
+
+          let report = ConfigUpgrader
+            .upgradeInstructions("codeclimate-eslint", [directory + '/file.js'], directory);
+          expect(report).to.deep.eq([
+            "codeclimate-eslint appears to be incompatible with ESLint 3.",
+            "To upgrade it do the following:\n",
+            "* Add .yml or .json to the config file name. Extension-less config file names are deprecated."
+          ]);
+          done();
+        });
       });
     });
   });
