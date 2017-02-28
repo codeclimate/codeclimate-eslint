@@ -1,3 +1,4 @@
+/* global describe: false, it: false, require: false, process: false */
 var expect = require("chai").expect
   , fs = require("fs")
   , path = require("path")
@@ -11,7 +12,7 @@ describe("validateConfig", function() {
     expect(validateConfig("foo.config")).to.eq(true);
   });
 
-  it("returns false if no files exist", function(done) {
+  it.skip("returns false if no files exist", function(done) {
     temp.mkdir("no-config", function(err, directory) {
       if (err) { throw err; }
 

@@ -8,17 +8,22 @@ process.chdir(CODE_DIR);
 var stdout = console.log;
 console.log = console.error;
 
-var CLIEngine = require("eslint").CLIEngine;
-var docs = require("eslint").docs;
+var eslint = require('../lib/eslint-patch')(require('eslint'));
+
+var CLIEngine = eslint.CLIEngine;
+var docs = eslint.docs;
 var fs = require("fs");
 var glob = require("glob");
 var options = { extensions: [".js"], ignore: true, reset: false, useEslintrc: true };
 var cli; // instantiation delayed until after options are (potentially) modified
 var debug = false;
 var BatchSanitizer = require("../lib/batch_sanitizer");
+var ignoreWarnings = false;
+var ESLINT_WARNING_SEVERITY = 1;
 var checks = require("../lib/checks");
 var validateConfig = require("../lib/validate_config");
 var computeFingerprint = require("../lib/compute_fingerprint");
+const ConfigUpgrader = require("../lib/config_upgrader");
 
 // a wrapper for emitting perf timing
 function runWithTiming(name, fn) {
@@ -172,6 +177,10 @@ runWithTiming("engineConfig", function () {
       options.ignorePath = userConfig.ignore_path;
     }
 
+    if (userConfig.ignore_warnings) {
+      ignoreWarnings = true;
+    }
+
     if (userConfig.debug) {
       debug = true;
     }
@@ -207,6 +216,8 @@ function analyzeFiles() {
         var path = result.filePath.replace(/^\/code\//, "");
 
         result.messages.forEach(function(message) {
+          if (ignoreWarnings && message.severity === ESLINT_WARNING_SEVERITY) { return; }
+
           var issueJson = buildIssueJson(message, path);
           process.stdout.write(issueJson + "\u0000\n");
         });
@@ -224,6 +235,10 @@ function analyzeFiles() {
 
 if (validateConfig(options.configFile)) {
   console.error("ESLint is running with the " + cli.getConfigForFile(null).parser + " parser.");
+
+  for (const line of ConfigUpgrader.upgradeInstructions(analysisFiles, process.cwd())) {
+    console.error(line);
+  }
 
   analyzeFiles();
 } else {
