@@ -503,6 +503,10 @@ eslint-config-hapi@^10.0.0:
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/eslint-config-hapi/-/eslint-config-hapi-10.0.0.tgz#9980affd76103ebc1fec92b45638345db19348f5"
 
+eslint-config-jquery@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-jquery/-/eslint-config-jquery-1.0.0.tgz#021dcecc26889d6d25ee59cdc83bce43deb73ce0"
+
 eslint-config-nightmare-mode@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/eslint-config-nightmare-mode/-/eslint-config-nightmare-mode-2.3.0.tgz#d725f18653c457568db8d90d9b70cf13bd0862ab"
@@ -621,6 +625,10 @@ eslint-plugin-import@^2.0.1:
 eslint-plugin-jasmine@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jasmine/-/eslint-plugin-jasmine-2.2.0.tgz#7135879383c39a667c721d302b9f20f0389543de"
+
+eslint-plugin-jquery@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jquery/-/eslint-plugin-jquery-1.1.1.tgz#b8f3d7a80c8cc8f93c40eca10adf7a54bbbb4bd6"
 
 eslint-plugin-jsdoc@^2.3.1:
   version "2.4.0"
