@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 COPY package.json yarn.lock /usr/src/app/
 
 RUN apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg && \
-    echo "deb http://nightly.yarnpkg.com/debian/ nightly main" | tee /etc/apt/sources.list.d/yarn-nightly.list && \
+    echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && \
     apt-get install -y git jq yarn && \
     yarn install && \
