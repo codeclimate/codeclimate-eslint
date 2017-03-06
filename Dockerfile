@@ -1,4 +1,4 @@
-FROM node:6.5.0-slim
+FROM node:6.10.0-slim
 MAINTAINER Code Climate <hello@codeclimate.com>
 
 WORKDIR /usr/src/app

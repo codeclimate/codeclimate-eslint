@@ -717,9 +717,9 @@ eslint-plugin-standard@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-2.0.1.tgz#3589699ff9c917f2c25f76a916687f641c369ff3"
 
-eslint-plugin-xogroup@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-xogroup/-/eslint-plugin-xogroup-1.0.5.tgz#c77ce5708195854340f32793a12dfc623665f933"
+eslint-plugin-xogroup@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-xogroup/-/eslint-plugin-xogroup-1.1.0.tgz#e5f726acc90e4856fa6049e02911da115bac9f04"
 
 eslint@^3.14.1:
   version "3.14.1"
