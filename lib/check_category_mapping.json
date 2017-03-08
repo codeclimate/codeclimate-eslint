@@ -321,6 +321,11 @@
   "mongodb/check-update-calls": "Bug Risk",
   "mongodb/no-replace": "Bug Risk",
 
+  "react-native/no-unused-styles": "Clarity",
+  "react-native/split-platform-components": "Clarity",
+  "react-native/no-inline-styles": "Clarity",
+  "react-native/no-color-literals": "Clarity",
+
   "security/detect-buffer-noassert": "Security",
   "security/detect-child-process": "Security",
   "security/detect-disable-mustache-escape": "Security",
