@@ -20,7 +20,7 @@
     "eslint-config-jquery": "^1.0.0",
     "eslint-config-loopback": "^8.0.0",
     "eslint-config-prettier": "^1.2.0",
-    "eslint-config-react-app": "^0.5.0",
+    "eslint-config-react-app": "^0.6.2",
     "eslint-config-semistandard": "^7.0.0",
     "eslint-config-simplifield": "^4.3.0",
     "eslint-config-standard": "^6.2.1",
