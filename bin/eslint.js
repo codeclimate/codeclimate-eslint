@@ -8,7 +8,8 @@ process.chdir(CODE_DIR);
 var stdout = console.log;
 console.log = console.error;
 
-var eslint = require('../lib/eslint-patch')(require('eslint'));
+
+var eslint = require('../lib/eslint-patch')();
 
 var CLIEngine = eslint.CLIEngine;
 var docs = require('../lib/docs')();
