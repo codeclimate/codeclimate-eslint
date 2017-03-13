@@ -57,7 +57,7 @@ describe("eslint-patch", function() {
     });
   });
 
-  describe("Avoid error processing pluging loading from extends configuration", function() {
+  describe("Avoid error processing plugin loading from extends configuration", function() {
     it("patches module resolver", function() {
       const resolve = ModuleResolver.prototype.resolve;
 
