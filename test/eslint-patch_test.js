@@ -57,7 +57,7 @@ describe("eslint-patch", function() {
     });
   });
 
-  describe("Avoid error processing plugin loading from extends configuration", function() {
+  describe("loading extends configuration", function() {
     it("patches module resolver", function() {
       const resolve = ModuleResolver.prototype.resolve;
 
@@ -65,9 +65,20 @@ describe("eslint-patch", function() {
       expect(ModuleResolver.prototype.resolve).to.not.eql(resolve);
     });
 
-    it("returns an empty plugin config instead of error", function() {
+    it("returns fake config for skipped plugins", function() {
       eslintPatch();
-      expect(new ModuleResolver().resolve('invalid-plugin')).to.match(/.+empty-plugin.js/);
+      Plugins.loadAll(['invalidplugin']);
+      expect(new ModuleResolver().resolve('eslint-plugin-invalidplugin')).to.match(/.+empty-plugin.js/);
+    });
+
+    it("does not allow bogus configuration on extends", function() {
+      eslintPatch();
+
+      function loadModule() {
+        return new ModuleResolver().resolve('eslint-plugin-bogus');
+      }
+
+      expect(loadModule).to.throw();
     });
   });
 
