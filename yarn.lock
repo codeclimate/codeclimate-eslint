@@ -538,6 +538,10 @@ eslint-config-angular@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/eslint-config-angular/-/eslint-config-angular-0.5.0.tgz#e0aae0132e39e7467df3f7547fec81a44d3685c4"
 
+eslint-config-apiconnect@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-apiconnect/-/eslint-config-apiconnect-2.0.1.tgz#3ecda36b505fe2bcfead88466050dd026b5b293b"
+
 eslint-config-ember@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/eslint-config-ember/-/eslint-config-ember-0.3.0.tgz#c65fb0da0f47261ca3a5a7e603a9363e5e9afd82"
@@ -556,6 +560,10 @@ eslint-config-hapi@^10.0.0:
 eslint-config-jquery@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/eslint-config-jquery/-/eslint-config-jquery-1.0.0.tgz#021dcecc26889d6d25ee59cdc83bce43deb73ce0"
+
+eslint-config-loopback@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-loopback/-/eslint-config-loopback-8.0.0.tgz#f142bca47122994a1a85f19cc2163511616b4152"
 
 eslint-config-nightmare-mode@^2.3.0:
   version "2.3.0"
@@ -600,6 +608,10 @@ eslint-config-standard-react@^4.0.0:
 eslint-config-standard@^6.2.1:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-6.2.1.tgz#d3a68aafc7191639e7ee441e7348739026354292"
+
+eslint-config-strongloop@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-strongloop/-/eslint-config-strongloop-2.1.0.tgz#763dd19adfce88d7b0051e6e255f1ae37783b4c6"
 
 eslint-import-resolver-node@^0.2.0:
   version "0.2.3"
