@@ -817,9 +817,9 @@ eslint-plugin-vue@^2.0.1:
     eslint-plugin-html "^2.0.0"
     eslint-plugin-react "^6.9.0"
 
-eslint-plugin-xogroup@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-xogroup/-/eslint-plugin-xogroup-1.1.0.tgz#e5f726acc90e4856fa6049e02911da115bac9f04"
+eslint-plugin-xogroup@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-xogroup/-/eslint-plugin-xogroup-1.2.0.tgz#36e34d0bb4b8320cea2d6a4d01be7b7302fe0bd2"
 
 eslint@3.12.0:
   version "3.12.0"
