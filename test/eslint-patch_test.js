@@ -65,20 +65,21 @@ describe("eslint-patch", function() {
       expect(ModuleResolver.prototype.resolve).to.not.eql(resolve);
     });
 
-    it("returns fake config for skipped plugins", function() {
+    it("returns fake config for skipped modules", function() {
       eslintPatch();
       Plugins.loadAll(['invalidplugin']);
       expect(new ModuleResolver().resolve('eslint-plugin-invalidplugin')).to.match(/.+empty-plugin.js/);
     });
 
-    it("does not allow bogus configuration on extends", function() {
+    it("does not warn user repeatedly about not supported modules", function() {
+      console.error = sinon.spy();
       eslintPatch();
 
-      function loadModule() {
-        return new ModuleResolver().resolve('eslint-plugin-bogus');
+      for(var i=0; i<3; i++) {
+        new ModuleResolver().resolve('eslint-plugin-bogus');
       }
 
-      expect(loadModule).to.throw();
+      expect(console.error.callCount).to.eql(1);
     });
   });
 
