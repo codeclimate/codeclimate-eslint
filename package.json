@@ -37,6 +37,7 @@
     "eslint-plugin-immutable": "^1.0.0",
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-import-order": "^2.1.4",
+    "eslint-plugin-inferno": "~6.9.2",
     "eslint-plugin-jasmine": "^2.2.0",
     "eslint-plugin-jquery": "^1.1.1",
     "eslint-plugin-jsdoc": "^2.3.1",
