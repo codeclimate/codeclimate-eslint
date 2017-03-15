@@ -64,7 +64,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
-    "sinon": "^1.17.7",
+    "sinon": "^2.0.0",
     "temp": "^0.8.3"
   },
   "scripts": {
