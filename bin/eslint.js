@@ -83,7 +83,7 @@ function buildIssueJson(message, path) {
     issue["fingerprint"] = fingerprint;
   }
 
-  return JSON.stringify(issue);
+  return JSON.stringify(issue).replace(/\u0000/g, "");
 }
 
 function isFileWithMatchingExtension(file, extensions) {
