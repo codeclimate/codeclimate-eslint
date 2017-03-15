@@ -97,12 +97,7 @@ function isFileWithMatchingExtension(file, extensions) {
 }
 
 function isFileIgnoredByLibrary(file) {
-  var ignored = cli.isPathIgnored(file);
-  if (ignored) {
-    var output = "File `" + file + "` ignored because of your .eslintignore file." + "\n";
-    process.stderr.write(output);
-  }
-  return ignored;
+  return cli.isPathIgnored(file);
 }
 
 function prunePathsWithinSymlinks(paths) {
