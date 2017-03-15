@@ -21,4 +21,14 @@ describe("computeFingerprint", function() {
 
     expect(fingerprint).to.be.null;
   });
+
+  it("returns null when the message isn't related to a specific function", function() {
+    var path = "path.js"
+      , rule = "complexity"
+      , message = "Your file is just overall way too complex";
+
+    var fingerprint = computeFingerprint(path, rule, message);
+
+    expect(fingerprint).to.be.null;
+  });
 });
