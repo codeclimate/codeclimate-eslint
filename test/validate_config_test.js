@@ -12,7 +12,7 @@ describe("validateConfig", function() {
     expect(validateConfig("foo.config")).to.eq(true);
   });
 
-  it.skip("returns false if no files exist", function(done) {
+  it("returns false if no files exist", function(done) {
     temp.mkdir("no-config", function(err, directory) {
       if (err) { throw err; }
 
