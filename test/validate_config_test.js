@@ -8,11 +8,16 @@ var expect = require("chai").expect
 temp.track();
 
 describe("validateConfig", function() {
-  it("returns true if given a file", function() {
-    expect(validateConfig("foo.config")).to.eq(true);
+  it("returns true if given a file", function(done) {
+    temp.open("eslint", function (err, info) {
+      if (err) throw err;
+
+      expect(validateConfig(info.path)).to.eq(true);
+      done();
+    });
   });
 
-  it.skip("returns false if no files exist", function(done) {
+  it("returns false if no files exist", function(done) {
     temp.mkdir("no-config", function(err, directory) {
       if (err) { throw err; }
 
