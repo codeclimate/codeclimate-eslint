@@ -16,4 +16,5 @@ test: image
 citest:
 	docker run --rm \
 		--workdir /usr/src/app \
+		--volume /tmp:/tmp \
 		$(IMAGE_NAME) npm run test
