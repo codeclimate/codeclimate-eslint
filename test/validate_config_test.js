@@ -9,7 +9,11 @@ temp.track();
 
 describe("validateConfig", function() {
   it("returns true if given a file", function() {
-    expect(validateConfig("foo.config")).to.eq(true);
+    temp.open("eslint", function (err, info) {
+      if (err) throw err;
+
+      expect(validateConfig(info.path)).to.eq(true);
+    });
   });
 
   it("returns false if no files exist", function(done) {
