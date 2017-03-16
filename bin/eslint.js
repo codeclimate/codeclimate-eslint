@@ -8,15 +8,11 @@ process.chdir(CODE_DIR);
 var stdout = console.log;
 console.log = console.error;
 
+function print(msg) {
+  process.stdout.write(msg);
+}
+
 const ESLint = require("../lib/eslint");
-const result = ESLint.run({ dir: CODE_DIR });
+const exitCode = ESLint.run(print, { dir: CODE_DIR });
 
-for(var i in result.stdout) {
-  process.stdout.write(result.stdout[i]);
-}
-
-for(var i in result.stderr) {
-  process.stderr.write(result.stderr[i]);
-}
-
-process.exit(result.code);
+process.exit(exitCode);
