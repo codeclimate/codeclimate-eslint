@@ -68,6 +68,8 @@
     "temp": "^0.8.3"
   },
   "scripts": {
+    "integration": "mocha integration",
+    "integration.debug": "mocha debug integration",
     "test": "mocha test",
     "test.debug": "mocha debug test"
   },
