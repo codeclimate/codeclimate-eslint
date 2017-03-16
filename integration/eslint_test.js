@@ -7,32 +7,44 @@ const STDOUT = console.log;
 const STDERR = console.error;
 
 describe("eslint integration", function() {
+
+  function executeConfig(configPath) {
+    const ESLint = require('../lib/eslint');
+    ESLint.run({ dir: __dirname, configPath: `${__dirname}/${configPath}`});
+  }
+
+  beforeEach(function() {
+    console.log = sinon.spy();
+    console.error = sinon.spy();
+  });
+
+  afterEach(function() {
+    console.log = STDOUT;
+    console.error = STDERR;
+  });
+
+
   describe("eslintrc has not supported plugins", function() {
-    before(function() {
-      console.log = sinon.spy();
-      console.error = sinon.spy();
-    });
-
-    after(function() {
-      console.log = STDOUT;
-      console.error = STDERR;
-    });
-
     it("does not raise any error", function() {
       this.timeout(3000);
 
-      var consoleStub = {
-        log: sinon.spy(),
-        error: sinon.spy()
-      };
-
-      function execute() {
-        const ESLint = require('../lib/eslint');
-        ESLint.run({ dir: __dirname, configPath: `${__dirname}/with_unsupported_plugins/config.json`});
+      function executeUnsupportedPlugins() {
+        executeConfig("with_unsupported_plugins/config.json");
       }
 
-      expect(execute).to.not.throw();
+      expect(executeUnsupportedPlugins).to.not.throw();
       expect(console.log.called).to.be.ok;
+    });
+  });
+
+  describe("validating config", function() {
+    it("warns about empty config but not raise error", function() {
+      function executeEmptyConfig() {
+        executeConfig("empty_config/config.json");
+      }
+
+      expect(executeEmptyConfig).to.not.throw();
+      sinon.assert.calledWith(console.error, 'No rules are configured. Make sure you have added a config file with rules enabled.');
     });
   });
 
