@@ -6,10 +6,12 @@ engines:
     config:
       languages:
       - javascript
+  shellcheck:
+    enabled: true
 ratings:
   paths:
-  - bin/eslint.js
-  - lib/*.js
+  - bin/
+  - lib/**/*.js
 exclude_paths:
 - "node_modules/**"
 - "test/**"
