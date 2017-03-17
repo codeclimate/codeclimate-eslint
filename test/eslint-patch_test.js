@@ -6,19 +6,21 @@ const ModuleResolver = require("eslint/lib/util/module-resolver");
 const eslintPatch = require("../lib/eslint-patch");
 
 describe("eslint-patch", function() {
-  let loadAll;
+  describe("patch", function() {
+    let loadAll;
 
-  before(function() {
-    loadAll = Plugins.loadAll;
-  });
+    before(function() {
+      loadAll = Plugins.loadAll;
+    });
 
-  after(function() {
-    Plugins.loadAll = loadAll;
-  });
+    after(function() {
+      Plugins.loadAll = loadAll;
+    });
 
-  it("intercepts plugins", function() {
-    eslintPatch();
-    expect(loadAll).to.not.equal(Plugins.loadAll, "Plugins.loadAll is not patched");
+    it("intercepts plugins", function() {
+      eslintPatch();
+      expect(loadAll).to.not.equal(Plugins.loadAll, "Plugins.loadAll is not patched");
+    });
   });
 
   describe("Plugins.loadAll", function() {
@@ -27,7 +29,6 @@ describe("eslint-patch", function() {
     });
 
     it("delegates each plugin to be loaded", function () {
-      Plugins.getAll = sinon.stub().returns([]);
       Plugins.load = sinon.spy();
 
       Plugins.loadAll([ "jasmine", "mocha"  ]);
@@ -36,13 +37,15 @@ describe("eslint-patch", function() {
       expect(Plugins.load.calledWith("mocha")).to.be.true;
     });
 
-    it("only load plugins once", function () {
-      Plugins.getAll = sinon.stub().returns([ "node" ]);
-      Plugins.load = sinon.spy();
+    it("only warns not supported once", function () {
+      console.error = sinon.spy();
+      Plugins.load = sinon.stub().throws();
 
       Plugins.loadAll([ "node" ]);
+      Plugins.loadAll([ "node" ]);
 
-      expect(Plugins.load.called).to.be.false;
+      sinon.assert.calledOnce(console.error);
+      sinon.assert.calledWith(console.error, "Module not supported: eslint-plugin-node");
     });
 
     it("does not raise exception for unsupported plugins", function() {

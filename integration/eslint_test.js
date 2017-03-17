@@ -1,7 +1,7 @@
 const sinon = require("sinon");
 const expect = require("chai").expect;
 
-global.gc = function(){};
+const ESLint = require('../lib/eslint');
 
 const STDOUT = console.log;
 const STDERR = console.error;
@@ -9,7 +9,6 @@ const STDERR = console.error;
 describe("eslint integration", function() {
 
   function executeConfig(configPath) {
-    const ESLint = require('../lib/eslint');
     ESLint.run({ dir: __dirname, configPath: `${__dirname}/${configPath}`});
   }
 
@@ -45,6 +44,21 @@ describe("eslint integration", function() {
 
       expect(executeEmptyConfig).to.not.throw();
       sinon.assert.calledWith(console.error, 'No rules are configured. Make sure you have added a config file with rules enabled.');
+    });
+  });
+
+  describe("extends plugin", function() {
+    it("loads the plugin and does not include repeated issues of not found rules", function() {
+      this.timeout(5000);
+      const output = [];
+      console.log = function(msg) {
+        output.push(msg);
+      }
+
+      executeConfig("extends_airbnb/config.json");
+
+      const ruleDefinitionIssues = output.filter(function(o) { return o.includes("Definition for rule"); });
+      expect(ruleDefinitionIssues).to.be.empty;
     });
   });
 
