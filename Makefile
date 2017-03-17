@@ -29,4 +29,4 @@ test: image
 citest:
 	docker run --rm \
 		--workdir /usr/src/app \
-		$(IMAGE_NAME) npm run test integration
+		$(IMAGE_NAME) sh -c "npm run test && npm run integration"
