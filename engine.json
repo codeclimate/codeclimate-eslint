@@ -1,0 +1,13 @@
+{
+  "name": "eslint",
+  "description": "A JavaScript/JSX linting utility.",
+  "maintainer": {
+    "name": "Code Climate",
+    "email": "hello@codeclimate.com"
+  },
+  "languages": [
+    "JavaScript"
+  ],
+  "version": "<generated>",
+  "spec_version": "0.3.1"
+}
