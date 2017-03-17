@@ -68,10 +68,10 @@
     "temp": "^0.8.3"
   },
   "scripts": {
-    "integration": "mocha integration",
-    "integration.debug": "mocha debug integration",
-    "test": "mocha test",
-    "test.debug": "mocha debug test"
+    "integration": "mocha -gc integration",
+    "integration.debug": "mocha -gc debug integration",
+    "test": "mocha -gc test",
+    "test.debug": "mocha -gc debug test"
   },
   "engine": "node >= 0.12.4"
 }
