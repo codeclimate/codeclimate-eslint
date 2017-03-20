@@ -5,8 +5,7 @@ set -e
 version=$1
 printf "Pulling docs from ESlint %s\n" "$version"
 
-git clone https://github.com/eslint/eslint.git /tmp/eslint
-(cd /tmp/eslint && git reset --hard "$version")
+git clone --quiet --branch "$version" https://github.com/eslint/eslint.git /tmp/eslint
 mkdir --parents ./lib/docs
 cp --recursive /tmp/eslint/docs/rules ./lib/docs/rules
 rm --force --recursive /tmp/eslint
