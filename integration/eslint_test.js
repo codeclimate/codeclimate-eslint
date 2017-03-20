@@ -53,7 +53,7 @@ describe("eslint integration", function() {
       const output = [];
       console.log = function(msg) {
         output.push(msg);
-      }
+      };
 
       executeConfig("extends_airbnb/config.json");
 
