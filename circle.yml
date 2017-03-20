@@ -29,6 +29,10 @@ deployment:
         --env GCR_JSON_KEY
         --volume /var/run/docker.sock:/var/run/docker.sock
         codeclimate/patrick push gcr
+  greenkeeper:
+    branch: /greenkeeper\/.*/
+    commands:
+      - yarn run update-yarn-lock-file
 
 notify:
   webhooks:
