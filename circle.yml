@@ -1,4 +1,6 @@
 machine:
+  node:
+    version: 6.1.0
   services:
     - docker
 
@@ -32,7 +34,7 @@ deployment:
   greenkeeper:
     branch: /greenkeeper\/.*/
     commands:
-      - yarn run update-yarn-lock-file
+      - bin/circleci-update-yarn-lock
 
 notify:
   webhooks:
