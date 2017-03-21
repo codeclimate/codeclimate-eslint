@@ -3,37 +3,29 @@ const expect = require("chai").expect;
 
 const ESLint = require('../lib/eslint');
 
-const STDOUT = console.log;
-const STDERR = console.error;
-
 describe("eslint integration", function() {
+  let consoleMock = {};
 
   function executeConfig(configPath) {
-    return ESLint.run({ dir: __dirname, configPath: `${__dirname}/${configPath}`});
+    return ESLint.run(consoleMock, { dir: __dirname, configPath: `${__dirname}/${configPath}`});
   }
 
   beforeEach(function() {
-    console.log = sinon.spy();
-    console.error = sinon.spy();
+    consoleMock.output = [];
+    consoleMock.log = function(msg) { consoleMock.output.push(msg) };
+    consoleMock.error = sinon.spy();
   });
-
-  afterEach(function() {
-    console.log = STDOUT;
-    console.error = STDERR;
-  });
-
 
   describe("eslintrc has not supported plugins", function() {
     it("does not raise any error", function() {
       this.timeout(3000);
-      var output = [];
 
       function executeUnsupportedPlugins() {
-        output = executeConfig("with_unsupported_plugins/config.json");
+        executeConfig("with_unsupported_plugins/config.json");
       }
 
       expect(executeUnsupportedPlugins).to.not.throw();
-      expect(output).to.not.be.empty;
+      expect(consoleMock.output).to.not.be.empty;
     });
   });
 
@@ -44,16 +36,16 @@ describe("eslint integration", function() {
       }
 
       expect(executeEmptyConfig).to.not.throw();
-      sinon.assert.calledWith(console.error, 'No rules are configured. Make sure you have added a config file with rules enabled.');
+      sinon.assert.calledWith(consoleMock.error, 'No rules are configured. Make sure you have added a config file with rules enabled.');
     });
   });
 
   describe("extends plugin", function() {
     it("loads the plugin and does not include repeated issues of not found rules", function() {
       this.timeout(5000);
-      const output = executeConfig("extends_airbnb/config.json");
+      executeConfig("extends_airbnb/config.json");
 
-      const ruleDefinitionIssues = output.filter(function(o) { return o.includes("Definition for rule"); });
+      const ruleDefinitionIssues = consoleMock.output.filter(function(o) { return o.includes("Definition for rule"); });
       expect(ruleDefinitionIssues).to.be.empty;
     });
   });
@@ -61,14 +53,11 @@ describe("eslint integration", function() {
   describe("output", function() {
     it("is not messed up", function() {
       this.timeout(5000);
-      const output = [];
-      console.log = function(msg) {
-        output.push(msg);
-      };
 
-      const result = executeConfig("output_mess/config.json");
+      executeConfig("output_mess/config.json");
 
-      expect(output).to.be.empty;
+      expect(consoleMock.output).to.have.lengthOf(1);
+      expect(consoleMock.output[0]).to.match(/^\{.*/);
     });
   });
 
