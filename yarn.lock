@@ -697,9 +697,13 @@ eslint-module-utils@^2.0.0:
     debug "2.2.0"
     pkg-dir "^1.0.0"
 
-eslint-plugin-angular@^1.3.0, eslint-plugin-angular@^1.6.2:
+eslint-plugin-angular@^1.3.0:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-angular/-/eslint-plugin-angular-1.6.2.tgz#c22fe4339e4a847391d9ffafd03c46ffaf352b3a"
+
+eslint-plugin-angular@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-angular/-/eslint-plugin-angular-2.0.0.tgz#6a0bdeb2910e27ee89a0b4d9b8250a7989234f88"
 
 eslint-plugin-babel@^4.1.1:
   version "4.1.1"
