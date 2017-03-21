@@ -785,9 +785,9 @@ eslint-plugin-jquery@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jquery/-/eslint-plugin-jquery-1.1.1.tgz#b8f3d7a80c8cc8f93c40eca10adf7a54bbbb4bd6"
 
-eslint-plugin-jsdoc@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-2.4.0.tgz#7c1eaa8e88fab04c807472c17b6ff9a1ac7e564d"
+eslint-plugin-jsdoc@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-3.0.0.tgz#6063b4f1c9801ad35a9a70ece75b0c9804a1e449"
   dependencies:
     comment-parser "^0.4.0"
     lodash "^4.5.1"
