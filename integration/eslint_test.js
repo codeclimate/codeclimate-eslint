@@ -9,7 +9,7 @@ const STDERR = console.error;
 describe("eslint integration", function() {
 
   function executeConfig(configPath) {
-    ESLint.run({ dir: __dirname, configPath: `${__dirname}/${configPath}`});
+    return ESLint.run({ dir: __dirname, configPath: `${__dirname}/${configPath}`});
   }
 
   beforeEach(function() {
@@ -26,13 +26,14 @@ describe("eslint integration", function() {
   describe("eslintrc has not supported plugins", function() {
     it("does not raise any error", function() {
       this.timeout(3000);
+      var output = [];
 
       function executeUnsupportedPlugins() {
-        executeConfig("with_unsupported_plugins/config.json");
+        output = executeConfig("with_unsupported_plugins/config.json");
       }
 
       expect(executeUnsupportedPlugins).to.not.throw();
-      expect(console.log.called).to.be.ok;
+      expect(output).to.not.be.empty;
     });
   });
 
@@ -50,15 +51,24 @@ describe("eslint integration", function() {
   describe("extends plugin", function() {
     it("loads the plugin and does not include repeated issues of not found rules", function() {
       this.timeout(5000);
+      const output = executeConfig("extends_airbnb/config.json");
+
+      const ruleDefinitionIssues = output.filter(function(o) { return o.includes("Definition for rule"); });
+      expect(ruleDefinitionIssues).to.be.empty;
+    });
+  });
+
+  describe("output", function() {
+    it("is not messed up", function() {
+      this.timeout(5000);
       const output = [];
       console.log = function(msg) {
         output.push(msg);
       };
 
-      executeConfig("extends_airbnb/config.json");
+      const result = executeConfig("output_mess/config.json");
 
-      const ruleDefinitionIssues = output.filter(function(o) { return o.includes("Definition for rule"); });
-      expect(ruleDefinitionIssues).to.be.empty;
+      expect(output).to.be.empty;
     });
   });
 
