@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "config": {
+    "config": "empty_config/eslintrc.yml",
+    "debug": "true"
+  },
+  "include_paths": [
+    "/usr/src/app/integration/empty_config/index.js"
+  ]
+}
