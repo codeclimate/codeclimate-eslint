@@ -29,6 +29,7 @@
     "eslint-plugin-ember-suave": "^1.0.0",
     "eslint-plugin-flowtype": "^2.21.0",
     "eslint-plugin-hapi": "^4.0.0",
+    "eslint-plugin-html": "^2.0.1",
     "eslint-plugin-immutable": "^1.0.0",
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-import-order": "^2.1.4",
