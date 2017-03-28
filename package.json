@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "babel-eslint": "^7.2.0",
-    "eslint": "^3.17.1",
+    "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-config-airbnb-base": "^11.1.1",
     "eslint-config-angular": "^0.5.0",
@@ -38,7 +38,7 @@
     "eslint-plugin-immutable": "^1.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-import-order": "^2.1.4",
-    "eslint-plugin-inferno": "^6.10.3",
+    "eslint-plugin-inferno": "^6.10.4",
     "eslint-plugin-jasmine": "^2.2.0",
     "eslint-plugin-jquery": "^1.1.1",
     "eslint-plugin-jsdoc": "^3.0.0",
