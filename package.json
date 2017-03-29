@@ -11,7 +11,7 @@
     "babel-eslint": "^7.2.0",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
-    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-config-airbnb-base": "^11.1.2",
     "eslint-config-angular": "^0.5.0",
     "eslint-config-apiconnect": "^2.0.1",
     "eslint-config-ember": "^0.3.0",
