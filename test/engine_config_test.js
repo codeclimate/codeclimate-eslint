@@ -1,4 +1,4 @@
-/* global describe: false, it: false, require: false, process: false */
+/* global describe: false, it: false, require: false, processs: false */
 var expect = require("chai").expect
   , fs = require("fs")
   , path = require("path")
@@ -9,14 +9,15 @@ temp.track();
 
 describe("EngineConfig", function() {
   function withConfig(config, done, cb) {
-    temp.open("engine-config-test", function (err, tmpFh) {
+    temp.mkdir("engine-config-test", function (err, dir) {
       if (err) throw err;
 
-      fs.write(tmpFh.fd, JSON.stringify(config));
-      fs.close(tmpFh.fd, function(err) {
+      process.chdir(dir);
+
+      fs.writeFile("config.json", JSON.stringify(config), function(err) {
         if (err) { throw err; }
 
-        cb(new EngineConfig(tmpFh.path));
+        cb(new EngineConfig("config.json"));
         done();
       });
     });
