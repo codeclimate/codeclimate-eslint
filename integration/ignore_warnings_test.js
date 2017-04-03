@@ -104,5 +104,4 @@ describe("ESlint user config for ignore_warnings", function() {
       expect(consoleMock.output[0]).to.match(/^\{.*/);
     });
   });
-
 });
