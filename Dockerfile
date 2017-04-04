@@ -13,14 +13,13 @@ RUN apt-get install -y git jq yarn && \
     yarn install && \
     version="v$(npm -j ls eslint | jq -r .dependencies.eslint.version)" && \
     bin/docs "$version" && \
-    cat engine.json | jq ".version = \"$version\"" > /tmp/engine.json && \
+    cat engine.json | jq ".version = \"$version\"" > /engine.json && \
     apt-get purge -y git jq yarn && \
     apt-get autoremove --yes
 
 RUN adduser --uid 9000 --gecos "" --disabled-password app
 COPY . ./
-RUN chown -R app:app ./ && \
-    mv /tmp/engine.json ./
+RUN chown -R app:app ./
 
 USER app
 
