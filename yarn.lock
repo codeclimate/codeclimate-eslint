@@ -660,9 +660,13 @@ eslint-config-simplifield@^5.0.1:
     eslint-plugin-node "4.2.1"
     eslint-plugin-promise "3.5.0"
 
-eslint-config-standard-jsx@^3.0.0, eslint-config-standard-jsx@^3.3.0:
+eslint-config-standard-jsx@^3.0.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/eslint-config-standard-jsx/-/eslint-config-standard-jsx-3.3.0.tgz#cab0801a15a360bf63facb97ab22fbdd88d8a5e0"
+
+eslint-config-standard-jsx@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-standard-jsx/-/eslint-config-standard-jsx-4.0.0.tgz#b4bb618085a42e57f6ff2bab17c93c57f97b03a8"
 
 eslint-config-standard-react@^4.3.0:
   version "4.3.0"
