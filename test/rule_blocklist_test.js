@@ -42,16 +42,16 @@ describe("ConfigUpgrader", function() {
     describe("rules", function() {
       [
         [
+          {rules: {"import/no-restricted-paths": 1}},
+          {rules: {"import/no-restricted-paths": "off"}}
+        ],
+        [
           {rules: {"import/no-unresolved": [2, "opt1", "opt2"]}},
           {rules: {"import/no-unresolved": "off"}}
         ],
         [
-          {rules: {"import/extensions": 2}},
-          {rules: {"import/extensions": "off"}}
-        ],
-        [
-          {rules: {"import/no-absolute-path": 1}},
-          {rules: {"import/no-absolute-path": "off"}}
+          {rules: {"node/no-hide-code-modules": 2}},
+          {rules: {"node/no-hide-code-modules": "off"}}
         ]
       ].forEach(function(example){
         let originalConfig = example[0];
