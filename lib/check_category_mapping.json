@@ -235,6 +235,11 @@
   "wrap-regex": "Clarity",
   "yoda": "Clarity",
 
+  "jest/no-disabled-tests": "Bug Risk",
+  "jest/no-focused-tests": "Clarity",
+  "jest/no-identical-title": "Clarity",
+  "jest/valid-expect": "Bug Risk",
+
   "jsdoc/check-param-names": "Clarity",
   "jsdoc/check-tag-names": "Clarity",
   "jsdoc/check-types": "Clarity",
