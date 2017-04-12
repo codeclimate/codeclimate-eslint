@@ -42,6 +42,20 @@ eslint:
     ignore_warnings: true
 ```
 
+#### `extensions`
+
+If you're using a plugin like `eslint-plugin-json` or `eslint-plugin-html`, you
+will want to set this value to make sure the appropriate files are included:
+
+```yaml
+eslint:
+  enabled: true
+  config:
+    extensions:
+    - .js
+    - .html
+```
+
 ### Need help?
 
 For help with ESLint, [check out their documentation][eslint-docs].
