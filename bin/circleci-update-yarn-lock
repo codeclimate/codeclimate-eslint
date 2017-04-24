@@ -2,7 +2,7 @@
 
 set -e
 
-git log --name-status HEAD^..HEAD | grep "fix(package): update" || { echo ">> not an update commit"; exit 0; }
+git log --name-status HEAD^..HEAD | grep "(package): update" || { echo ">> not an update commit"; exit 0; }
 
 yarn install --no-progress --pure-lockfile
 
@@ -16,5 +16,5 @@ email="greenkeeper[bot]@users.noreply.github.com"
 git config user.name "$name"
 git config user.email "$email"
 
-git commit --all --message "chore(package): update yarn.lock"
+git commit --all --message "update yarn.lock"
 git push --quiet origin "$CIRCLE_BRANCH"
