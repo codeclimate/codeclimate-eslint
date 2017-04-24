@@ -2,7 +2,7 @@
 
 set -e
 
-git log --name-status HEAD^..HEAD | grep "fix(package): update" || { echo ">> not an update commit"; exit 0; }
+git log --name-status HEAD^..HEAD | grep "(package): update" || { echo ">> not an update commit"; exit 0; }
 
 yarn install --no-progress --pure-lockfile
 
