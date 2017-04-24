@@ -16,14 +16,12 @@ image:
 
 integration: image
 	docker run -ti --rm \
-		--volume $(PWD):/code \
-		--workdir /code \
+		--workdir /usr/src/app \
 		$(IMAGE_NAME) npm run $(NPM_INTEGRATION_TARGET)
 
 test: image
 	docker run -ti --rm \
-		--volume $(PWD):/code \
-		--workdir /code \
+		--workdir /usr/src/app \
 		$(IMAGE_NAME) npm run $(NPM_TEST_TARGET)
 
 citest:
