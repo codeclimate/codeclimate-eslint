@@ -9,9 +9,16 @@ WORKDIR /usr/src/app
 COPY bin/docs ./bin/docs
 COPY engine.json package.json yarn.lock ./
 
+RUN mkdir /usr/local/node_modules
+ENV PREFIX=/usr/local/node_modules
+ENV PATH=$PREFIX/.bin:$PATH
+ENV NODE_PATH=$PREFIX
+ENV NPM_CONFIG_PREFIX=$PREFIX
+
 RUN apt-get install -y git jq yarn && \
-    yarn install && \
-    version="v$(npm -j ls eslint | jq -r .dependencies.eslint.version)" && \
+    yarn config set prefix $PREFIX && \
+    yarn install --modules-folder $PREFIX && \
+    version="v$(yarn list eslint | grep eslint | sed -n 's/.*@//p')" && \
     bin/docs "$version" && \
     cat engine.json | jq ".version = \"$version\"" > /engine.json && \
     apt-get purge -y git jq yarn && \
@@ -20,6 +27,7 @@ RUN apt-get install -y git jq yarn && \
 RUN adduser --uid 9000 --gecos "" --disabled-password app
 COPY . ./
 RUN chown -R app:app ./
+RUN chown -R app:app $PREFIX
 
 USER app
 
