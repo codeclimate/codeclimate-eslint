@@ -27,4 +27,4 @@ test: image
 citest:
 	docker run --rm \
 		--workdir /usr/src/app \
-		$(IMAGE_NAME) sh -c "npm run test && npm run integration"
+		$(IMAGE_NAME) sh -c "yarn check && npm run test && npm run integration"
