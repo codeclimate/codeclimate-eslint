@@ -22,6 +22,9 @@ describe("ConfigUpgrader", function() {
             .upgradeInstructions([directory + '/.eslintrc'], directory);
           expect(report).to.deep.eq([
             ".eslintrc appears to be incompatible with ESLint 3.",
+            "We've attempted to fix any compatibility issues.",
+            "Note: some of these warnings may originate in configurations you are extending.",
+            "If analysis succeeds, you have nothing to worry about.",
             "To upgrade it do the following:\n",
             "* Add .yml or .json to the config file name. Extension-less config file names are deprecated."
           ]);
