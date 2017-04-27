@@ -7,7 +7,7 @@ const RuleBlocklist = require("../lib/rule_blocklist")
 
 describe("ConfigUpgrader", function() {
   describe(".report", function() {
-    it("returns blocklist report", function(done) {
+    it("returns blocklist report with the blocked rules", function(done) {
       temp.mkdir("code ", function(err, directory) {
         if (err) { throw err; }
 
@@ -23,6 +23,23 @@ describe("ConfigUpgrader", function() {
             "",
             "* import/no-unresolved"
           ]);
+          done();
+        });
+      });
+    });
+
+    it("when no blocked rules, it returns meaningful blocklist report", function(done) {
+      temp.mkdir("code ", function(err, directory) {
+        if (err) { throw err; }
+
+        process.chdir(directory);
+
+        const configPath = path.join(directory, ".eslintrc");
+        fs.writeFile(configPath, '{"rules":{"foo/bar":2}}', function(err) {
+          if (err) { throw err; }
+
+          let report = RuleBlocklist.report([directory + '/.eslintrc']);
+          expect(report).to.deep.eq([]);
           done();
         });
       });
