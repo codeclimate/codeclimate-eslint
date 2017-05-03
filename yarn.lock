@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@br/eslint-plugin-laws-of-the-game@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@br/eslint-plugin-laws-of-the-game/-/eslint-plugin-laws-of-the-game-1.1.0.tgz#0d54b84ceb768303007bce291bcae6b2344b152f"
+  dependencies:
+    requireindex "~1.1.0"
+
 acorn-jsx@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-3.0.1.tgz#afdf9488fb1ecefc8348f6fb22f464e32a58b36b"
