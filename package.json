@@ -42,7 +42,7 @@
     "eslint-plugin-import-order": "^2.1.4",
     "eslint-plugin-inferno": "^6.10.4",
     "eslint-plugin-jasmine": "^2.2.0",
-    "eslint-plugin-jest": "^19.0.1",
+    "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-jquery": "^1.1.1",
     "eslint-plugin-jsdoc": "^3.0.0",
     "eslint-plugin-json": "^1.2.0",
