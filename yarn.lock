@@ -629,9 +629,9 @@ eslint-config-ember@^0.3.0:
     eslint-config-nightmare-mode "^2.3.0"
     object-assign "^4.0.1"
 
-eslint-config-google@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-google/-/eslint-config-google-0.7.1.tgz#5598f8498e9e078420f34b80495b8d959f651fb2"
+eslint-config-google@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-google/-/eslint-config-google-0.8.0.tgz#288532c2b7834d25def63d51fa5e18e6b9ac3a4d"
 
 eslint-config-hapi@^10.0.0:
   version "10.0.0"
