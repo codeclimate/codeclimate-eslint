@@ -33,6 +33,7 @@
     "eslint-plugin-babel": "^4.1.1",
     "eslint-plugin-ejs": "^0.0.2",
     "eslint-plugin-ember-suave": "^1.0.0",
+    "eslint-plugin-eslint-comments": "^1.0.1",
     "eslint-plugin-filenames": "^1.1.0",
     "eslint-plugin-flowtype": "^2.30.3",
     "eslint-plugin-hapi": "^4.0.0",
