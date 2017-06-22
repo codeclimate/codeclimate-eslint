@@ -247,11 +247,22 @@ balanced-match@^0.4.1:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-0.4.2.tgz#cb3f3e3c732dc0f01ee70b403f302e61d7709838"
 
+balanced-match@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
+
 brace-expansion@^1.0.0:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.6.tgz#7197d7eaa9b87e648390ea61fc66c84427420df9"
   dependencies:
     balanced-match "^0.4.1"
+    concat-map "0.0.1"
+
+brace-expansion@^1.1.7:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.8.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"
+  dependencies:
+    balanced-match "^1.0.0"
     concat-map "0.0.1"
 
 browser-stdout@1.3.0:
@@ -665,15 +676,16 @@ eslint-config-semistandard@^11.0.0:
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/eslint-config-semistandard/-/eslint-config-semistandard-11.0.0.tgz#44eef7cfdfd47219e3a7b81b91b540e880bb2615"
 
-eslint-config-simplifield@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-simplifield/-/eslint-config-simplifield-5.0.1.tgz#0af4c0791cde5e864100adf80266de9b7e23d84a"
+eslint-config-simplifield@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-simplifield/-/eslint-config-simplifield-6.0.0.tgz#291728699151dbeb173750489d9ab9f4e26b8623"
   dependencies:
     eslint-config-angular "0.5.0"
-    eslint-plugin-angular "2.2.0"
+    eslint-plugin-angular "2.4.2"
     eslint-plugin-mongodb "0.2.4"
-    eslint-plugin-node "4.2.1"
+    eslint-plugin-node "5.0.0"
     eslint-plugin-promise "3.5.0"
+    eslint-plugin-security "1.3.0"
 
 eslint-config-standard-jsx@^4.0.0:
   version "4.0.0"
@@ -708,9 +720,9 @@ eslint-module-utils@^2.0.0:
     debug "2.2.0"
     pkg-dir "^1.0.0"
 
-eslint-plugin-angular@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-angular/-/eslint-plugin-angular-2.2.0.tgz#d074fcd1438ce5df920a39ba4b52247ef46ed45b"
+eslint-plugin-angular@2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-angular/-/eslint-plugin-angular-2.4.2.tgz#42bc2d020edc83884f1cd82986019e056d166645"
 
 eslint-plugin-angular@^2.0.0:
   version "2.0.0"
@@ -872,7 +884,16 @@ eslint-plugin-mongodb@0.2.4, eslint-plugin-mongodb@^0.2.4:
   dependencies:
     yerror "^1.0.1"
 
-eslint-plugin-node@4.2.1, eslint-plugin-node@^4.2.1:
+eslint-plugin-node@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-5.0.0.tgz#948b1fb82e3f0a744e86fad19aa4f49537d246cc"
+  dependencies:
+    ignore "^3.3.3"
+    minimatch "^3.0.4"
+    resolve "^1.3.3"
+    semver "5.3.0"
+
+eslint-plugin-node@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-4.2.1.tgz#52e8e06595d0be63a25fdc237be5e42b69a46eaa"
   dependencies:
@@ -910,7 +931,7 @@ eslint-plugin-react@^6.10.3, eslint-plugin-react@^6.9.0:
     jsx-ast-utils "^1.3.4"
     object.assign "^4.0.4"
 
-eslint-plugin-security@^1.3.0:
+eslint-plugin-security@1.3.0, eslint-plugin-security@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-security/-/eslint-plugin-security-1.3.0.tgz#f106e2f6b9b81b757f8ee969d34456ef0e51dcea"
   dependencies:
@@ -1185,6 +1206,10 @@ htmlparser2@3.8.x, htmlparser2@^3.8.2:
 ignore@^3.0.11, ignore@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.2.0.tgz#8d88f03c3002a0ac52114db25d2c673b0bf1e435"
+
+ignore@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.3.tgz#432352e57accd87ab3110e82d3fea0e47812156d"
 
 imurmurhash@^0.1.4:
   version "0.1.4"
@@ -1512,6 +1537,12 @@ minimatch@^3.0.2, minimatch@^3.0.3, minimatch@~3.0.2:
   dependencies:
     brace-expansion "^1.0.0"
 
+minimatch@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
+  dependencies:
+    brace-expansion "^1.1.7"
+
 minimist@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
@@ -1640,6 +1671,10 @@ path-is-absolute@^1.0.0:
 path-is-inside@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/path-is-inside/-/path-is-inside-1.0.2.tgz#365417dede44430d1c11af61027facf074bdfc53"
+
+path-parse@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.5.tgz#3c1adf871ea9cd6c9431b6ea2bd74a0ff055c4c1"
 
 path-to-regexp@^1.7.0:
   version "1.7.0"
@@ -1789,6 +1824,12 @@ resolve-from@^1.0.0:
 resolve@^1.1.6, resolve@^1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
+
+resolve@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.3.3.tgz#655907c3469a8680dc2de3a275a8fdd69691f0e5"
+  dependencies:
+    path-parse "^1.0.5"
 
 restore-cursor@^1.0.1:
   version "1.0.1"
