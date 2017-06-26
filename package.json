@@ -52,7 +52,7 @@
     "eslint-plugin-meteor": "^4.0.1",
     "eslint-plugin-mocha": "^4.8.0",
     "eslint-plugin-mongodb": "^0.2.4",
-    "eslint-plugin-node": "^4.2.1",
+    "eslint-plugin-node": "^5.1.0",
     "eslint-plugin-prettier": "^2.0.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^6.10.3",
