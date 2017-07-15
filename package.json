@@ -34,7 +34,7 @@
     "eslint-plugin-ejs": "^0.0.2",
     "eslint-plugin-ember-suave": "^1.0.0",
     "eslint-plugin-filenames": "^1.1.0",
-    "eslint-plugin-flowtype": "^2.30.3",
+    "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-hapi": "^4.0.0",
     "eslint-plugin-html": "^2.0.3",
     "eslint-plugin-immutable": "^1.0.0",
