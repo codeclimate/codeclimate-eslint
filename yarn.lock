@@ -908,9 +908,9 @@ eslint-plugin-react-intl@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react-intl/-/eslint-plugin-react-intl-1.0.2.tgz#04a54d282665c67b7cab3bd7cdc2b4bc7908010e"
 
-eslint-plugin-react-native@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react-native/-/eslint-plugin-react-native-2.3.1.tgz#9ecd1df4f29c23a9a20c415c8e88466ff3724f0e"
+eslint-plugin-react-native@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-native/-/eslint-plugin-react-native-3.0.1.tgz#9058efdf8970d2b1f68e328f7f1c2b71831298f4"
 
 eslint-plugin-react@^6.10.3, eslint-plugin-react@^6.9.0:
   version "6.10.3"
