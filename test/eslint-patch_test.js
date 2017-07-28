@@ -10,16 +10,16 @@ describe("eslint-patch", function() {
     let loadAll;
 
     before(function() {
-      loadAll = Plugins.loadAll;
+      loadAll = Plugins.prototype.loadAll;
     });
 
     after(function() {
-      Plugins.loadAll = loadAll;
+      Plugins.prototype.loadAll = loadAll;
     });
 
     it("intercepts plugins", function() {
       eslintPatch();
-      expect(loadAll).to.not.equal(Plugins.loadAll, "Plugins.loadAll is not patched");
+      expect(loadAll).to.not.equal(Plugins.prototype.loadAll, "Plugins.loadAll is not patched");
     });
   });
 
@@ -29,33 +29,37 @@ describe("eslint-patch", function() {
     });
 
     it("delegates each plugin to be loaded", function () {
-      Plugins.load = sinon.spy();
+      let plugins = new Plugins();
+      plugins.load = sinon.spy();
 
-      Plugins.loadAll([ "jasmine", "mocha"  ]);
+      plugins.loadAll([ "jasmine", "mocha"  ]);
 
-      expect(Plugins.load.calledWith("jasmine")).to.be.true;
-      expect(Plugins.load.calledWith("mocha")).to.be.true;
+      expect(plugins.load.calledWith("jasmine")).to.be.true;
+      expect(plugins.load.calledWith("mocha")).to.be.true;
     });
 
     it("only warns not supported once", function () {
       console.error = sinon.spy();
-      Plugins.load = sinon.stub().throws();
+      let plugins = new Plugins();
+      plugins.load = sinon.stub().throws(new Error("Failed to load plugin eslint-plugin-node"));
 
-      Plugins.loadAll([ "node" ]);
-      Plugins.loadAll([ "node" ]);
+      plugins.loadAll([ "node" ]);
+      plugins.loadAll([ "node" ]);
 
       sinon.assert.calledOnce(console.error);
       sinon.assert.calledWith(console.error, "Module not supported: eslint-plugin-node");
     });
 
     it("does not raise exception for unsupported plugins", function() {
-      Plugins.getAll = sinon.stub().returns([]);
-      Plugins.load = sinon.stub().throws();
+      let plugins = new Plugins();
+      plugins.getAll = sinon.stub().returns([]);
+      plugins.load = sinon.stub().throws(new Error("Failed to load plugin eslint-plugin-unsupported-plugin"));
 
       function loadPlugin() {
-        Plugins.loadAll([ "unsupported-plugin" ]);
+        plugins.loadAll([ "unsupported-plugin" ]);
       }
 
+      loadPlugin();
       expect(loadPlugin).to.not.throw();
     });
   });
@@ -70,7 +74,8 @@ describe("eslint-patch", function() {
 
     it("returns fake config for skipped modules", function() {
       eslintPatch();
-      Plugins.loadAll(['invalidplugin']);
+      let plugins = new Plugins();
+      plugins.loadAll(['invalidplugin']);
       expect(new ModuleResolver().resolve('eslint-plugin-invalidplugin')).to.match(/.+empty-plugin.js/);
     });
 
