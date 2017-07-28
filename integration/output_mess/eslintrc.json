@@ -4,23 +4,8 @@
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
-      "arrowFunctions": true,
-      "blockBindings": true,
-      "classes": true,
-      "defaultParams": true,
-      "destructuring": true,
       "experimentalObjectRestSpread": true,
-      "forOf": true,
-      "generators": false,
-      "jsx": true,
-      "modules": true,
-      "objectLiteralComputedProperties": true,
-      "objectLiteralDuplicateProperties": false,
-      "objectLiteralShorthandMethods": true,
-      "objectLiteralShorthandProperties": true,
-      "spread": true,
-      "superInFunctions": true,
-      "templateStrings": true
+      "jsx": true
     }
   },
   "env": {
@@ -28,7 +13,8 @@
     "es6": true
   },
   "plugins": [
-    "react"
+    "react",
+    "import"
   ],
   "rules": {
     "strict": [
@@ -90,10 +76,10 @@
     "react/prop-types": 1,
     "react/sort-prop-types": 1,
     "react/react-in-jsx-scope": 0,
-    "react/require-extension": 1,
+    "import/extensions": 1,
     "react/self-closing-comp": 1,
     "react/sort-comp": 1,
-    "react/wrap-multilines": 1,
+    "react/jsx-wrap-multilines": 1,
     "comma-dangle": 0,
     "no-cond-assign": [
       2,
