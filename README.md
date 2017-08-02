@@ -15,6 +15,19 @@ file][config].
 
 [config]: http://eslint.org/docs/user-guide/configuring#using-configuration-files
 
+### Channels
+
+There are a few major versions of ESLint out there. The latest major version
+is 4. This engine provides a few [channels][] for major versions of ESLint.
+
+This branch is for the `latest` (i.e. default) channel and provides ESLint 3
+support.
+
+For ESLint 4, please see [`channel/eslint-4`][] branch.
+
+[channels]: https://docs.codeclimate.com/docs/engine-channels
+[`channel/eslint-4`]: https://github.com/codeclimate/codeclimate-eslint/tree/channel/eslint-4
+
 ### Installation
 
 1. If you haven't already, [install the Code Climate CLI][CLI]
