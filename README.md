@@ -56,6 +56,20 @@ eslint:
     - .html
 ```
 
+#### `sanitize_batch`
+
+By default, this engine will skip files that appear to be minified (average line
+length over 100). This feature can be disabled to include all files for
+analysis.
+
+```yaml
+eslint:
+  enabled: true
+  config:
+    sanitize_batch: false
+```
+
+
 ### Need help?
 
 For help with ESLint, [check out their documentation][eslint-docs].
