@@ -27,31 +27,63 @@ describe("EngineConfig", function() {
     describe("ignoreWarnings", function() {
       it("is false by default", function(done) {
         withConfig({}, done, function(engine_config) {
-          expect(engine_config.userConfig().ignoreWarnings()).to.eq(false);
+          expect(engine_config.userConfig.ignoreWarnings).to.eq(false);
         });
       });
 
       it("is false when specified", function(done) {
         withConfig({ config: { ignore_warnings: false } }, done, function(engine_config) {
-          expect(engine_config.userConfig().ignoreWarnings()).to.eq(false);
+          expect(engine_config.userConfig.ignoreWarnings).to.eq(false);
         });
       });
 
       it("is false when specified as string", function(done) {
         withConfig({ config: { ignore_warnings: "false" } }, done, function(engine_config) {
-          expect(engine_config.userConfig().ignoreWarnings()).to.eq(false);
+          expect(engine_config.userConfig.ignoreWarnings).to.eq(false);
         });
       });
 
       it("is true when specified", function(done) {
         withConfig({ config: { ignore_warnings: true } }, done, function(engine_config) {
-          expect(engine_config.userConfig().ignoreWarnings()).to.eq(true);
+          expect(engine_config.userConfig.ignoreWarnings).to.eq(true);
         });
       });
 
       it("is true when specified as string", function(done) {
         withConfig({ config: { ignore_warnings: "true" } }, done, function(engine_config) {
-          expect(engine_config.userConfig().ignoreWarnings()).to.eq(true);
+          expect(engine_config.userConfig.ignoreWarnings).to.eq(true);
+        });
+      });
+    });
+
+    describe("sanitizeBatch", function() {
+      it("is true by default", function(done) {
+        withConfig({}, done, function(engine_config) {
+          expect(engine_config.userConfig.sanitizeBatch).to.eq(true);
+        });
+      });
+
+      it("is false when specified", function(done) {
+        withConfig({ config: { sanitize_batch: false } }, done, function(engine_config) {
+          expect(engine_config.userConfig.sanitizeBatch).to.eq(false);
+        });
+      });
+
+      it("is false when specified as string", function(done) {
+        withConfig({ config: { sanitize_batch: "false" } }, done, function(engine_config) {
+          expect(engine_config.userConfig.sanitizeBatch).to.eq(false);
+        });
+      });
+
+      it("is true when specified", function(done) {
+        withConfig({ config: { sanitize_batch: true } }, done, function(engine_config) {
+          expect(engine_config.userConfig.sanitizeBatch).to.eq(true);
+        });
+      });
+
+      it("is true when specified as string", function(done) {
+        withConfig({ config: { sanitize_batch: "true" } }, done, function(engine_config) {
+          expect(engine_config.userConfig.sanitizeBatch).to.eq(true);
         });
       });
     });
