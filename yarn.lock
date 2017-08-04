@@ -939,6 +939,12 @@ eslint-plugin-vue@^2.0.1:
     eslint-plugin-html "^2.0.0"
     eslint-plugin-react "^6.9.0"
 
+eslint-plugin-wordpress@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-wordpress/-/eslint-plugin-wordpress-0.1.0.tgz#3e696f09326d9915e266881ab148fed281611762"
+  dependencies:
+    requireindex "~1.1.0"
+
 eslint-plugin-xogroup@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-xogroup/-/eslint-plugin-xogroup-1.2.0.tgz#36e34d0bb4b8320cea2d6a4d01be7b7302fe0bd2"
