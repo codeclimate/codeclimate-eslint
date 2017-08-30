@@ -716,9 +716,9 @@ eslint-plugin-angular@2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-angular/-/eslint-plugin-angular-2.2.0.tgz#d074fcd1438ce5df920a39ba4b52247ef46ed45b"
 
-eslint-plugin-angular@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-angular/-/eslint-plugin-angular-2.0.0.tgz#6a0bdeb2910e27ee89a0b4d9b8250a7989234f88"
+eslint-plugin-angular@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-angular/-/eslint-plugin-angular-3.1.1.tgz#b4ea24daa83c375820b59684b5f1adb474b5d946"
 
 eslint-plugin-babel@^4.1.1:
   version "4.1.1"
