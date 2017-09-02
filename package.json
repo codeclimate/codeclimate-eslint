@@ -21,7 +21,7 @@
     "eslint-config-jquery": "^1.0.1",
     "eslint-config-loopback": "^8.0.0",
     "eslint-config-nightmare-mode": "^2.3.0",
-    "eslint-config-prettier": "^1.5.0",
+    "eslint-config-prettier": "^2.4.0",
     "eslint-config-react-app": "^0.6.2",
     "eslint-config-semistandard": "^11.0.0",
     "eslint-config-simplifield": "^5.0.1",
