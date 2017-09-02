@@ -765,11 +765,18 @@ eslint-plugin-hapi@^4.0.0:
     hapi-scope-start "2.x.x"
     no-arrowception "1.x.x"
 
-eslint-plugin-html@^2.0.0, eslint-plugin-html@^2.0.3:
+eslint-plugin-html@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-html/-/eslint-plugin-html-2.0.3.tgz#7c89883ab0c85fa5d28b666a14a4e906aa90b897"
   dependencies:
     htmlparser2 "^3.8.2"
+
+eslint-plugin-html@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-html/-/eslint-plugin-html-3.2.1.tgz#4289d38245f3d95134d22c17b1894d78db92c572"
+  dependencies:
+    htmlparser2 "^3.8.2"
+    semver "^5.4.1"
 
 eslint-plugin-immutable@^1.0.0:
   version "1.0.0"
@@ -1856,6 +1863,10 @@ samsam@1.x, samsam@^1.1.3:
 semver@5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
+
+semver@^5.4.1:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
 
 shelljs@0.3.x:
   version "0.3.0"
