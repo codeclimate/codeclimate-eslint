@@ -949,6 +949,12 @@ eslint-plugin-xogroup@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-xogroup/-/eslint-plugin-xogroup-1.2.0.tgz#36e34d0bb4b8320cea2d6a4d01be7b7302fe0bd2"
 
+eslint-plugin-xss@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-xss/-/eslint-plugin-xss-0.1.8.tgz#3f25d4e57aac89de9e12ad223842efc15c0e3e6d"
+  dependencies:
+    requireindex "~1.1.0"
+
 eslint@^3.19.0:
   version "3.19.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.19.0.tgz#c8fc6201c7f40dd08941b87c085767386a679acc"
