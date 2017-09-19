@@ -35,6 +35,7 @@
     "eslint-plugin-ejs": "^0.0.2",
     "eslint-plugin-ember": "^4.0.0",
     "eslint-plugin-ember-suave": "^1.0.0",
+    "eslint-plugin-eslint-comments": "^1.0.1",
     "eslint-plugin-filenames": "^1.1.0",
     "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-hapi": "^4.0.0",
