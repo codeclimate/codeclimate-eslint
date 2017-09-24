@@ -25,8 +25,7 @@ support.
 
 For stable ESLint 3 please see [`master`][] branch.
 
-[`channels/eslint-4`]: https://github.com/codeclimate/codeclimate-eslint/tree/master
-
+[`master`]: https://github.com/codeclimate/codeclimate-eslint/tree/master
 
 ### Installation
 
