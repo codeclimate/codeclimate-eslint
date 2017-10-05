@@ -962,6 +962,10 @@ eslint-plugin-react@^6.10.3, eslint-plugin-react@^6.9.0:
     jsx-ast-utils "^1.3.4"
     object.assign "^4.0.4"
 
+eslint-plugin-rulesdir@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-rulesdir/-/eslint-plugin-rulesdir-0.1.0.tgz#ad144d7e98464fda82963eff3fab331aecb2bf08"
+
 eslint-plugin-scanjs-rules@^0.1.5:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/eslint-plugin-scanjs-rules/-/eslint-plugin-scanjs-rules-0.1.8.tgz#acb26a7ff289b33f177c8c12c3046612d58e0896"
