@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@br/eslint-plugin-laws-of-the-game@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@br/eslint-plugin-laws-of-the-game/-/eslint-plugin-laws-of-the-game-1.1.0.tgz#0d54b84ceb768303007bce291bcae6b2344b152f"
+"@br/eslint-plugin-laws-of-the-game@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@br/eslint-plugin-laws-of-the-game/-/eslint-plugin-laws-of-the-game-1.1.1.tgz#f2089734544891f3cb9f6b8a7cf096104adda613"
   dependencies:
     requireindex "~1.1.0"
 
@@ -604,13 +604,13 @@ debug@2.6.0:
   dependencies:
     ms "0.7.2"
 
-debug@^2.1.1, debug@^2.2.0:
+debug@^2.1.1:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.3.3.tgz#40c453e67e6e13c901ddec317af8986cda9eff8c"
   dependencies:
     ms "0.7.2"
 
-debug@^2.6.8:
+debug@^2.2.0, debug@^2.6.8:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -2755,11 +2755,7 @@ resolve-from@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-1.0.1.tgz#26cbfe935d1aeeeabb29bc3fe5aeb01e93d44226"
 
-resolve@^1.1.6, resolve@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
-
-resolve@^1.2.0:
+resolve@^1.1.6, resolve@^1.1.7, resolve@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.4.0.tgz#a75be01c53da25d934a98ebd0e4c4a7312f92a86"
   dependencies:
