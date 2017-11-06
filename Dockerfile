@@ -22,7 +22,7 @@ RUN apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg && \
     yarn config set prefix $PREFIX && \
     yarn install --modules-folder $PREFIX && \
     chown -R app:app $PREFIX && \
-    version="v$(yarn list eslint | grep eslint | sed -n 's/.*@//p')" && \
+    version="v$(yarn list eslint --depth=0 | grep eslint | sed -n 's/.*@//p')" && \
     bin/docs "$version" && \
     cat engine.json | jq ".version = \"$version\"" > /engine.json && \
     apt-get purge -y git jq yarn && \
