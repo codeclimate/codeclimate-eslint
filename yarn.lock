@@ -1301,6 +1301,10 @@ eslint-plugin-sorting@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-sorting/-/eslint-plugin-sorting-0.3.0.tgz#acf43ca88f34b42ba3d0f6bf0e0c50485a20f60d"
 
+eslint-plugin-xogroup@*:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-xogroup/-/eslint-plugin-xogroup-2.1.0.tgz#11bc2b069b85b2ffa31376552b44a3f773b8e657"
+
 eslint-restricted-globals@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/eslint-restricted-globals/-/eslint-restricted-globals-0.1.1.tgz#35f0d5cbc64c2e3ed62e93b4b1a7af05ba7ed4d7"
