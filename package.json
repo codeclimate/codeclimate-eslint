@@ -55,7 +55,7 @@
     "eslint-plugin-no-unsafe-innerhtml": "^1.0.16",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-prettier": "2.3.1",
-    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-react-native": "^3.1.0",
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-sorting": "^0.3.0",
