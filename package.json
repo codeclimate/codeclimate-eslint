@@ -90,6 +90,7 @@
     "eslint-plugin-wordpress": "^0.1.0",
     "eslint-plugin-xogroup": "^1.2.0",
     "eslint-plugin-xss": "^0.1.8",
+	"eslint-plugin-vue": "^4.0.0",
     "glob": "^7.0.6",
     "prettier": "^1.2.2"
   },
