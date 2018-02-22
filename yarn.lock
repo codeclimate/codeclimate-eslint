@@ -1150,6 +1150,10 @@ eslint-plugin-ember@^4.5.0:
     require-folder-tree "^1.4.5"
     snake-case "^2.1.0"
 
+eslint-plugin-es5@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-es5/-/eslint-plugin-es5-1.2.0.tgz#22e1e7d5681b3a2f2588247bc9ca51dbfee6f6e9"
+
 eslint-plugin-eslint-comments@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-eslint-comments/-/eslint-plugin-eslint-comments-1.0.1.tgz#9d4056308a1a6c3681c2ef420ae7f243372930d7"
