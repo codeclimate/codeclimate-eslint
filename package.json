@@ -9,7 +9,7 @@
     "url": "http://github.com/codeclimate/codeclimate-eslint.git"
   },
   "dependencies": {
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^8.2.2",
     "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.0.0",
