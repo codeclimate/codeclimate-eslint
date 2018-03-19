@@ -49,7 +49,7 @@
     "eslint-plugin-backbone": "^2.1.1",
     "eslint-plugin-drupal": "^0.3.1",
     "eslint-plugin-ejs": "^0.0.2",
-    "eslint-plugin-ember": "^4.5.0",
+    "eslint-plugin-ember": "^5.1.0",
     "eslint-plugin-ember-suave": "^1.0.0",
     "eslint-plugin-es5": "^1.2.0",
     "eslint-plugin-eslint-comments": "^1.0.1",
