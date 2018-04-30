@@ -8,7 +8,7 @@
     "url": "http://github.com/codeclimate/codeclimate-eslint.git"
   },
   "dependencies": {
-    "@br/eslint-plugin-laws-of-the-game": "^1.1.1",
+    "@br/eslint-plugin-laws-of-the-game": "^1.3.0",
     "babel-eslint": "^7.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
