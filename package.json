@@ -47,7 +47,7 @@
     "eslint-plugin-jasmine": "^2.8.4",
     "eslint-plugin-jest": "^21.1.0",
     "eslint-plugin-jsdoc": "^3.1.2",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-lodash": "^2.4.5",
     "eslint-plugin-meteor": "^4.1.4",
     "eslint-plugin-mocha": "^4.11.0",
