@@ -38,6 +38,7 @@
     "eslint-import-resolver-node": "^0.3.1",
     "eslint-import-resolver-webpack": "^0.10.1",
     "eslint-plugin-angular": "^3.1.1",
+    "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-backbone": "^2.1.1",
     "eslint-plugin-drupal": "^0.3.1",
     "eslint-plugin-ember": "^4.5.0",
