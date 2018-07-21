@@ -1010,6 +1010,10 @@ eslint-config-vue@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/eslint-config-vue/-/eslint-config-vue-2.0.2.tgz#a3ab1004899e49327a94c63e24d47a396b2f4848"
 
+eslint-config-will-robinson@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-will-robinson/-/eslint-config-will-robinson-1.1.2.tgz#6d811d8717ab1ff5db62e9f859927ea29a59e734"
+
 eslint-config-xo-react@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/eslint-config-xo-react/-/eslint-config-xo-react-0.14.0.tgz#eaa3ecc14d3860b495f64dfc19a8674d21a93d40"
