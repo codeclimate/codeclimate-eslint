@@ -1071,6 +1071,12 @@ eslint-plugin-backbone@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-backbone/-/eslint-plugin-backbone-2.1.1.tgz#2188a3fb2cefdfd57ec5eb898eb3928bae428f73"
 
+eslint-plugin-cypress@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-cypress/-/eslint-plugin-cypress-2.0.1.tgz#647e942cacbfd71b0f1a1ed6978472fbd475c60a"
+  dependencies:
+    globals "^11.0.1"
+
 eslint-plugin-drupal@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-drupal/-/eslint-plugin-drupal-0.3.1.tgz#85a800fb3509df236eee08540e8abfbde733cce5"

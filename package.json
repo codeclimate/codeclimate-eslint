@@ -40,6 +40,7 @@
     "eslint-plugin-angular": "^3.1.1",
     "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-backbone": "^2.1.1",
+    "eslint-plugin-cypress": "^2.0.1",
     "eslint-plugin-drupal": "^0.3.1",
     "eslint-plugin-ember": "^4.5.0",
     "eslint-plugin-es5": "^1.2.0",
