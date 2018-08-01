@@ -1131,6 +1131,10 @@ eslint-plugin-backbone@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-backbone/-/eslint-plugin-backbone-2.1.1.tgz#2188a3fb2cefdfd57ec5eb898eb3928bae428f73"
 
+eslint-plugin-chai-friendly@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-chai-friendly/-/eslint-plugin-chai-friendly-0.4.1.tgz#9eeb17f92277ba80bb64f0e946c6936a3ae707b4"
+
 eslint-plugin-coffeescript@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-coffeescript/-/eslint-plugin-coffeescript-1.0.0.tgz#088fdc25360b7d67042fbf0f41e0cf0c3d6850cb"
