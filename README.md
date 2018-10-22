@@ -101,28 +101,27 @@ available in the container.
 * eslint-config-es5
 * eslint-config-es6
 * eslint-config-google
+* eslint-config-hapi
 * eslint-config-jquery
 * eslint-config-loopback
 * eslint-config-nightmare-mode
 * eslint-config-nodesecurity
 * eslint-config-prettier
+* eslint-config-react-app
 * eslint-config-secure
 * eslint-config-signavio
 * eslint-config-signavio-test
+* eslint-config-simplifield
+* eslint-config-standard
 * eslint-config-standard
 * eslint-config-standard-jsx
 * eslint-config-standard-react
+* eslint-config-strongloop
 * eslint-config-vue
 * eslint-config-will-robinson
 * eslint-config-xo
 * eslint-config-xo-react
 * eslint-config-xo-space
-* eslint-config-strongloop
-* eslint-config-hapi
-* eslint-config-react-app
-* eslint-config-simplifield
-* eslint-config-standard
-
 
 #### Plugins
 
@@ -171,10 +170,12 @@ the major version is specified. You may need to update your configuration to
 properly use the plugins.
 
 * babel-eslint v10
-* eslint-plugin-html v4
+* eslint-config-react-app v3
 * eslint-config-standard v12
 * eslint-config-standard-jsx v6
 * eslint-config-standard-react v7
+* eslint-plugin-html v4
+* eslint-plugin-inferno v7
 * eslint-plugin-lodash v3
 * eslint-plugin-meteor v5
 * eslint-plugin-mocha v5
@@ -191,8 +192,9 @@ Not all packages have been updated to support ESLint 5 yet.
 They were available in the `latest` (`eslint-3`) channel but are temporarily
 removed from `eslint-5` channel.
 
-* eslint-config-secure
+* @br/eslint-plugin-laws-of-the-game
 * eslint-config-apiconnect
+* eslint-config-secure
 * eslint-config-semistandard
 * eslint-config-strongloop
 * eslint-plugin-babel
@@ -204,7 +206,6 @@ removed from `eslint-5` channel.
 * eslint-plugin-immutable
 * eslint-plugin-import-order
 * eslint-plugin-lodash
-* @br/eslint-plugin-laws-of-the-game
 * eslint-plugin-mongodb
 * eslint-plugin-react-intl
 * eslint-plugin-security
