@@ -108,7 +108,6 @@ available in the container.
 * eslint-config-nodesecurity
 * eslint-config-prettier
 * eslint-config-react-app
-* eslint-config-secure
 * eslint-config-signavio
 * eslint-config-signavio-test
 * eslint-config-simplifield
@@ -194,6 +193,7 @@ removed from `eslint-5` channel.
 
 * @br/eslint-plugin-laws-of-the-game
 * eslint-config-apiconnect
+* eslint-config-secure
 * eslint-config-semistandard
 * eslint-config-strongloop
 * eslint-plugin-babel
