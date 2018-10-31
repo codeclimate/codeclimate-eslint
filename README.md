@@ -194,7 +194,6 @@ removed from `eslint-5` channel.
 
 * @br/eslint-plugin-laws-of-the-game
 * eslint-config-apiconnect
-* eslint-config-secure
 * eslint-config-semistandard
 * eslint-config-strongloop
 * eslint-plugin-babel
