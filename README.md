@@ -18,9 +18,9 @@ file][config].
 ### Channels
 
 There are a few major versions of ESLint out there. The latest major version
-is 4. This engine provides a few channels for major versions of ESLint.
+is 5. This engine provides a few channels for major versions of ESLint.
 
-This branch is for the `eslint-4` channel provides experimental ESLint 4
+This branch is for the `eslint-5` channel provides experimental ESLint 5
 support.
 
 For stable ESLint 3 please see [`master`][] branch.
