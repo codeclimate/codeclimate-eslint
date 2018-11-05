@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 2018,
     "sourceType": "module",
     "ecmaFeatures": {
       "arrowFunctions": true,
@@ -9,7 +9,6 @@
       "classes": true,
       "defaultParams": true,
       "destructuring": true,
-      "experimentalObjectRestSpread": true,
       "forOf": true,
       "generators": false,
       "jsx": true,

@@ -20,7 +20,7 @@ file][config].
 There are a few major versions of ESLint out there. The latest major version
 is 4. This engine provides a few channels for major versions of ESLint.
 
-This branch is for the `eslint-4` channel provides experimental ESLint 4
+This branch is for the `eslint-5` channel provides experimental ESLint 5
 support.
 
 For stable ESLint 3 please see [`master`][] branch.
@@ -95,76 +95,119 @@ available in the container.
 * eslint-config-airbnb
 * eslint-config-airbnb-base
 * eslint-config-angular
+* eslint-config-dbk
+* eslint-config-drupal
 * eslint-config-ember
+* eslint-config-es5
+* eslint-config-es6
 * eslint-config-google
 * eslint-config-hapi
 * eslint-config-jquery
 * eslint-config-loopback
 * eslint-config-nightmare-mode
+* eslint-config-nodesecurity
 * eslint-config-prettier
 * eslint-config-react-app
-* eslint-config-semistandard
+* eslint-config-signavio
+* eslint-config-signavio-test
 * eslint-config-simplifield
+* eslint-config-standard
 * eslint-config-standard
 * eslint-config-standard-jsx
 * eslint-config-standard-react
-
+* eslint-config-strongloop
+* eslint-config-vue
+* eslint-config-will-robinson
+* eslint-config-xo
+* eslint-config-xo-react
+* eslint-config-xo-space
 
 #### Plugins
 
-Note that some plugins have been bumped one or more major versions up. For those
-the major version is specified. You may need to update your configureation to
-properly use the plugins.
-
-* babel-eslint v8
 * eslint-plugin-angular
-* eslint-plugin-html v3
+* eslint-plugin-babel
+* eslint-plugin-backbone
+* eslint-plugin-chai-friendly
+* eslint-plugin-cypress
+* eslint-plugin-drupal
+* eslint-plugin-ember
+* eslint-plugin-es5
+* eslint-plugin-flowtype
+* eslint-plugin-html
 * eslint-plugin-import
+* eslint-plugin-inferno
 * eslint-plugin-jasmine
 * eslint-plugin-jest
-* eslint-plugin-jsx-a11y v5
+* eslint-plugin-jquery
+* eslint-plugin-jsdoc
+* eslint-plugin-jsdoc
+* eslint-plugin-json
+* eslint-plugin-jsx-a11y
+* eslint-plugin-lodash
+* eslint-plugin-lodash-fp
 * eslint-plugin-meteor
 * eslint-plugin-mocha
-* eslint-plugin-node v5
-* eslint-plugin-react v7
-* eslint-plugin-react-native v3
+* eslint-plugin-mongodb
+* eslint-plugin-no-only-tests
+* eslint-plugin-no-unsafe-innerhtml
+* eslint-plugin-node
+* eslint-plugin-prettier
+* eslint-plugin-promise
+* eslint-plugin-ramda
+* eslint-plugin-react
+* eslint-plugin-react-native
+* eslint-plugin-security
+* eslint-plugin-sorting
+* eslint-plugin-standard
+* eslint-plugin-vue
+* eslint-plugin-xogroup
 
+##### Plugins Major Version Bump
+
+Note that some plugins have been bumped one or more major versions up. For those
+the major version is specified. You may need to update your configuration to
+properly use the plugins.
+
+* babel-eslint v10
+* eslint-config-react-app v3
+* eslint-config-standard v12
+* eslint-config-standard-jsx v6
+* eslint-config-standard-react v7
+* eslint-plugin-html v4
+* eslint-plugin-inferno v7
+* eslint-plugin-lodash v3
+* eslint-plugin-meteor v5
+* eslint-plugin-mocha v5
+* eslint-plugin-mongodb v1
+* eslint-plugin-node v7
+* eslint-plugin-prettier v3
+* eslint-plugin-promise v4
+* eslint-plugin-react v7
+* eslint-plugin-standard v4
 
 #### Temporarily unavailable plugins and configs
 
-Not all packages have been updated to support ESLint 4 yet.
+Not all packages have been updated to support ESLint 5 yet.
 They were available in the `latest` (`eslint-3`) channel but are temporarily
-removed from `eslint-4` channel.
+removed from `eslint-5` channel.
 
+* @br/eslint-plugin-laws-of-the-game
 * eslint-config-apiconnect
-* eslint-config-hapi
-* eslint-config-react-app
+* eslint-config-secure
 * eslint-config-semistandard
-* eslint-config-simplifield
-* eslint-config-standard
 * eslint-config-strongloop
 * eslint-plugin-babel
 * eslint-plugin-ejs
 * eslint-plugin-ember
 * eslint-plugin-ember-suave
 * eslint-plugin-filenames
-* eslint-plugin-flowtype
 * eslint-plugin-hapi
 * eslint-plugin-immutable
 * eslint-plugin-import-order
-* eslint-plugin-inferno
-* eslint-plugin-jquery
-* eslint-plugin-jsdoc
-* eslint-plugin-json
 * eslint-plugin-lodash
-* eslint-plugin-lodash-fp
-* @br/eslint-plugin-laws-of-the-game
 * eslint-plugin-mongodb
-* eslint-plugin-prettier
-* eslint-plugin-promise
 * eslint-plugin-react-intl
 * eslint-plugin-security
-* eslint-plugin-standard
 * eslint-plugin-vue
 * eslint-plugin-xogroup
 
