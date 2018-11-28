@@ -26,6 +26,12 @@ test: yarn.lock
 		--workdir /usr/src/app \
 		$(IMAGE_NAME) npm run $(NPM_TEST_TARGET)
 
+yarn.add:
+	docker run -ti --rm \
+		-v $(PWD):/usr/src/app \
+		--workdir /usr/src/app \
+		$(IMAGE_NAME) yarn add $(ARGS)
+
 citest:
 	docker run --rm \
 		--workdir /usr/src/app \
