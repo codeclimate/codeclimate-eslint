@@ -132,6 +132,7 @@ available in the container.
 * eslint-plugin-drupal
 * eslint-plugin-ember
 * eslint-plugin-es5
+* eslint-plugin-eslint-comments
 * eslint-plugin-flowtype
 * eslint-plugin-html
 * eslint-plugin-import
