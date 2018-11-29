@@ -1,4 +1,4 @@
-.PHONY: image test citest integration yarn.lock
+.PHONY: image test citest integration yarn.lock yarn.add
 
 IMAGE_NAME ?= codeclimate/codeclimate-eslint
 
