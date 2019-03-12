@@ -35,7 +35,7 @@
     "eslint-config-standard-jsx": "^6.0.2",
     "eslint-config-standard-react": "^7.0.2",
     "eslint-config-vue": "^2.0.2",
-    "eslint-config-will-robinson": "^1.1.2",
+    "eslint-config-will-robinson": "^2.1.0",
     "eslint-config-xo": "^0.25.0",
     "eslint-config-xo-react": "^0.17.0",
     "eslint-config-xo-space": "^0.20.0",
