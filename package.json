@@ -9,6 +9,8 @@
     "url": "http://github.com/codeclimate/codeclimate-eslint.git"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.4.2",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -80,6 +82,7 @@
     "eslint-plugin-xogroup": "^2.1.0",
     "glob": "^7.1.2",
     "prettier": "^1.12.1",
+    "typescript": "^3.3.3333",
     "webpack": "^4.25.1"
   },
   "devDependencies": {
