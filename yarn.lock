@@ -1398,6 +1398,11 @@ eslint-plugin-promise@3.5.0, eslint-plugin-promise@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-3.5.0.tgz#78fbb6ffe047201627569e85a6c5373af2a68fca"
 
+eslint-plugin-react-hooks@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.0.2.tgz#89d9ab0690a45956696e652368a952fb09f7134d"
+  integrity sha512-pY1RSD3CGkGOV+e+rzjfs+JXKRum7VlJKPHznhU0GnFWfDm6zKLmOmg/lKcwNRH3LTSnF2PbfF8x3w90tyHlYw==
+
 eslint-plugin-react-intl@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react-intl/-/eslint-plugin-react-intl-1.0.2.tgz#04a54d282665c67b7cab3bd7cdc2b4bc7908010e"
