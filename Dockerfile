@@ -1,4 +1,4 @@
-FROM node:8.12.0-slim
+FROM node:9.11.2-stretch
 LABEL maintainer "Code Climate <hello@codeclimate.com>"
 
 RUN adduser --uid 9000 --gecos "" --disabled-password app
