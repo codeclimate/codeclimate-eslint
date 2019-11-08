@@ -1,4 +1,4 @@
-#!/usr/src/app/bin/node_gc
+#!/usr/local/bin/node
 
 const CODE_DIR = "/code";
 process.chdir(CODE_DIR);
