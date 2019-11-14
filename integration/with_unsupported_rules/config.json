@@ -2,7 +2,7 @@
   "enabled": true,
   "config": {
     "config": "with_unsupported_rules/eslintrc.yml",
-    "debug": "false"
+    "debug": "true"
   },
   "include_paths": [
     "/usr/src/app/integration/with_unsupported_rules/index.js"

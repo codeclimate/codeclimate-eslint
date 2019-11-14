@@ -59,13 +59,13 @@ describe("eslint integration", function() {
     it("turns off blocked rules", function() {
       executeConfig("with_unsupported_rules/config.json")
 
-      expect(consoleMock.outputErr).to.include("Blocked rule is turned off:", "import/extensions")
+      expect(consoleMock.outputErr).to.include("Blocked rules turned off:", "import/extensions")
     });
 
     it("remove blocked setting", function() {
       executeConfig("with_unsupported_rules/config.json")
 
-      expect(consoleMock.outputErr).to.include("Blocked setting removed:", "import/extensions")
+      expect(consoleMock.outputErr).to.include("Blocked settings removed:", "import/extensions")
     });
   });
 
