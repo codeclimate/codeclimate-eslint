@@ -45,7 +45,8 @@ describe("eslint integration", function() {
 
   describe("extends plugin", function() {
     it("loads the plugin and does not include repeated issues of not found rules", function() {
-      this.timeout(5000);
+      this.timeout(8000);
+
       executeConfig("extends_airbnb/config.json");
 
       const ruleDefinitionIssues = consoleMock.output.filter(function(o) { return o.includes("Definition for rule"); });
@@ -93,7 +94,7 @@ describe("eslint integration", function() {
     }
 
     const BatchSanitizer = require("../lib/batch_sanitizer");
-    const CLIEngine = require('../lib/eslint-patch')().CLIEngine;
+    const CLIEngine = require('../lib/eslint6-patch')().eslint.CLIEngine;
 
     beforeEach(() => {
       sinon.spy(BatchSanitizer.prototype, "sanitizedFiles");
