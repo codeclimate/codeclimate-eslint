@@ -1,0 +1,31 @@
+env:
+    es6: true
+    node: true
+parserOptions:
+    sourceType: module
+plugins:
+    - node
+extends:
+    - 'eslint:recommended'
+    - 'plugin:node/recommended'
+rules:
+    node/exports-style: [error, module.exports]
+    indent: [error, 4]
+    linebreak-style: [error, unix]
+    quotes: [error, double]
+    semi: [error, always]
+    no-console: off
+
+    import/extensions: [error, always]
+    import/no-restricted-paths: [error, always]
+    import/no-unresolved: [error, always]
+    import/no-extraneous-dependencies: [error, always]
+    import/no-named-as-default: [error, always]
+    import/namespace: [error, always]
+    import/named: [error, always]
+    import/no-absolute-path: [error, always]
+    import/no-duplicates: [error, always]
+    import/no-named-as-default-member: [error, always]
+    import/no-cycle: [error, always]
+    node/no-hide-code-modules: [error, always]
+    node/no-missing-require: [error, {}]

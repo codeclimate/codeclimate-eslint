@@ -8,6 +8,7 @@ const temp = require('temp');
 
 describe("eslint integration", function() {
   let consoleMock = {};
+  const STDERR = console.error
 
   function executeConfig(configPath) {
     return ESLint.run(consoleMock, { dir: __dirname, configPath: `${__dirname}/${configPath}`});
@@ -15,10 +16,14 @@ describe("eslint integration", function() {
 
   beforeEach(function() {
     consoleMock.output = [];
-    consoleMock.log = function(msg) { consoleMock.output.push(msg) };
-
-    console.error = sinon.spy();
+    consoleMock.outputErr = []
+    consoleMock.log = function() { consoleMock.output.push(...arguments) };
+    consoleMock.error = console.error = function() { consoleMock.outputErr.push(...arguments) };
   });
+
+  afterEach(function() {
+    console.error = STDERR;
+  })
 
   describe("eslintrc files with not supported plugins in it", function() {
     it("does not raise any error", function() {
@@ -40,7 +45,7 @@ describe("eslint integration", function() {
       }
 
       expect(executeEmptyConfig).to.not.throw();
-      sinon.assert.calledWith(console.error, 'No rules are configured. Make sure you have added a config file with rules enabled.');
+      expect(consoleMock.outputErr).to.include('No rules are configured. Make sure you have added a config file with rules enabled.');
     });
 
     it("raise on file not found", function() {
@@ -49,6 +54,13 @@ describe("eslint integration", function() {
       }
 
       expect(executeNoLintrc).to.throw();
+    });
+
+    it("turns off blocked rules", function() {
+      executeConfig("with_unsupported_rules/config.json")
+
+      expect(consoleMock.outputErr).to.include("Blocked rule is turned off:", "import/extensions")
+
     });
   });
 
