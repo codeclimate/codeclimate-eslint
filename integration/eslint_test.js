@@ -100,6 +100,7 @@ describe("eslint integration", function() {
       sinon.spy(BatchSanitizer.prototype, "sanitizedFiles");
       sinon.spy(CLIEngine.prototype, "executeOnFiles");
     });
+
     afterEach(() => {
       BatchSanitizer.prototype.sanitizedFiles.restore();
       CLIEngine.prototype.executeOnFiles.restore();
@@ -120,7 +121,7 @@ describe("eslint integration", function() {
       );
     });
 
-    it("is performed by when explicitly specified", function(done) {
+    it("is performed when explicitly specified", function(done) {
       this.timeout(5000);
 
       withMinifiedSource(
@@ -135,7 +136,7 @@ describe("eslint integration", function() {
       );
     });
 
-    it("is can be disabled", function(done) {
+    it("can be disabled", function(done) {
       this.timeout(5000);
 
       withMinifiedSource(
