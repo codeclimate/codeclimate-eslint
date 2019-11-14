@@ -8,6 +8,10 @@ plugins:
 extends:
     - 'eslint:recommended'
     - 'plugin:node/recommended'
+settings:
+  import/resolver:
+    webpack:
+      config: webpack.config.js
 rules:
     node/exports-style: [error, module.exports]
     indent: [error, 4]
