@@ -16,10 +16,11 @@ describe("eslint integration", function() {
   beforeEach(function() {
     consoleMock.output = [];
     consoleMock.log = function(msg) { consoleMock.output.push(msg) };
-    consoleMock.error = sinon.spy();
+
+    console.error = sinon.spy();
   });
 
-  describe("eslintrc has not supported plugins", function() {
+  describe("eslintrc files with not supported plugins in it", function() {
     it("does not raise any error", function() {
       this.timeout(3000);
 
@@ -39,7 +40,15 @@ describe("eslint integration", function() {
       }
 
       expect(executeEmptyConfig).to.not.throw();
-      sinon.assert.calledWith(consoleMock.error, 'No rules are configured. Make sure you have added a config file with rules enabled.');
+      sinon.assert.calledWith(console.error, 'No rules are configured. Make sure you have added a config file with rules enabled.');
+    });
+
+    it("raise on file not found", function() {
+      function executeNoLintrc() {
+        executeConfig("no_lintrc/config.json");
+      }
+
+      expect(executeNoLintrc).to.throw();
     });
   });
 
