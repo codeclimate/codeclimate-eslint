@@ -60,7 +60,6 @@ describe("eslint integration", function() {
       executeConfig("with_unsupported_rules/config.json")
 
       expect(consoleMock.outputErr).to.include("Blocked rule is turned off:", "import/extensions")
-
     });
   });
 

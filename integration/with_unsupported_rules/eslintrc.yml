@@ -28,4 +28,4 @@ rules:
     import/no-named-as-default-member: [error, always]
     import/no-cycle: [error, always]
     node/no-hide-code-modules: [error, always]
-    node/no-missing-require: [error, {}]
+    node/no-missing-require: off
