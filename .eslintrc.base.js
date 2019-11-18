@@ -1,0 +1,20 @@
+module.exports = {
+  rules: {
+    "brace-style": [2, "1tbs", { allowSingleLine: true }],
+    camelcase: [2, { properties: "always" }],
+    "comma-style": [2, "first", { exceptions: { ArrayExpression: true, ObjectExpression: true } }],
+    complexity: [2, 6],
+    curly: [2, "all"],
+    eqeqeq: [2, "allow-null"],
+    "no-shadow-restricted-names": 2,
+    "no-nested-ternary": 2,
+    "no-undef": 2,
+    "no-unused-vars": [2, { argsIgnorePattern: "^_" }],
+    "no-use-before-define": 2,
+    quotes: [2, "double", "avoid-escape"],
+    radix: 2,
+    semi: 2,
+    "space-infix-ops": 2,
+    strict: 0,
+  },
+}

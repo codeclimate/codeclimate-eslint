@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "config": {
+    "config": "no_lintrc/eslintrc.yml",
+    "debug": "false"
+  },
+  "include_paths": [
+    "/usr/src/app/integration/no_lintrc/index.js"
+  ]
+}
