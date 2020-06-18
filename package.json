@@ -96,6 +96,7 @@
     "eslint-plugin-wordpress": "^0.1.0",
     "eslint-plugin-xogroup": "^1.2.0",
     "eslint-plugin-xss": "^0.1.8",
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.10.0",
     "glob": "^7.0.6",
     "prettier": "^1.2.2"
   },
