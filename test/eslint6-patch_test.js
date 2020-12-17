@@ -2,6 +2,7 @@ const expect = require("chai").expect
 const sinon = require("sinon")
 
 const { ConfigArrayFactory } = require("eslint/lib/cli-engine/config-array-factory")
+const { ConfigArray } = require("eslint/lib/cli-engine/config-array")
 
 const eslintPatch = require("../lib/eslint6-patch")
 
@@ -11,11 +12,11 @@ const eslintPatch = require("../lib/eslint6-patch")
  */
 describe("eslint6-patch", function() {
   describe("patch", function() {
-    let originalLoadPlugin, originalLoadConfigData
+    let originalLoadPlugin, originalExtractConfig
 
     before(function() {
       originalLoadPlugin = ConfigArrayFactory.prototype._loadPlugin
-      originalLoadConfigData = ConfigArrayFactory.prototype._loadConfigData
+      originalExtractConfig = ConfigArray.prototype.extractConfig
     })
 
     it("intercepts plugin loading", function() {
@@ -28,9 +29,9 @@ describe("eslint6-patch", function() {
 
     it("intercepts rule configs", function() {
       eslintPatch()
-      expect(originalLoadConfigData).to.not.equal(
-        ConfigArrayFactory.prototype._loadConfigData,
-        "ConfigArrayFactory._loadConfigData is not patched"
+      expect(originalExtractConfig).to.not.equal(
+        ConfigArray.prototype.extractConfig,
+        "ConfigArray.prototype.extractConfig is not patched"
       )
     })
   })
