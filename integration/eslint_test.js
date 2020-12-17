@@ -43,17 +43,6 @@ describe("eslint integration", function() {
   })
 
   describe("validating config", function() {
-    it("warns about empty config but not raise error", function() {
-      function executeEmptyConfig() {
-        executeConfig("empty_config/config.json")
-      }
-
-      expect(executeEmptyConfig).to.not.throw()
-      expect(consoleMock.outputErr).to.include(
-        "No rules are configured. Make sure you have added a config file with rules enabled."
-      )
-    })
-
     it("raise on file not found", function() {
       function executeNoLintrc() {
         executeConfig("no_lintrc/config.json")
