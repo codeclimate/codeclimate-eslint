@@ -3,7 +3,6 @@
 echo "▶ Running system tests..."
 
 if [[ "$(docker images -q codeclimate/codeclimate-eslint 2> /dev/null)" == "" ]]; then
-  # do something
     echo "▶ Building image..."
     make image
 fi
