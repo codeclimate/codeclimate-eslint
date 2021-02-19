@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 echo "▶ Running system tests..."
 
@@ -22,7 +22,6 @@ for d in system-tests/*/ ; do
       --volume /var/run/docker.sock:/var/run/docker.sock \
       --volume /tmp/cc:/tmp/cc \
       codeclimate/codeclimate analyze --dev)
-
 
     if [[ -f "${SOURCE}/${d}snapshot" ]]; then
       count=$(cat "${SOURCE}"/"${d}"snapshot)

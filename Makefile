@@ -27,7 +27,7 @@ test.unit:
 		$(IMAGE_NAME) npm run $(NPM_TEST_TARGET)
 
 test.system:
-	sh run-system-tests.sh
+	bash run-system-tests.sh
 
 test: yarn.lock test.unit test.integration test.system
 
