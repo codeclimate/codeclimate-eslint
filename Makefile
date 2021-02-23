@@ -1,4 +1,4 @@
-.PHONY: image test citest integration yarn.lock yarn.add
+.PHONY: image test test.unit test.integration test.system citest.base citest integration yarn.lock yarn.add
 
 IMAGE_NAME ?= codeclimate/codeclimate-eslint
 
@@ -14,17 +14,22 @@ endif
 image:
 	docker build --rm -t $(IMAGE_NAME) .
 
-integration: yarn.lock
+test.integration: yarn.lock
 	docker run -ti --rm \
 		-v $(PWD):/usr/src/app \
 		--workdir /usr/src/app \
 		$(IMAGE_NAME) npm run $(NPM_INTEGRATION_TARGET)
 
-test: yarn.lock
+test.unit:
 	docker run -ti --rm \
 		-v $(PWD):/usr/src/app \
 		--workdir /usr/src/app \
 		$(IMAGE_NAME) npm run $(NPM_TEST_TARGET)
+
+test.system:
+	bash run-system-tests.sh
+
+test: yarn.lock test.unit test.integration test.system
 
 yarn.add:
 	docker run -ti --rm \
@@ -32,10 +37,12 @@ yarn.add:
 		--workdir /usr/src/app \
 		$(IMAGE_NAME) yarn add $(ARGS)
 
-citest:
+citest.base:
 	docker run --rm \
 		--workdir /usr/src/app \
 		$(IMAGE_NAME) sh -c "npm run test && npm run integration"
+
+citest: citest.base test.system
 
 yarn.lock: package.json Dockerfile
 	$(MAKE) image
