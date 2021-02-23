@@ -1893,10 +1893,10 @@ eslint-config-vue@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/eslint-config-vue/-/eslint-config-vue-2.0.2.tgz#a3ab1004899e49327a94c63e24d47a396b2f4848"
 
-eslint-config-will-robinson@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-will-robinson/-/eslint-config-will-robinson-3.1.0.tgz#a36e0426581e528d842e1b9235fba5a7a9eaecff"
-  integrity sha512-I4gnX+fF7jHGHGBT6SCAyEmj3Ylmr9z8L62+isTYPgevblyanU5cwaxwz8iTP7dT99X6KAaPpB3PjFnT0zp4Og==
+eslint-config-will-robinson@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-will-robinson/-/eslint-config-will-robinson-3.1.1.tgz#7713c08e41c3b6ac3c4dc209da4b4813e0367ce5"
+  integrity sha512-8JpxRA9hNbi5SM91YwF4X5H1sXNYKvAiyFMYkz0AxF/BhDcksy5iZFf6dYJeDTyo0LLPonTkilgsJoNjd2qc3w==
   dependencies:
     eslint-plugin-react "^7.20.6"
     eslint-plugin-react-hooks "^4.1.2"
