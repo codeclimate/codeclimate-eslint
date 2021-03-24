@@ -85,6 +85,7 @@
     "eslint-plugin-react-hooks": "^1.0.2",
     "eslint-plugin-react-intl": "^1.0.2",
     "eslint-plugin-react-native": "^2.3.1",
+    "eslint-plugin-react-perf": "^3.3.0",
     "eslint-plugin-rulesdir": "^0.1.0",
     "eslint-plugin-scanjs-rules": "^0.1.5",
     "eslint-plugin-security": "^1.4.0",
