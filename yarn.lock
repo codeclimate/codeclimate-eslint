@@ -2243,6 +2243,11 @@ eslint-plugin-react-native@^3.7.0:
   dependencies:
     eslint-plugin-react-native-globals "^0.1.1"
 
+eslint-plugin-react-perf@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npmjs.org/eslint-plugin-react-perf/-/eslint-plugin-react-perf-3.3.0.tgz#d606792b5c7b63a6d03c558d7edd8b8d33080805"
+  integrity sha512-POzjKFOuHpyGZFwLkqPK8kxLy/tYVeq30h+SEM1UwfSmkyPcbEjbbGw1gN5R1hxCHf4zJ0G0NIbY+oCe8i/DNQ==
+
 eslint-plugin-react@7.3.0:
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.3.0.tgz#ca9368da36f733fbdc05718ae4e91f778f38e344"
