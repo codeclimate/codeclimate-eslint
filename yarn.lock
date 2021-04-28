@@ -973,6 +973,11 @@ babel-plugin-polyfill-regenerator@^0.1.2:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.1.5"
 
+babel-plugin-react-generate-property@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/babel-plugin-react-generate-property/-/babel-plugin-react-generate-property-1.0.5.tgz#2dced43215f2d70eef88a9d6d81b98a9876c762c"
+  integrity sha512-ghZkxSTIrdUfXeTI+J/MYfYthDB+NElYLEYUOaJjgErscBKBzI45ZYVo+9wn5wLrlCpLjaeQTEIAewZ7Sf+DmQ==
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
