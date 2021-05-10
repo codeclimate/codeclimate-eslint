@@ -160,6 +160,7 @@ available in the container.
 * eslint-plugin-security
 * eslint-plugin-sorting
 * eslint-plugin-standard
+* eslint-plugin-testing-library
 * eslint-plugin-vue
 * eslint-plugin-xogroup
 
