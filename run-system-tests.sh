@@ -34,6 +34,17 @@ for d in system-tests/*/ ; do
       fi
     fi
 
+    if [[ -f "${SOURCE}/${d}error" ]]; then
+      expected_error=$(cat "${SOURCE}"/"${d}"error)
+
+      if [[ "$output" == *"$expected_error"* ]]; then
+        echo -e "PASS Expected error found"
+      else
+        echo -e "FAIL It should have errored with: $expected_error";
+        exit 1
+      fi
+    fi
+
     if [[ "$?" -ne 0 ]]; then
       break
     fi
