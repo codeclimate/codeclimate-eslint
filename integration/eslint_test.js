@@ -29,19 +29,6 @@ describe("eslint integration", function() {
     console.error = STDERR
   })
 
-  describe("eslintrc files with not supported plugins in it", function() {
-    it("does not raise any error", function() {
-      this.timeout(3000)
-
-      function executeUnsupportedPlugins() {
-        executeConfig("with_unsupported_plugins/config.json")
-      }
-
-      expect(executeUnsupportedPlugins).to.not.throw()
-      expect(consoleMock.output).to.not.be.empty
-    })
-  })
-
   describe("validating config", function() {
     it("raise on file not found", function() {
       function executeNoLintrc() {
@@ -67,19 +54,6 @@ describe("eslint integration", function() {
         "Ignoring the following settings that rely on module resolution:",
         "\n\t * import/resolver"
       )
-    })
-  })
-
-  describe("extends plugin", function() {
-    it("loads the plugin and does not include repeated issues of not found rules", function() {
-      this.timeout(8000)
-
-      executeConfig("extends_airbnb/config.json")
-
-      const ruleDefinitionIssues = consoleMock.output.filter(function(o) {
-        return o.includes("Definition for rule")
-      })
-      expect(ruleDefinitionIssues).to.be.empty
     })
   })
 
@@ -191,17 +165,6 @@ describe("eslint integration", function() {
         },
         done
       )
-    })
-  })
-
-  describe("output", function() {
-    it("is not messed up", function() {
-      this.timeout(5000)
-
-      executeConfig("output_mess/config.json")
-
-      expect(consoleMock.output).to.have.lengthOf(1)
-      expect(consoleMock.output[0]).to.match(/^\{.*/)
     })
   })
 })

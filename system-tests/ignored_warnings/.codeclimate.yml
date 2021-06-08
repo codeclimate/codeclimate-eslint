@@ -1,0 +1,6 @@
+version: "2"
+plugins:
+  eslint:
+    enabled: true
+    config:
+      ignore_warnings: true
