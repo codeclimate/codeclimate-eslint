@@ -2169,10 +2169,6 @@ eslint-config-standard@^12.0.0:
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-12.0.0.tgz#638b4c65db0bd5a41319f96bba1f15ddad2107d9"
 
-eslint-config-vue@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/eslint-config-vue/-/eslint-config-vue-2.0.2.tgz#a3ab1004899e49327a94c63e24d47a396b2f4848"
-
 eslint-config-will-robinson@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/eslint-config-will-robinson/-/eslint-config-will-robinson-3.1.1.tgz#7713c08e41c3b6ac3c4dc209da4b4813e0367ce5"
