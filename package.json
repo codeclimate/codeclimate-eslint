@@ -9,8 +9,8 @@
     "url": "http://github.com/codeclimate/codeclimate-eslint.git"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.3.0",
-    "@typescript-eslint/parser": "^3.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
     "babel-eslint": "^10.0.1",
     "eslint": "6.1.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -55,7 +55,7 @@
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-flowtype": "^3.9.1",
     "eslint-plugin-html": "^4.0.6",
-    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-inferno": "^7.11.0",
     "eslint-plugin-jasmine": "^2.8.4",
     "eslint-plugin-jest": "^21.1.0",
