@@ -85,6 +85,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-ramda": "^2.4.0",
     "eslint-plugin-react": "^7.21.0",
+    "eslint-plugin-react-func": "^0.1.17",
     "eslint-plugin-react-hooks": "^1.6.0",
     "eslint-plugin-react-native": "^3.7.0",
     "eslint-plugin-react-perf": "^3.3.0",

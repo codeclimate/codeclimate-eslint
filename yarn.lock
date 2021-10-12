@@ -4032,6 +4032,13 @@ eslint-plugin-ramda@^2.4.0:
     ramda "0.25.0"
     req-all "^1.0.0"
 
+eslint-plugin-react-func@^0.1.17:
+  version "0.1.17"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-func/-/eslint-plugin-react-func-0.1.17.tgz#56ba57486dc539b752816c6aee5f50ebf9b3bc1f"
+  integrity sha512-UDZEiTN9qlHeDm402x6WOCEoo6xUmcF38TAsHUgqJKP0CPOUpnUh9KmsC9BUNqBF5AmBHjozvq7ElsbQKd/KOg==
+  dependencies:
+    requireindex "~1.1.0"
+
 eslint-plugin-react-hooks@^1.6.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.7.0.tgz#6210b6d5a37205f0b92858f895a4e827020a7d04"
@@ -6125,7 +6132,7 @@ next-tick@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
 
-next@11.1.2:
+next@^11.1.2:
   version "11.1.2"
   resolved "https://registry.yarnpkg.com/next/-/next-11.1.2.tgz#527475787a9a362f1bc916962b0c0655cc05bc91"
   integrity sha512-azEYL0L+wFjv8lstLru3bgvrzPvK0P7/bz6B/4EJ9sYkXeW8r5Bjh78D/Ol7VOg0EIPz0CXoe72hzAlSAXo9hw==
@@ -7131,6 +7138,11 @@ require-uncached@^1.0.2:
   dependencies:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
+
+requireindex@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.1.0.tgz#e5404b81557ef75db6e49c5a72004893fe03e162"
+  integrity sha1-5UBLgVV+91225JxacgBIk/4D4WI=
 
 resolve-from@^1.0.0:
   version "1.0.1"
