@@ -162,6 +162,7 @@ available in the container.
 * eslint-plugin-standard
 * eslint-plugin-testing-library
 * eslint-plugin-vue
+* eslint-plugin-vue-split-by-script-lang
 * eslint-plugin-xogroup
 
 ##### Plugins Major Version Bump
