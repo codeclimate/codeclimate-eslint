@@ -164,6 +164,7 @@ available in the container.
 * eslint-plugin-vue
 * eslint-plugin-vue-split-by-script-lang
 * eslint-plugin-xogroup
+* eslint-plugin-formatjs
 
 ##### Plugins Major Version Bump
 
