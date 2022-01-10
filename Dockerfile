@@ -1,4 +1,4 @@
-FROM node:6.17.0-stretch
+FROM node:17.3-bullseye-slim
 LABEL maintainer "Code Climate <hello@codeclimate.com>"
 
 RUN adduser --uid 9000 --gecos "" --disabled-password app
@@ -15,9 +15,10 @@ RUN mkdir $PREFIX
 COPY bin/docs ./bin/docs
 COPY engine.json package.json yarn.lock ./
 
+RUN apt-get update && apt-get install -y gnupg
+
 RUN apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg && \
     echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && \
     apt-get install -y git jq yarn && \
     yarn config set prefix $PREFIX && \
     yarn install --modules-folder $PREFIX && \
