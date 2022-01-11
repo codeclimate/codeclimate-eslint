@@ -1,0 +1,50 @@
+version: 2
+
+jobs:
+  test:
+    machine:
+      docker_layer_caching: true
+    working_directory: ~/codeclimate/codeclimate-eslint
+    steps:
+      - checkout
+      - run: make image
+      - run: make citest
+
+  release_images:
+    machine:
+      docker_layer_caching: true
+    working_directory: ~/codeclimate/codeclimate-eslint
+    steps:
+      - checkout
+      - run:
+          name: Validate owner
+          command: |
+            if [ "$CIRCLE_PROJECT_USERNAME" -ne "codeclimate" ]
+            then
+              echo "Skipping release for non-codeclimate branches"
+              circleci step halt
+            fi
+      - run: make image
+      - run: echo "$GCR_JSON_KEY" | docker login -u _json_key --password-stdin us.gcr.io
+      - run:
+          name: Push image to GCR
+          command: |
+            docker tag $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
+              us.gcr.io/code-climate/codeclimate-eslint:b$CIRCLE_BUILD_NUM
+            docker push us.gcr.io/code-climate/codeclimate-eslint:b$CIRCLE_BUILD_NUM
+
+workflows:
+  version: 2
+  build_deploy:
+    jobs:
+      - test
+      - release_images:
+          requires:
+            - test
+          filters:
+            branches:
+              only: /master|channel\/[\w-]+/
+
+notify:
+  webhooks:
+    - url: https://cc-slack-proxy.herokuapp.com/circle

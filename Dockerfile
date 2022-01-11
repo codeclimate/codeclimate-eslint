@@ -1,12 +1,13 @@
-FROM node:6.3.1-slim
-MAINTAINER Code Climate <hello@codeclimate.com>
+FROM node:17.3-bullseye-slim
+LABEL maintainer "Code Climate <hello@codeclimate.com>"
 
 WORKDIR /usr/src/app
 COPY package.json yarn.lock /usr/src/app/
 
+RUN apt-get update && apt-get install -y gnupg
+
 RUN apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg && \
     echo "deb http://nightly.yarnpkg.com/debian/ nightly main" | tee /etc/apt/sources.list.d/yarn-nightly.list && \
-    apt-get update && \
     apt-get install -y git jq yarn && \
     yarn install && \
     git clone https://github.com/eslint/eslint.git && \
