@@ -1,15 +1,17 @@
-FROM mhart/alpine-node:5.4
-MAINTAINER Code Climate <hello@codeclimate.com>
+FROM node:17.3-bullseye-slim
+LABEL maintainer "Code Climate <hello@codeclimate.com>"
+
+RUN adduser --uid 9000 --gecos "" --disabled-password app
 
 WORKDIR /usr/src/app
 COPY npm-shrinkwrap.json /usr/src/app/
 COPY package.json /usr/src/app/
 
-RUN apk --update add git && \
+RUN apt-get update && \
+    apt-get install -y git && \
     npm install && \
-    apk del --purge git
+    apt-get purge -y git
 
-RUN adduser -u 9000 -D app
 COPY . /usr/src/app
 RUN chown -R app:app /usr/src/app
 
