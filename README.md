@@ -115,6 +115,7 @@ available in the container.
 * eslint-config-standard
 * eslint-config-standard-jsx
 * eslint-config-standard-react
+* eslint-config-standard-with-typescript
 * eslint-config-strongloop
 * eslint-config-vue
 * eslint-config-will-robinson
