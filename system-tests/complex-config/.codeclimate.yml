@@ -4,4 +4,5 @@ plugins:
     enabled: true
     config:
       config: "eslintrc.json"
-    include_paths: [ "/usr/src/app/integration/extends_airbnb/index.js" ]
+    include_paths: 
+      - "/usr/src/app/integration/extends_airbnb/index.js"

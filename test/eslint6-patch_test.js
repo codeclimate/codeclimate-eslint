@@ -1,8 +1,12 @@
 const expect = require("chai").expect
 const sinon = require("sinon")
 
-const { ConfigArrayFactory } = require("eslint/lib/cli-engine/config-array-factory")
-const { ConfigArray } = require("eslint/lib/cli-engine/config-array")
+const {
+  Legacy: {
+      ConfigArray,
+      ConfigArrayFactory
+  }
+} = require("@eslint/eslintrc")
 
 const eslintPatch = require("../lib/eslint6-patch")
 
