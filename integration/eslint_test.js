@@ -82,59 +82,9 @@ describe("eslint integration", function() {
       )
       return await cb(directory)
     }
-    function withMinifiedSource(config, cb, done) {
-      temp.mkdir("code", function(err, directory) {
-        if (err) {
-          throw err
-        }
-
-        process.chdir(directory)
-
-        const eslintConfigPath = path.join(directory, ".eslintrc.json")
-        fs.writeFile(eslintConfigPath, "{}", function(err) {
-          if (err) {
-            throw err
-          }
-
-          const sourcePath = path.join(directory, "index.js")
-          fs.writeFile(
-            sourcePath,
-            [...Array(13).keys()]
-              .map(() => {
-                return "void(0);"
-              })
-              .join(""), // a long string of voids
-            function(err) {
-              if (err) {
-                throw err
-              }
-
-              const configPath = path.join(directory, "config.json")
-              fs.writeFile(
-                configPath,
-                JSON.stringify({
-                  enabled: true,
-                  config: config,
-                  include_paths: [sourcePath],
-                }),
-                function(err) {
-                  if (err) {
-                    throw err
-                  }
-
-                  cb(directory)
-
-                  //done()
-                }
-              )
-            }
-          )
-        })
-      })
-    }
 
     const BatchSanitizer = require("../lib/batch_sanitizer")
-    const ESLint = require("../lib/eslint6-patch")().eslint.ESLint
+    const ESLint = require("../lib/eslint8-patch")().eslint.ESLint
 
     beforeEach(() => {
       sinon.spy(BatchSanitizer.prototype, "sanitizedFiles")
