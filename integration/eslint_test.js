@@ -1,7 +1,9 @@
 const sinon = require("sinon")
-const expect = require("chai").expect
+const chai = require("chai")
+const expect = chai.expect
+chai.use(require('chai-as-promised'))
 
-const ESLint = require("../lib/eslint")
+const LibESLint = require("../lib/eslint")
 const fs = require("fs")
 const path = require("path")
 const temp = require("temp")
@@ -10,8 +12,8 @@ describe("eslint integration", function() {
   let consoleMock = {}
   const STDERR = console.error
 
-  function executeConfig(configPath) {
-    return ESLint.run(consoleMock, { dir: __dirname, configPath: `${__dirname}/${configPath}` })
+  async function executeConfig(configPath) {
+    return await LibESLint.run(consoleMock, { dir: __dirname, configPath: `${__dirname}/${configPath}` })
   }
 
   beforeEach(function() {
@@ -30,16 +32,13 @@ describe("eslint integration", function() {
   })
 
   describe("validating config", function() {
-    it("raise on file not found", function() {
-      function executeNoLintrc() {
-        executeConfig("no_lintrc/config.json")
-      }
+    it("raise on file not found", async function() {
 
-      expect(executeNoLintrc).to.throw()
+      await expect(executeConfig("no_lintrc/config.json")).to.be.rejectedWith(Error)
     })
 
-    it("turns off blocked rules", function() {
-      executeConfig("with_unsupported_rules/config.json")
+    it("turns off blocked rules", async function() {
+      await executeConfig("with_unsupported_rules/config.json")
 
       expect(consoleMock.outputErr).to.include(
         "Ignoring the following rules that rely on module resolution:",
@@ -47,8 +46,8 @@ describe("eslint integration", function() {
       )
     })
 
-    it("remove blocked setting", function() {
-      executeConfig("with_unsupported_rules/config.json")
+    it("remove blocked setting", async function() {
+      await executeConfig("with_unsupported_rules/config.json")
 
       expect(consoleMock.outputErr).to.include(
         "Ignoring the following settings that rely on module resolution:",
@@ -57,113 +56,85 @@ describe("eslint integration", function() {
     })
   })
 
-  describe("sanitization", function() {
-    function withMinifiedSource(config, cb, done) {
-      temp.mkdir("code", function(err, directory) {
-        if (err) {
-          throw err
-        }
-
-        process.chdir(directory)
-
-        const eslintConfigPath = path.join(directory, ".eslintrc.json")
-        fs.writeFile(eslintConfigPath, "{}", function(err) {
-          if (err) {
-            throw err
-          }
-
-          const sourcePath = path.join(directory, "index.js")
-          fs.writeFile(
-            sourcePath,
-            [...Array(13).keys()]
-              .map(() => {
-                return "void(0);"
-              })
-              .join(""), // a long string of voids
-            function(err) {
-              if (err) {
-                throw err
-              }
-
-              const configPath = path.join(directory, "config.json")
-              fs.writeFile(
-                configPath,
-                JSON.stringify({
-                  enabled: true,
-                  config: config,
-                  include_paths: [sourcePath],
-                }),
-                function(err) {
-                  if (err) {
-                    throw err
-                  }
-
-                  cb(directory)
-
-                  done()
-                }
-              )
-            }
-          )
+  describe("sanitization", async function() {
+    async function withMinSource(config, cb) {
+      const directory = await temp.mkdir("code")
+      process.chdir(directory);
+      const eslintConfigPath = path.join(directory, ".eslintrc.json")
+      await fs.promises.writeFile(eslintConfigPath, "{}")
+      const sourcePath = path.join(directory, "index.js")
+      await fs.promises.writeFile(
+        sourcePath,
+        [...Array(13).keys()]
+          .map(() => {
+            return "void(0);"
+          })
+          .join(""), // a long string of voids
+      )
+      const configPath = path.join(directory, "config.json")
+      await fs.promises.writeFile(
+        configPath,
+        JSON.stringify({
+          enabled: true,
+          config: config,
+          include_paths: [sourcePath],
         })
-      })
+      )
+      return await cb(directory)
     }
 
     const BatchSanitizer = require("../lib/batch_sanitizer")
-    const CLIEngine = require("../lib/eslint6-patch")().eslint.CLIEngine
+    const ESLint = require("../lib/eslint8-patch")().eslint.ESLint
 
     beforeEach(() => {
       sinon.spy(BatchSanitizer.prototype, "sanitizedFiles")
-      sinon.spy(CLIEngine.prototype, "executeOnFiles")
+      sinon.spy(ESLint.prototype, "lintFiles")
     })
 
     afterEach(() => {
       BatchSanitizer.prototype.sanitizedFiles.restore()
-      CLIEngine.prototype.executeOnFiles.restore()
+      ESLint.prototype.lintFiles.restore()
     })
 
-    it("is performed by default", function(done) {
+    it("is performed by default", async function() {
       this.timeout(5000)
 
-      withMinifiedSource(
+      await withMinSource(
         {},
-        function(dir) {
-          ESLint.run(consoleMock, { dir: dir, configPath: `${dir}/config.json` })
+        async function(dir) {
+          await LibESLint.run(consoleMock, { dir: dir, configPath: `${dir}/config.json` })
 
           expect(BatchSanitizer.prototype.sanitizedFiles.callCount).to.eql(1)
-          expect(CLIEngine.prototype.executeOnFiles.firstCall.args).to.eql([[]])
-        },
-        done
+          expect(ESLint.prototype.lintFiles.firstCall.args).to.eql([[]])
+        }
       )
     })
 
-    it("is performed when explicitly specified", function(done) {
+    it("is performed when explicitly specified", async function() {
       this.timeout(5000)
 
-      withMinifiedSource(
+      await withMinSource(
         { sanitize_batch: true },
-        function(dir) {
-          ESLint.run(consoleMock, { dir: dir, configPath: `${dir}/config.json` })
+        async function(dir) {
+          await LibESLint.run(consoleMock, { dir: dir, configPath: `${dir}/config.json` })
 
           expect(BatchSanitizer.prototype.sanitizedFiles.callCount).to.eql(1)
-          expect(CLIEngine.prototype.executeOnFiles.firstCall.args).to.eql([[]])
-        },
-        done
+          expect(ESLint.prototype.lintFiles.firstCall.args).to.eql([[]])
+        }
       )
     })
 
-    it("can be disabled", function(done) {
+    it("can be disabled", async function() {
       this.timeout(5000)
 
-      withMinifiedSource(
+      await withMinSource(
         { sanitize_batch: false },
-        function(dir) {
-          ESLint.run(consoleMock, { dir: dir, configPath: `${dir}/config.json` })
+        async function(dir) {
+          await LibESLint.run(consoleMock, { dir: dir, configPath: `${dir}/config.json` })
 
           expect(BatchSanitizer.prototype.sanitizedFiles.callCount).to.eql(0)
-          expect(CLIEngine.prototype.executeOnFiles.firstCall.args).to.eql([[`${dir}/index.js`]])
-        },
-        done
+          expect(ESLint.prototype.lintFiles.firstCall.args).to.eql([[`${dir}/index.js`]])
+        }
       )
     })
   })
