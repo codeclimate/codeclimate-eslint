@@ -1,4 +1,4 @@
-.PHONY: image test citest integration yarn.lock
+.PHONY: image test citest integration yarn.lock release
 
 IMAGE_NAME ?= codeclimate/codeclimate-eslint
 RELEASE_REGISTRY ?= codeclimate
