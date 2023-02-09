@@ -1,6 +1,8 @@
-.PHONY: image test test.unit test.integration test.system citest.base citest integration yarn.lock yarn.add
+.PHONY: image test test.unit test.integration test.system citest.base citest integration yarn.lock yarn.add release
 
 IMAGE_NAME ?= codeclimate/codeclimate-eslint
+RELEASE_REGISTRY ?= codeclimate
+RELEASE_TAG ?= latest
 
 NPM_TEST_TARGET ?= test
 NPM_INTEGRATION_TARGET ?= integration
@@ -48,3 +50,7 @@ yarn.lock: package.json Dockerfile
 	$(MAKE) image
 	./bin/yarn install
 	touch yarn.lock
+
+release:
+	docker tag $(IMAGE_NAME) $(RELEASE_REGISTRY)/codeclimate-fixme:$(RELEASE_TAG)
+	docker push $(RELEASE_REGISTRY)/codeclimate-fixme:$(RELEASE_TAG)
