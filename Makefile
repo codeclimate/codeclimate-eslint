@@ -1,6 +1,8 @@
 .PHONY: image test citest integration yarn.lock yarn.add release
 
 IMAGE_NAME ?= codeclimate/codeclimate-eslint
+RELEASE_REGISTRY ?= codeclimate
+RELEASE_TAG ?= latest
 
 NPM_TEST_TARGET ?= test
 NPM_INTEGRATION_TARGET ?= integration
