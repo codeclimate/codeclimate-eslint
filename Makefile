@@ -52,5 +52,5 @@ yarn.lock: package.json Dockerfile
 	touch yarn.lock
 
 release:
-	docker tag $(IMAGE_NAME) $(RELEASE_REGISTRY)/codeclimate-fixme:$(RELEASE_TAG)
-	docker push $(RELEASE_REGISTRY)/codeclimate-fixme:$(RELEASE_TAG)
+	docker tag $(IMAGE_NAME) $(RELEASE_REGISTRY)/codeclimate-eslint:$(RELEASE_TAG)
+	docker push $(RELEASE_REGISTRY)/codeclimate-eslint:$(RELEASE_TAG)
