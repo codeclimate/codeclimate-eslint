@@ -1,6 +1,8 @@
 .PHONY: image test citest release
 
 IMAGE_NAME ?= codeclimate/codeclimate-eslint
+RELEASE_REGISTRY ?= codeclimate
+RELEASE_TAG ?= latest
 
 image:
 	docker build --rm -t $(IMAGE_NAME) .
