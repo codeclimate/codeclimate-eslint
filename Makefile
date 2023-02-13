@@ -2,7 +2,10 @@
 
 IMAGE_NAME ?= codeclimate/codeclimate-eslint
 RELEASE_REGISTRY ?= codeclimate
-RELEASE_TAG ?= latest
+
+ifndef RELEASE_TAG
+override RELEASE_TAG = latest
+endif
 
 image:
 	docker build --rm -t $(IMAGE_NAME) .
