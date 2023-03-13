@@ -1,6 +1,11 @@
-.PHONY: image test citest
+.PHONY: image test citest release
 
 IMAGE_NAME ?= codeclimate/codeclimate-eslint
+RELEASE_REGISTRY ?= codeclimate
+
+ifndef RELEASE_TAG
+override RELEASE_TAG = latest
+endif
 
 image:
 	docker build --rm -t $(IMAGE_NAME) .
@@ -10,3 +15,7 @@ test: image
 
 citest:
 	docker run --rm $(IMAGE_NAME) sh -c "cd /usr/src/app && npm run test"
+
+release:
+	docker tag $(IMAGE_NAME) $(RELEASE_REGISTRY)/codeclimate-eslint:$(RELEASE_TAG)
+	docker push $(RELEASE_REGISTRY)/codeclimate-eslint:$(RELEASE_TAG)
