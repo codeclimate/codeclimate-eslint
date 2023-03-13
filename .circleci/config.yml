@@ -25,13 +25,12 @@ jobs:
               circleci step halt
             fi
       - run: make image
-      - run: echo "$GCR_JSON_KEY" | docker login -u _json_key --password-stdin us.gcr.io
+      - run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - run:
-          name: Push image to GCR
+          name: Push image to Dockerhub
           command: |
-            docker tag $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
-              us.gcr.io/code-climate/codeclimate-eslint:b$CIRCLE_BUILD_NUM
-            docker push us.gcr.io/code-climate/codeclimate-eslint:b$CIRCLE_BUILD_NUM
+            make release RELEASE_TAG="b$CIRCLE_BUILD_NUM"
+            make release RELEASE_TAG="$(echo $CIRCLE_BRANCH | grep -oP 'channel/\K[\w\-]+')"
 
 workflows:
   version: 2
@@ -39,6 +38,7 @@ workflows:
     jobs:
       - test
       - release_images:
+          context: Quality
           requires:
             - test
           filters:
