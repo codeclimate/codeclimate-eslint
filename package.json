@@ -64,6 +64,7 @@
     "eslint-import-resolver-node": "^0.3.1",
     "eslint-import-resolver-webpack": "^0.10.1",
     "eslint-plugin-angular": "^3.1.1",
+    "eslint-plugin-astro": "^0.31.4",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-backbone": "^2.1.1",
     "eslint-plugin-chai-friendly": "^0.4.1",
