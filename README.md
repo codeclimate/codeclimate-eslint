@@ -1,98 +1,31 @@
-# Code Climate ESLint Engine
+# Try Qlty today, the newest edition of Code Climate Quality.
+#### This repository is deprecated and archived.
 
-[![Code Climate][badge]][repo]
+This is a repository for a Code Climate Quality plugin which is packaged as a Docker image.
 
-[badge]: https://codeclimate.com/github/codeclimate/codeclimate-eslint/badges/gpa.svg
-[repo]: https://codeclimate.com/github/codeclimate/codeclimate-eslint
+Code Climate Quality is being replaced with the new [Qlty](qlty.sh) code quality platform. Qlty uses a new plugin system which does not require packaging plugins as Docker images.
 
-`codeclimate-eslint` is a Code Climate engine that wraps [ESLint][]. You can run
-it on your command line using the Code Climate CLI, or on our hosted analysis
-platform.
+As a result, this repository is no longer maintained and has been archived.
 
-ESLint is a tool for identifying and reporting on patterns found in
-ECMAScript/JavaScript code. It can be configured using a [configuration
-file][config].
+## Advantages of Qlty plugins
+The new Qlty plugins system provides key advantages over the older, Docker-based plugin system:
 
-[config]: http://eslint.org/docs/user-guide/configuring#using-configuration-files
+- Linting runs much faster without the overhead of virtualization
+- New versions of linters are available immediately without needing to wait for a re-packaged release
+- Plugins can be run with any arbitrary extensions (like extra rules and configs) without requiring pre-packaging
+- Eliminates security issues associated with exposing a Docker daemon
 
-### Channels
+## Try out Qlty today free
 
-There are a few major versions of ESLint out there. The latest major version
-is 4. This engine provides a few [channels][] for major versions of ESLint.
+[Qlty CLI](https://docs.qlty.sh/cli/quickstart) is the fastest linter and auto-formatter for polyglot teams. It is completely free and available for Mac, Windows, and Linux.
 
-This branch is for the `latest` (i.e. default) channel and provides ESLint 3
-support.
+  - Install Qlty CLI:
+`
+curl https://qlty.sh | sh # Mac or Linux
+`
+or ` <windows install line> `
 
-For ESLint 4, please see [`channel/eslint-4`][] branch.
+[Qlty Cloud](https://docs.qlty.sh/cloud/quickstart) is a full code health platform for integrating code quality into development team workflows. It is free for unlimited private contributors.
+  - [Try Qlty Cloud today](https://docs.qlty.sh/cloud/quickstart)
 
-[channels]: https://docs.codeclimate.com/docs/engine-channels
-[`channel/eslint-4`]: https://github.com/codeclimate/codeclimate-eslint/tree/channel/eslint-4
-
-### Installation
-
-1. If you haven't already, [install the Code Climate CLI][CLI]
-
-2. Run `codeclimate engines:enable eslint`. This command both installs the
-   engine and enables it in your `.codeclimate.yml` file
-
-3. You're ready to analyze! Browse into your project's folder and run
-   `codeclimate analyze`
-
-[cli]: https://github.com/codeclimate/codeclimate
-
-### Configuration
-
-#### `ignore_warnings`
-
-By default, this engine will emit both ESLint errors and warnings as Code
-Climate issues. If you prefer, you can ignore warning-level violations by
-setting the `ignore_warnings` configuration option:
-
-```yaml
-eslint:
-  enabled: true
-  config:
-    ignore_warnings: true
-```
-
-#### `extensions`
-
-If you're using a plugin like `eslint-plugin-json` or `eslint-plugin-html`, you
-will want to set this value to make sure the appropriate files are included:
-
-```yaml
-eslint:
-  enabled: true
-  config:
-    extensions:
-    - .js
-    - .html
-```
-
-#### `sanitize_batch`
-
-By default, this engine will skip files that appear to be minified (average line
-length over 100). This feature can be disabled to include all files for
-analysis.
-
-```yaml
-eslint:
-  enabled: true
-  config:
-    sanitize_batch: false
-```
-
-
-### Need help?
-
-For help with ESLint, [check out their documentation][eslint-docs].
-
-If you're running into a Code Climate issue, first look over this project's
-[GitHub Issues][issues], as your question may have already been covered. If not,
-[go ahead and open a support ticket with us][help].
-
-[issues]: https://github.com/codeclimate/codeclimate-eslint/issues
-[help]: https://codeclimate.com/help
-
-[eslint]: http://eslint.org
-[eslint-docs]: http://eslint.org/docs/user-guide/
+**Note**: For existing customers of Quality, please see our [Migration Guide](https://docs.qlty.sh/migration/guide) for more information and resources.
